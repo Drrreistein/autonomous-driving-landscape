@@ -306,7 +306,7 @@ a{color:inherit;text-decoration:none;}
   </section>
 
   <section class="view" id="v-mode">
-    <p class="scope">口径：行是<b>玩家模式</b>（卖什么、担什么责），列是<b>技术等级</b>。同一家企业可在同一行内横跨多列——产品线覆盖几个等级，就出现在几格；这不代表收入结构。供应链企业不参与分级，理由见页脚。</p>
+    <p class="scope">口径：行是<b>玩家模式</b>（卖什么、担什么责），列是<b>技术等级</b>。同一家企业可在同一行内横跨多列——产品线覆盖几个等级，就出现在几格；这不代表收入结构。<b>L4 拆成两列，拆的不是等级、是运行域</b>：左侧是封闭/半封闭场景（客户按吨、按票付费，已跑通单位经济），右侧是开放道路（客户是乘客，公司级仍亏损）。合并会把希迪和萝卜快跑放进同一格，掩盖两种完全不同的生意。供应链企业不参与分级，理由见页脚。</p>
     <div class="matrix" id="modeGrid"></div>
     <p class="scope" style="margin-top:14px;border-left-color:#E24B4A;">
       <b>两个空格最值得注意</b>：运营服务商 × L3 是<b>结构性空白</b>（L3 责任在车企，没有“运营商”这个法律角色，L3 出租车在法理上不成立）；算法方案商 × L4 开放<b>基本退出</b>（被要求共同担责，而它们既无车队也无保险能力）。横向看，L4 开放那一列只有主机厂与运营商——因为只有这两类能兜底。
@@ -561,6 +561,7 @@ $('#sceneGrid').innerHTML = SCENE.map(([k,d])=>{
     <div>${list.map(chip).join('')}</div></div>`;
 }).join('');
 
+const TSHORT = {L2:'L2','L2+':'L2+',L3:'L3',L4F:'L4 封闭',L4O:'L4 开放'};
 const MODES = [
   ['oem','主机厂自研','卖整车 · 承担产品责任','#1b4a75'],
   ['ops','运营服务商','卖运力 · 承担运营责任','#a8271f'],
@@ -575,7 +576,7 @@ function modeOf(c){
   return null;
 }
 let mhtml = '<div class="mrow"><div class="mhead"></div>' +
-  TECH.map(([k,t,s])=>`<div class="mhead"><div class="ht">${t.split(' · ')[0]}<span class="cc">${C.filter(c=>modeOf(c)&&c[2].includes(k)).length}</span></div><div class="hs">${s}</div></div>`).join('') + '</div>';
+  TECH.map(([k,t,s])=>`<div class="mhead"><div class="ht">${TSHORT[k]}<span class="cc">${C.filter(c=>modeOf(c)&&c[2].includes(k)).length}</span></div><div class="hs">${s}</div></div>`).join('') + '</div>';
 MODES.forEach(([mk,mt,ms,col])=>{
   mhtml += `<div class="mrow"><div class="mlab"><div class="mt" style="color:${col}">${mt}</div><div class="ms">${ms}</div></div>`;
   TECH.forEach(([k])=>{
