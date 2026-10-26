@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新石器（Neolix）首次覆盖报告</title>
+<style>
+:root{--ink:#111820;--ink2:#2c3644;--sub:#5f6b7a;--line:#e4e7ec;--line2:#eef1f4;--red:#a8271f;--blue:#1b4a75;--bg:#ffffff;--paper:#fafaf8;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;font-size:15.5px;line-height:1.85;-webkit-font-smoothing:antialiased;}
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.bar-in{max-width:820px;margin:0 auto;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:13px;}
+.bar a{color:var(--blue);text-decoration:none;}
+.bar a:hover{text-decoration:underline;}
+.bar .right{color:var(--sub);font-size:12px;}
+.wrap{max-width:820px;margin:0 auto;padding:40px 24px 90px;background:var(--bg);box-shadow:0 0 0 1px var(--line2);}
+h1{font-size:30px;line-height:1.35;margin:0 0 22px;font-weight:650;letter-spacing:-.01em;}
+h2{font-size:21px;margin:44px 0 14px;font-weight:650;padding-bottom:8px;border-bottom:1px solid var(--line);}
+h3{font-size:17px;margin:30px 0 10px;font-weight:650;color:var(--ink2);}
+h4{font-size:15px;margin:22px 0 8px;font-weight:650;color:var(--ink2);}
+p{margin:0 0 1.05em;}
+strong{font-weight:650;}
+em{font-style:normal;background:linear-gradient(transparent 62%,rgba(168,39,31,.16) 62%);}
+a{color:var(--blue);}
+blockquote{margin:20px 0;padding:14px 20px;border-left:3px solid var(--blue);background:#f4f8fb;color:var(--ink2);font-size:14px;}
+blockquote p:last-child{margin-bottom:0;}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0;}
+th{text-align:left;font-weight:650;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--ink);padding:9px 10px;background:#fcfcfb;}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+tbody tr:hover td{background:#fcfcfb;}
+td[style*="right"],th[style*="right"]{font-family:"SF Mono",Menlo,monospace;}
+ul,ol{margin:0 0 1.1em;padding-left:1.4em;}
+li{margin-bottom:.4em;}
+code{background:#f2f4f6;padding:1px 5px;border-radius:3px;font-size:.88em;font-family:"SF Mono",Menlo,monospace;}
+.toc{border:1px solid var(--line);padding:16px 20px;margin:0 0 34px;background:#fcfcfb;font-size:13.5px;}
+.toc .t{font-weight:650;margin-bottom:8px;font-size:12px;letter-spacing:.08em;color:var(--sub);}
+.toc a{display:block;padding:3px 0;color:var(--ink2);text-decoration:none;border-bottom:1px dashed transparent;}
+.toc a:hover{color:var(--red);border-bottom-color:var(--line);}
+.toc a.l3{padding-left:18px;color:var(--sub);font-size:12.8px;}
+.foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--sub);}
+@media (max-width:720px){.wrap{padding:26px 16px 70px;}h1{font-size:24px;}table{font-size:12px;}}
+@media print{.bar,.toc{display:none;}.wrap{box-shadow:none;max-width:none;}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a href="../index.html">← 返回产业链图谱</a>
+  <span class="right">智驾产业全貌 · 公司调研</span>
+</div></div>
+<div class="wrap">
+<h1>新石器（Neolix）首次覆盖报告</h1><div class="toc"><div class="t">目录</div><a href="#h0">⚠️ 阅读前提：三个必须先说清的事</a><a href="#h1">一、核心结论</a><a href="#h2">二、E 轮的意义：国家队首次入场，但钱不是重点</a><a href="#h3">三、"3 万台"的三重口径辨析</a><a href="#h4">四、最被忽略的软肋：33 公里 vs 137 公里</a><a href="#h5">五、价格战：一个月内名义价格腰斩</a><a href="#h6">六、盈利时间表推迟了一年，而且内部矛盾</a><a href="#h7">七、商业模式的正确性：TCO 0.25 元/公里</a><a href="#h8">八、政策：标准落地了，但牌照还没有</a><a href="#h9">九、竞争：真正的威胁不是九识，是 Momenta</a><a href="#h10">十、估值：三个锚点</a><a href="#h11">十一、多空对照</a><a href="#h12">十二、风险清单</a><a href="#h13">十三、跟踪指标</a><a href="#h14">十四、最终判断</a><a href="#h15">数据来源与口径说明</a></div>
+<p><strong>报告日期：2026 年 10 月 26 日</strong></p>
+<p><strong>评级：未评级（Not Rated）— 未上市，无法直接买入</strong></p>
+<p><strong>合理估值区间：人民币 180–260 亿元（中值 220 亿元）</strong></p>
+<p><strong>E 轮参考：近 4 亿美元（约 26.7 亿元），未公布投后估值；累计融资突破 100 亿元</strong></p>
+<hr />
+<h2 id="h0">⚠️ 阅读前提：三个必须先说清的事</h2>
+<h3>前提一：未上市，且尚未递表</h3>
+<p><strong>新石器慧通科技股份有限公司</strong>（简称新石器，英文 Neolix），成立于 2018 年 2 月 13 日，创始人兼董事长余恩源（做过快递员、发明过快递柜），CFO 李子夷。</p>
+<ul>
+<li><strong>没有任何股票代码</strong>，无公开财报</li>
+<li><strong>尚未正式递交招股说明书</strong></li>
+<li>市场多次传出赴港 IPO，余恩源 2026 年 10 月回应"<strong>无可奉告</strong>"，但确认：<strong>采用纯国内架构、未搭红筹</strong>，未来如有具体上市计划，"所有美元股东均已提前接受相关安排"</li>
+</ul>
+<p><strong>这句话的潜台词值得注意</strong>：一家拿了腾讯、阿里、软银亚洲、淡马锡、阿联酋磊石资本、国家 AI 基金等大量美元资金的公司，<strong>主动选择了纯国内架构、不留红筹</strong>——这是为境内上市（科创板/港股通）做准备的典型动作，而不是为港股/美股。</p>
+<h3>前提二：零财务披露</h3>
+<p>公司公开了车队、里程、城市、交付量、毛利率区间，但<strong>从未披露</strong>：</p>
+<ul>
+<li>具体营业收入（只有"10 亿元量级"、"2-3 倍"这类区间表述）</li>
+<li>净亏损</li>
+<li>经营现金流</li>
+<li>单车利用率</li>
+<li>客户集中度</li>
+<li>车辆资产归属（自有 or 客户持有）</li>
+</ul>
+<p><strong>这六项是判断这门生意能否成立的核心，一项都没有。</strong></p>
+<h3>前提三：E 轮没有公布估值</h3>
+<p>2026 年 10 月 20 日宣布的 E 轮，<strong>融资金额公开（近 4 亿美元）、投资方公开（13 家以上）、估值不公开</strong>。</p>
+<p>对比同期竞争对手九识智能：2026 年 2 月融资时<strong>主动对外宣称"估值突破百亿元人民币"</strong>。</p>
+<p><strong>一家在行业景气最高点、拿到今年国内自动驾驶最大单笔融资的公司，选择不公布估值——这本身是一个信息。</strong></p>
+<hr />
+<h2 id="h1">一、核心结论</h2>
+<p><strong>一句话：新石器是中国无人配送赛道里规模最大、融资最多、海外走得最远的公司，商业模式（TCO 0.25 元/公里）已经被验证成立，但它的盈利时间表刚刚推迟了一年，而它的主营收入（卖车）正在经历一场名义价格腰斩的价格战。</strong></p>
+<p>三个判断：</p>
+<ol>
+<li>
+<p><strong>"3 万台"是真的，但"全球最大"有口径问题。</strong> 按第三方数据（2026Q1），九识智能（含菜鸟）保有量 2.5 万台、份额 53.2%，<strong>高于新石器的 1.7 万台、36.2%</strong>。两家口径不同（运营部署 vs 客户交付），但"最大"这个词需要加限定语。</p>
+</li>
+<li>
+<p><strong>效率是这家公司最被忽略的软肋。</strong> 3 万辆车、每天新增 100 万公里 → <strong>单车日均 33.3 公里</strong>。而公司自己的设计目标是"电池支撑 8 年 40 万公里"= <strong>日均 137 公里</strong>。<strong>利用率约 24%。</strong> 这直接决定了 TCO 0.25 元/公里能否实现。</p>
+</li>
+<li>
+<p><strong>盈利时间表推迟了一年，而且内部口径互相矛盾。</strong> 2025 年 10 月 CFO 说"2026 年实现全面盈利"；2026 年 10 月余恩源改口"2027 年实现盈利"。同时他又说"到 10 万辆、50 万辆规模时有望实现整体盈利"。<strong>这两个说法不能同时成立。</strong></p>
+</li>
+</ol>
+<hr />
+<h2 id="h2">二、E 轮的意义：国家队首次入场，但钱不是重点</h2>
+<h3>这轮融资的结构</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td><strong>2026 年 10 月 20 日宣布</strong></td>
+</tr>
+<tr>
+<td>金额</td>
+<td><strong>近 4 亿美元（约 26.7 亿元人民币）</strong>，2026 年国内自动驾驶最大单笔融资</td>
+</tr>
+<tr>
+<td>原计划</td>
+<td><strong>2 亿美元，最终超募一倍</strong></td>
+</tr>
+<tr>
+<td>联合领投</td>
+<td><strong>博裕投资 + 某国家级基金</strong>（市场传为<strong>国家人工智能产业投资基金</strong>，未经官方确认）</td>
+</tr>
+<tr>
+<td>跟投</td>
+<td>阿里巴巴 AEF NextGen 香港基金、Monolith 砺思资本、纪源资本、淡马锡旗下 Vertex Growth、华映资本、广汽资本、金鼎资本、朗玛峰创投、正大机器人、领航新界、高鹄资本</td>
+</tr>
+<tr>
+<td>老股东跟投</td>
+<td>磊石资本（Stone Venture）、软银亚洲、亦庄国投、高榕创投</td>
+</tr>
+<tr>
+<td>累计融资</td>
+<td><strong>突破 100 亿元人民币</strong>，行业第一</td>
+</tr>
+<tr>
+<td>两年融资</td>
+<td>D 轮逾 6 亿美元（2025-10）+ E 轮 4 亿美元 ≈ <strong>10 亿美元</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>三个真正重要的信号</h3>
+<p><strong>① 国家 AI 产业基金首次投无人配送</strong></p>
+<p>如果市场传闻准确，这家基金此前投的是：<strong>月之暗面 Kimi、DeepSeek、银河通用、沐曦</strong>——清一色是 AI 大模型、具身智能、AI 算力芯片。</p>
+<p><strong>它第一次投"无人配送"，意味着这个赛道被纳入了国家 AI 战略版图，而不只是"物流降本"的工具。</strong> 这个信号比 4 亿美元重要。</p>
+<p><strong>② 腾讯 + 阿里同时入股，赛道唯一</strong></p>
+<p>腾讯在 D 轮进入，阿里在 E 轮进入。<strong>新石器是无人配送赛道唯一同时拥有腾讯、阿里两大互联网股东的标的。</strong></p>
+<p>这不是财务投资——腾讯/阿里掌握着电商订单和物流场景，广汽资本靠近整车供应链，地方国资能协调路权和产能，中东资本打开海外。<strong>股东名单本身就是一张资源地图。</strong></p>
+<p><strong>③ 2 亿美元计划、4 亿美元落地——超募一倍的两种解读</strong></p>
+<p>乐观解读：需求旺盛，投资人抢额度。</p>
+<p>谨慎解读：<strong>在行业最高点、估值最不确定的时候，拿得越多、稀释越多。</strong> 一家计划 2027 年盈利的公司，选择在此时多融一倍，说明它对"增长窗口期"的判断是紧迫的——余恩源的原话是"<strong>一定要储备足够多的弹药，迎接非常快的增长窗口期</strong>"。</p>
+<hr />
+<h2 id="h3">三、"3 万台"的三重口径辨析</h2>
+<p>这是本报告第一个必须做的工作：把"最大"这个词拆开。</p>
+<h3>公司口径</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全球部署</td>
+<td><strong>超 3 万辆</strong> L4 无人配送车（2026-10-21 总部屏幕显示 <strong>30,208 台</strong>）</td>
+</tr>
+<tr>
+<td>覆盖</td>
+<td><strong>近 20 个国家、超 300 座城市</strong></td>
+</tr>
+<tr>
+<td>累计里程</td>
+<td>超 <strong>2.6 亿公里</strong>（另一表述超 3 亿公里），<strong>每天新增超 100 万公里</strong></td>
+</tr>
+<tr>
+<td>单城超千辆</td>
+<td><strong>青岛 2,068 辆</strong>、临沂、杭州</td>
+</tr>
+<tr>
+<td>年底目标</td>
+<td>约 <strong>4 万台</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>第三方口径（2026Q1）</h3>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th style="text-align: right;">保有量</th>
+<th style="text-align: right;">份额</th>
+<th>累计融资/估值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>九识智能（含菜鸟）</strong></td>
+<td style="text-align: right;"><strong>2.5 万台</strong></td>
+<td style="text-align: right;"><strong>53.2%</strong></td>
+<td>累计超 3 亿美元，<strong>估值破百亿元</strong></td>
+</tr>
+<tr>
+<td><strong>新石器</strong></td>
+<td style="text-align: right;"><strong>1.7 万台</strong></td>
+<td style="text-align: right;"><strong>36.2%</strong></td>
+<td>2025 年累计超 50 亿元，D 轮 6 亿美元</td>
+</tr>
+<tr>
+<td>白犀牛</td>
+<td style="text-align: right;">累计交付超 5,000 台</td>
+<td style="text-align: right;">独立第三方前列</td>
+<td>总融资超 14.2 亿元，C 轮 1 亿美元</td>
+</tr>
+</tbody>
+</table>
+<h3>公司自己的另一个口径</h3>
+<p>2025 年 11 月，新石器对媒体称：<strong>"占据国内泛城配市场 60% 以上份额"</strong>、<strong>"快递行业 KA 领域份额超 70%"</strong>。</p>
+<h3>三个数字为什么不同</h3>
+<p><strong>因为"交付""部署""运营""保有量"是四个不同的概念：</strong></p>
+<table>
+<thead>
+<tr>
+<th>口径</th>
+<th>含义</th>
+<th>谁用这个词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>累计交付</strong></td>
+<td>卖出去多少台（可能客户自己运营，也可能闲置）</td>
+<td>九识、白犀牛习惯用</td>
+</tr>
+<tr>
+<td><strong>保有量</strong></td>
+<td>某个时点在路上/客户手里的总量</td>
+<td>第三方统计</td>
+</tr>
+<tr>
+<td><strong>部署</strong></td>
+<td>公司自己投放并参与运营的数量</td>
+<td>新石器习惯用</td>
+</tr>
+<tr>
+<td><strong>订单</strong></td>
+<td>签了合同还没交付</td>
+<td>2025 年初"累计订单突破 2 万台"就是这个词</td>
+</tr>
+</tbody>
+</table>
+<p><strong>所以：</strong><br />
+- 新石器说"3 万台部署"，指的是<strong>全球</strong>（含海外，海外实际交付不足千台），且是<strong>它自己参与运营的</strong><br />
+- 第三方说"1.7 万台保有量"，是 <strong>2026Q1 的时点数</strong>（不是 10 月）<br />
+- 从 1.7 万（Q1）到 3 万（10 月），<strong>半年增长 76%</strong>——这本身就是极强的增长证据</p>
+<p><strong>但必须承认：按第三方 2026Q1 口径，新石器的保有量比九识少 32%，份额低 17 个百分点。"全球最大无人配送车队"这个说法，至少在 2026Q1 的第三方数据里不成立。</strong></p>
+<p>新石器真正无可争议的第一是：<strong>累计融资额（100 亿元 vs 九识 3 亿美元）、海外覆盖国家数（近 20 国 vs 九识新日韩中东）、单城部署深度（青岛 2,068 辆）</strong>。</p>
+<hr />
+<h2 id="h4">四、最被忽略的软肋：33 公里 vs 137 公里</h2>
+<p>这一节是整份报告最重要的量化发现。</p>
+<h3>两个数字</h3>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>来源</th>
+<th>计算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>每天新增超 100 万公里</strong></td>
+<td>公司披露</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>3 万辆</strong>（全球部署）</td>
+<td>公司披露</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>单车日均里程</strong></td>
+<td>我算的</td>
+<td>100 万 ÷ 3 万 = <strong>33.3 公里</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>对照设计目标</h3>
+<p>余恩源在谈 TCO 拆解时提到一个关键指标：</p>
+<blockquote>
+<p>"新石器把一辆无人车的 TCO 拆解为 10 项关键指标……比如，无人车如何防扎胎，<strong>电池如何支撑 8 年 40 万公里</strong>"</p>
+</blockquote>
+<p><strong>8 年 40 万公里 = 日均 137 公里。</strong></p>
+<h3>所以利用率是多少</h3>
+<table>
+<thead>
+<tr>
+<th>假设</th>
+<th style="text-align: right;">单车日均</th>
+<th style="text-align: right;">利用率（对 137 公里）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3 万辆全部在运</td>
+<td style="text-align: right;">33.3 公里</td>
+<td style="text-align: right;"><strong>24.3%</strong></td>
+</tr>
+<tr>
+<td>实际在运 2.5 万辆</td>
+<td style="text-align: right;">40.0 公里</td>
+<td style="text-align: right;">29.2%</td>
+</tr>
+<tr>
+<td>实际在运 2 万辆</td>
+<td style="text-align: right;">50.0 公里</td>
+<td style="text-align: right;">36.5%</td>
+</tr>
+</tbody>
+</table>
+<h3>这个数字为什么致命</h3>
+<p>无人配送车的成本结构是<strong>固定成本极高、变动成本极低</strong>：</p>
+<ul>
+<li>车辆折旧（8 年摊销）</li>
+<li>保险、牌照</li>
+<li>远程接管人力（按车队规模配比，不按里程）</li>
+<li>补能/换电网络（按城市铺）</li>
+<li>运维网点</li>
+</ul>
+<p><strong>这些成本按"车"发生，不按"公里"发生。所以单车日均里程直接决定单公里成本。</strong></p>
+<p><strong>如果 TCO 0.25 元/公里是基于 137 公里/天的假设，而实际只有 33 公里/天，那么固定成本要摊到 1/4 的里程上——实际 TCO 可能是 0.6–0.9 元/公里，而不是 0.25 元。</strong></p>
+<p><strong>这直接动摇了商业模式的核心卖点（"客户成本直降 50%"）。</strong></p>
+<h3>但我要给出三个反向解释（避免过度推论）</h3>
+<p><strong>① "3 万辆"是"全球部署"，包含大量新投放但尚未满载运营的车辆。</strong> 2026 年从 1.7 万增到 3 万，新增的 1.3 万台大部分是刚上路的，爬坡期里程自然低。</p>
+<p><strong>② 部分车辆是"夜间配送"专用</strong>（深圳 437 条夜间线路），每天只跑 4–6 小时，日均里程天然低于全天候运营。</p>
+<p><strong>③ 无人配送车的合理日均里程本来就低于有人驾驶面包车。</strong> 有人驾驶城市配送面包车日均 150–200 公里；无人车受限于续航（X6 续航 200 公里）、装卸流程、路权时段，日均 60–100 公里是合理预期。</p>
+<p><strong>所以我的结论是：33 公里这个数字，很可能反映的是"大量新车爬坡 + 夜间专线占比高"，而不是"车队普遍闲置"。但它确实说明一件事——</strong></p>
+<p><strong>"3 万台"这个规模数字，还没有转化成"3 万台满负荷运力"。规模第一和效率第一，是两件事。而 TCO 0.25 元/公里，靠的是效率，不是规模。</strong></p>
+<p><strong>这是这家公司最需要在下一次披露中回答的问题，也是它至今拒绝披露"单车日均里程"的原因。</strong></p>
+<hr />
+<h2 id="h5">五、价格战：一个月内名义价格腰斩</h2>
+<h3>时间线</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>说法</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025-10</td>
+<td>X3 与 X6 货厢车，<strong>即便包含 FSD 全周期服务，售价分别为 11.55 万元和 12.51 万元</strong></td>
+<td>时代周报（从新石器获取）</td>
+</tr>
+<tr>
+<td>2025-11</td>
+<td>官网：<strong>X6 已降至 5 万元</strong>（装载 1000KG、续航 200KM）、<strong>X3 仅 4 万元/台</strong>；推出 <strong>888 元首付购车、现车秒发</strong></td>
+<td>界面新闻</td>
+</tr>
+<tr>
+<td>—</td>
+<td>X3 单车成本从初代 20 万元降至 <strong>7 万元</strong></td>
+<td>华尔街见闻</td>
+</tr>
+<tr>
+<td>—</td>
+<td>订单均价约 <strong>8–12 万元（含服务费）</strong></td>
+<td>华尔街见闻</td>
+</tr>
+</tbody>
+</table>
+<h3>这一个月里发生了什么</h3>
+<p><strong>从"11.55 万元含 FSD 服务"到"4 万元裸车"——这不是降价 65%，这是口径切换。</strong></p>
+<ul>
+<li>11.55 万元 = 裸车 + FSD 全周期服务（软件订阅打包）</li>
+<li>4 万元 = 裸车，FSD 服务单独按月/按年收</li>
+</ul>
+<p><strong>但即便是口径切换，也反映了一件事：客户越来越不愿意一次性买断服务，而倾向于"低首付 + 按服务付费"。</strong> 888 元首付这个动作，本质是把卖车变成了金融产品。</p>
+<h3>竞争对手的价格更狠</h3>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th>车型</th>
+<th style="text-align: right;">价格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>九识智能</td>
+<td>Z8 标品裸车</td>
+<td style="text-align: right;">7.98 万元</td>
+</tr>
+<tr>
+<td>九识智能</td>
+<td>Z8 MAX</td>
+<td style="text-align: right;">8.98 万元</td>
+</tr>
+<tr>
+<td><strong>九识智能</strong></td>
+<td><strong>E6（轻件散件）硬件</strong></td>
+<td style="text-align: right;"><strong>1.98 万元 + FSD 1800 元/月</strong></td>
+</tr>
+<tr>
+<td>新石器</td>
+<td>X3</td>
+<td style="text-align: right;">4 万元</td>
+</tr>
+<tr>
+<td>新石器</td>
+<td>X6</td>
+<td style="text-align: right;">5 万元</td>
+</tr>
+</tbody>
+</table>
+<p><strong>九识 E6 用 1.98 万元的硬件价格把入门门槛砸穿了。</strong> 这是一场典型的价格战——余恩源自己也承认："这个行业玩家比较多，大家为了抢占市场，在这个阶段通过价格来竞争，这都是很早期的行为。"</p>
+<h3>而"卖车"正是新石器的主要收入</h3>
+<p>余恩源 2026 年 10 月明确：<strong>"卖车仍占新石器收入的大头"</strong>，服务收入要到 <strong>2028 年</strong>才反超。</p>
+<p><strong>所以现在的图景是：主营收入（卖车）正在打价格战，而公司说"单车毛利率超 60%"。这两个说法要同时成立，只有一种可能——成本降得比价格更快。</strong></p>
+<p>成本确实在降：2021 年 30–50 万元 → 2025 年 10 万元以内（<strong>4 年降 80%</strong>），X3 成本 7 万元。以 4 万元售价对 7 万元成本，是<strong>亏的</strong>；所以 4 万元很可能是"裸车引流价"，真实成交价在 8–12 万元（含服务费）。</p>
+<p><strong>这正是我担心的地方：价格信息极度混乱（4 万 / 5 万 / 8–12 万 / 11.55 万），而公司不披露收入。外界无法验证"毛利率 60%"这个说法。</strong></p>
+<hr />
+<h2 id="h6">六、盈利时间表推迟了一年，而且内部矛盾</h2>
+<p>这是本报告第二个关键发现。</p>
+<h3>时间线</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>谁说的</th>
+<th>原话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2025-10</strong></td>
+<td><strong>CFO 李子夷</strong></td>
+<td>"今年上半年，公司已经实现了连续单月盈利，<strong>预计明年（2026）就能实现全面盈利</strong>"</td>
+</tr>
+<tr>
+<td>2025-11</td>
+<td>媒体引述新石器</td>
+<td>"预计 2025 年营收将达到 10 亿元级别，<strong>2026 年实现全面盈利</strong>"</td>
+</tr>
+<tr>
+<td><strong>2026-10</strong></td>
+<td><strong>余恩源</strong></td>
+<td>"<strong>2027 年</strong>，全力以赴，必须盈利"</td>
+</tr>
+<tr>
+<td>2026-10</td>
+<td>余恩源</td>
+<td>"由于今年加大了算力模型研发投入，<strong>短期利润承压</strong>"</td>
+</tr>
+<tr>
+<td>2026-10</td>
+<td>余恩源</td>
+<td>"到 <strong>10 万辆、50 万辆</strong>规模时，公司有望实现整体盈利"</td>
+</tr>
+</tbody>
+</table>
+<h3>三个问题</h3>
+<p><strong>① 时间表整体后移了一年。</strong> 2025 年 10 月说 2026 年全面盈利，2026 年 10 月说 2027 年。理由："加大了算力模型研发投入"。</p>
+<p><strong>这个理由本身是合理的</strong>——为了做端到端大模型而增加研发投入，是战略选择，不是经营恶化。但投资人需要知道：<strong>如果 2027 年又出现新的"必要投入"，会不会再推一年？</strong></p>
+<p><strong>② "2027 年盈利"和"10 万辆/50 万辆才整体盈利"互相矛盾。</strong></p>
+<p>从 3 万台到 10 万台，按 2026 年增速（从 1.7 万到 3 万，+76%/年），需要约 2 年（2028 年）；到 50 万台需要约 5 年（2031 年）。</p>
+<p><strong>如果真要 10 万台才盈利，那 2027 年不可能盈利。</strong> 唯一的解释是：余恩源说的"整体盈利"和"2027 年盈利"是两个不同口径——可能前者指"公司整体（含研发总部）"，后者指"经营性现金流/单月"。</p>
+<p><strong>但公司从未说清。这是一处必须追问的口径模糊。</strong></p>
+<p><strong>③ "连续单月盈利"这个说法需要打折看。</strong></p>
+<p>2025 年上半年"连续单月盈利"——但全年是否盈利？未披露。而且"单月盈利"可以靠：政府补贴、资产处置、研发费用资本化、单月交付冲量。<strong>在没有任何财务数据的情况下，"单月盈利"这句话的信息量接近于零。</strong></p>
+<h3>我的判断</h3>
+<p><strong>这家公司大概率处于"经营性亏损、但单月 EBITDA 可能接近打平"的状态。</strong> 依据：</p>
+<ul>
+<li>2025 年营收 10 亿元量级，交付约 1.5 万台 → 单台收入约 6.7 万元</li>
+<li>若毛利率 60%（公司口径）→ 毛利 6 亿元</li>
+<li>但研发（端到端大模型 + 云端算力）、销售、运维（20 国 300 城）、管理费用，很难低于 8–10 亿元</li>
+<li><strong>所以 2025 年净亏损大概率在 2–5 亿元量级</strong></li>
+</ul>
+<p><strong>这是一个合理推断，但没有公司数据支持。请当作假设，不是事实。</strong></p>
+<hr />
+<h2 id="h7">七、商业模式的正确性：TCO 0.25 元/公里</h2>
+<p>抛开财务，这门生意的经济学逻辑是我在这个赛道里见过最清晰的。</p>
+<h3>余恩源的算账</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align: right;">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有人驾驶商用车配送</td>
+<td style="text-align: right;"><strong>1.00 元/公里</strong></td>
+</tr>
+<tr>
+<td>新石器无人车 TCO</td>
+<td style="text-align: right;"><strong>0.25 元/公里</strong></td>
+</tr>
+<tr>
+<td>向客户收费</td>
+<td style="text-align: right;"><strong>0.50 元/公里</strong></td>
+</tr>
+<tr>
+<td><strong>客户成本降幅</strong></td>
+<td style="text-align: right;"><strong>50%</strong></td>
+</tr>
+<tr>
+<td><strong>公司毛利</strong></td>
+<td style="text-align: right;"><strong>0.25 元/公里（50%）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>这是一个三方共赢的结构：客户省一半，公司赚一半毛利，而且客户不需要一次性投入重资产（RaaS 按里程计费）。</strong></p>
+<h3>三种收入模式并存</h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>内容</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>卖车</strong></td>
+<td>一次性销售，客户自持</td>
+<td>现金流快，但一次性、易受价格战冲击、<strong>目前是收入大头</strong></td>
+</tr>
+<tr>
+<td><strong>租车</strong></td>
+<td>租赁</td>
+<td>中期现金流</td>
+</tr>
+<tr>
+<td><strong>RaaS</strong></td>
+<td>按里程计费，车辆由合作伙伴运营，新石器负责安全与技术底座</td>
+<td><strong>毛利最高，客户粘性最强，但要垫资/占资产</strong></td>
+</tr>
+</tbody>
+</table>
+<p>余恩源的判断："<strong>卖车、租车、卖运力，这些都不是门槛，流量入口是成本。</strong>"</p>
+<p><strong>这句话的信息量很大</strong>：他认为竞争壁垒不在商业模式，而在<strong>单位成本</strong>。而单位成本取决于：技术路线（视觉为主，省掉激光雷达）、自建工厂（产能与成本管控）、规模（供应链议价）。</p>
+<h3>视觉路线是成本优势的根源</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>早期方案</th>
+<th>新石器方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>感知</td>
+<td>多激光雷达</td>
+<td><strong>视觉为主 + 端到端大模型</strong></td>
+</tr>
+<tr>
+<td>单车成本</td>
+<td>30–50 万元</td>
+<td><strong>10 万元以内</strong>（X3 成本 7 万元）</td>
+</tr>
+<tr>
+<td>降幅</td>
+<td>—</td>
+<td><strong>约 80%（4 年）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>余恩源说"从硬件配置看，新石器比友商的成本低大概 40%–50%"。</strong> 这是它敢打价格战的底气。</p>
+<h3>技术架构</h3>
+<ul>
+<li><strong>视觉为主的端到端大模型</strong></li>
+<li><strong>云端 + 边端 + 车端三模型统一架构</strong></li>
+<li>数据飞轮：车越多 → 数据越丰富 → 数据成本越低 → 算法越强 → 能开更多线路 → 车更多</li>
+</ul>
+<p><strong>这个飞轮的逻辑成立，但它有一个前提：车队要真的在跑。</strong> 回到第四节的问题——<strong>单车日均 33 公里，飞轮转得比想象中慢。</strong></p>
+<hr />
+<h2 id="h8">八、政策：标准落地了，但牌照还没有</h2>
+<h3>2026 年的四个关键文件</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>文件</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2026-07-01</strong></td>
+<td>公安部 <strong>GA/T 2388-2026</strong>《智能网联汽车道路测试与示范应用安全通行规范》</td>
+<td><strong>国内首部覆盖无人配送车全品类的全国性行业标准</strong>，从路权分配到事故定责给出统一框架</td>
+</tr>
+<tr>
+<td>2026-07</td>
+<td>交通运输部表态</td>
+<td>"十五五"时期谋划开展<strong>无人快递车规范应用试点</strong></td>
+</tr>
+<tr>
+<td>2026-08</td>
+<td>国家发改委 + 交通运输部《物流网建设实施方案》</td>
+<td><strong>点名推广无人化配送</strong>、低空物流装备在快递与即时配送场景的商业运营</td>
+</tr>
+<tr>
+<td>2026-09</td>
+<td>工信部等九部门《智能网联新能源汽车产业发展"十五五"规划》</td>
+<td>明确推动<strong>功能型无人车多场景应用试点</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>但真正的门槛还在</h3>
+<p><strong>这是本报告必须点破的第四件事：</strong></p>
+<ul>
+<li><strong>国家层面尚未出台统一的"无人配送车"定义与身份界定文件</strong></li>
+<li><strong>全国性牌照体系缺失</strong></li>
+<li><strong>路权政策呈"一城一策"碎片化格局</strong></li>
+<li><strong>国家层面尚未设立"无人配送车"专属车辆分类</strong></li>
+<li><strong>部分无人配送车靠"灰跑"维持运营</strong></li>
+</ul>
+<p><strong>所以现状是：技术标准有了（GA/T 2388-2026），但"这到底是不是一辆合法的车"这个问题，全国还没有统一答案。</strong></p>
+<p>新石器在 30 多个省市拿到"超 10 万平方公里公开道路路权牌照"——<strong>注意"省市"这个层级，不是"全国"</strong>。这意味着每进一个城市，都要重新谈判。<strong>这正是它要在 300 个城市布点的成本来源。</strong></p>
+<p><strong>对估值的含义：路权碎片化 = 规模扩张的边际成本不递减。</strong> 这是它和"软件公司"最大的区别。</p>
+<hr />
+<h2 id="h9">九、竞争：真正的威胁不是九识，是 Momenta</h2>
+<h3>第一梯队</h3>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th style="text-align: right;">保有量（2026Q1）</th>
+<th style="text-align: right;">份额</th>
+<th>融资/估值</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>九识智能</strong>（含菜鸟）</td>
+<td style="text-align: right;"><strong>2.5 万台</strong></td>
+<td style="text-align: right;"><strong>53.2%</strong></td>
+<td>2026-02 超 3 亿美元，<strong>估值破百亿</strong>；2025-04 B3 轮投后 7.96 亿美元；蚂蚁、美团、BV百度风投</td>
+<td>电商场景起家，整合菜鸟资产，价格最狠（E6 1.98 万）</td>
+</tr>
+<tr>
+<td><strong>新石器</strong></td>
+<td style="text-align: right;">1.7 万台</td>
+<td style="text-align: right;">36.2%</td>
+<td>累计 100 亿元，D+E 共 10 亿美元</td>
+<td>快递 KA 起家，海外最广，单城最深（青岛 2,068 辆）</td>
+</tr>
+<tr>
+<td>白犀牛</td>
+<td style="text-align: right;">累计交付超 5,000 台</td>
+<td style="text-align: right;">独立第三方前列</td>
+<td>总融资 14.2 亿元，C 轮 1 亿美元</td>
+<td><strong>顺丰系深度绑定</strong>，RX 车规级</td>
+</tr>
+</tbody>
+</table>
+<h3>但真正的变量是这些</h3>
+<p><strong>① Momenta 把 RoboVan 列为第一优先级</strong></p>
+<p>这是 2026 年最需要注意的一句话：<strong>Momenta 将无人配送列为未来五年优先级最高的赛道，甚至排在 Robotaxi 与 RoboTruck 之前。</strong></p>
+<p><strong>Momenta 是什么量级？</strong> 2026 年 7 月港股上市，发行价 295.6 港元，募资 68 亿港元，中国第三方城市 NOA 市占率 64.5%，累计定点 210 款车型。它有：乘用车量产的算法积累、芯片适配能力、主机厂关系、以及上市公司的融资通道。</p>
+<p><strong>一家做乘用车智驾的头部公司，把最优先的资源投到无人物流车——这对新石器和九识都是降维威胁。</strong></p>
+<p><strong>② 主机厂和 Tier1 集体下场</strong></p>
+<ul>
+<li><strong>佑驾创新</strong>：2025-09 推出无人配送车品牌，预计年底交付 400–500 辆，明年"数千台乃至 1 万辆"</li>
+<li><strong>德赛西威</strong>：也推出了无人配送车品牌及相关车型</li>
+<li><strong>小马智行、轻舟智航</strong>：在发力</li>
+</ul>
+<p><strong>③ 京东、美团自研</strong></p>
+<p>京东既是新石器的客户，也是自研方。这种"客户兼对手"的结构，是所有 To B 供应商的宿命。</p>
+<h3>余恩源的应对逻辑</h3>
+<blockquote>
+<p>"通用自动驾驶未必能吃掉所有行业，物流有大量毛细血管，涉及场站、工厂、小区、商户等，或出现垂直应用的机会。"</p>
+</blockquote>
+<p><strong>这个判断有道理，但它是一个"防守型"判断。</strong> 它意味着新石器要守的是"细分场景的运营能力"，而不是"技术领先"。而运营能力是可以被资本和时间追上的。</p>
+<hr />
+<h2 id="h10">十、估值：三个锚点</h2>
+<h3>锚点一：融资倒推</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align: right;">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D 轮（2025-10）</td>
+<td style="text-align: right;">逾 6 亿美元</td>
+</tr>
+<tr>
+<td>E 轮（2026-10）</td>
+<td style="text-align: right;">近 4 亿美元</td>
+</tr>
+<tr>
+<td>两轮合计</td>
+<td style="text-align: right;"><strong>约 10 亿美元（约 71 亿元人民币）</strong></td>
+</tr>
+<tr>
+<td>累计融资</td>
+<td style="text-align: right;"><strong>突破 100 亿元人民币</strong></td>
+</tr>
+</tbody>
+</table>
+<p>若 D+E 两轮合计占股 <strong>30%–35%</strong>（这是成长期公司连续两轮大额融资的常见稀释比例）：</p>
+<blockquote>
+<p>投后估值 = 71 ÷ 0.30~0.35 = <strong>203–237 亿元人民币（约 29–34 亿美元）</strong></p>
+</blockquote>
+<p>若合计占股 <strong>25%</strong>：</p>
+<blockquote>
+<p>投后估值 = <strong>284 亿元人民币</strong></p>
+</blockquote>
+<p><strong>所以 E 轮投后估值大概率落在 200–290 亿元区间，中值约 240 亿元。</strong></p>
+<h3>锚点二：可比公司</h3>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th style="text-align: right;">估值/市值</th>
+<th>参照</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>九识智能</strong></td>
+<td style="text-align: right;"><strong>突破 100 亿元</strong>（2026-02）</td>
+<td>2026Q1 保有量 2.5 万台（比新石器多 47%）</td>
+</tr>
+<tr>
+<td>白犀牛</td>
+<td style="text-align: right;">未披露（总融资 14.2 亿元）</td>
+<td>累计交付 5,000+ 台</td>
+</tr>
+<tr>
+<td>主线科技（港股递表）</td>
+<td style="text-align: right;">未上市</td>
+<td>2025 年收入 3.45 亿元，亏损 1.71 亿元</td>
+</tr>
+<tr>
+<td>文远知行（00800.HK）</td>
+<td style="text-align: right;">108.06 亿港元（2026-10-26）</td>
+<td>2026H1 收入约 3.5 亿元</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这里有个矛盾需要指出：九识保有量比新石器多 47%，但估值只有新石器推算值的 40%–50%。</strong></p>
+<p>解释有三：<br />
+1. 新石器融资额是九识的 5 倍，一级市场给的溢价更高<br />
+2. 新石器海外布局（20 国、阿布扎比牌照、卢森堡总部）是九识没有的<br />
+3. <strong>也可能只是新石器那两轮融资的定价环境更好（2025-10 和 2026-10 都是行业情绪高点）</strong></p>
+<h3>锚点三：PS 法</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align: right;">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025 年营收</td>
+<td style="text-align: right;"><strong>10 亿元量级</strong></td>
+</tr>
+<tr>
+<td>2026E 营收</td>
+<td style="text-align: right;"><strong>20–30 亿元</strong>（"去年的 2–3 倍"）</td>
+</tr>
+<tr>
+<td>2027E 营收</td>
+<td style="text-align: right;">若维持 60%–100% 增长，<strong>35–60 亿元</strong></td>
+</tr>
+</tbody>
+</table>
+<p>对照可比 PS：<br />
+- 文远知行：108.06 亿港元 / 2026H1 收入 3.5 亿元（年化 7 亿）→ <strong>PS 约 14x</strong><br />
+- 主线科技：2025 年收入 3.45 亿元，若上市估值 30–50 亿元 → <strong>PS 9–14x</strong><br />
+- 速腾聚创：67.5 亿港元 / 2026E 收入约 20 亿元 → <strong>PS 2.6x</strong>（硬件属性更重）</p>
+<p>新石器的属性介于"硬件公司"（速腾 2.6x）和"自动驾驶方案商"（文远 14x）之间——它有硬件收入（卖车是大头），但增长率和规模远超同行。</p>
+<p><strong>给 2026E 营收 25 亿元 × 7–10 倍 PS：</strong></p>
+<blockquote>
+<p><strong>175–250 亿元人民币</strong></p>
+</blockquote>
+<h3>收敛</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th style="text-align: right;">区间（亿元）</th>
+<th style="text-align: right;">中值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融资倒推</td>
+<td style="text-align: right;">203–284</td>
+<td style="text-align: right;">240</td>
+</tr>
+<tr>
+<td>可比公司（对标九识上浮）</td>
+<td style="text-align: right;">150–250</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr>
+<td>PS 法</td>
+<td style="text-align: right;">175–250</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr>
+<td><strong>综合</strong></td>
+<td style="text-align: right;"><strong>180–260</strong></td>
+<td style="text-align: right;"><strong>220</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>合理估值 180–260 亿元人民币（中值 220 亿元，约 25–36 亿美元）。</strong></p>
+<p><strong>这意味着：如果 E 轮投后估值在 240 亿元以上，那一轮的定价已经把 2027 年盈利预期完全打满；如果在 200 亿元以下，反而有安全边际。</strong></p>
+<p><strong>而 E 轮没有公布估值——这让我倾向于认为，实际估值在区间上沿（240 亿以上），因为如果定价保守，公布估值对公司和老股东是正面的。</strong></p>
+<hr />
+<h2 id="h11">十一、多空对照</h2>
+<h3>看多逻辑（Bull Case）</h3>
+<ol>
+<li><strong>全球规模最大</strong>——3 万台部署、近 20 国、300 城、2.6 亿公里（口径见第三节）</li>
+<li><strong>商业模式已被验证</strong>——TCO 0.25 元/公里 vs 有人驾驶 1 元/公里，客户省 50%，这是真实的成本替代</li>
+<li><strong>国家队 + 腾讯 + 阿里 + 软银 + 淡马锡 + 中东资本</strong>，股东阵容是全赛道最强</li>
+<li><strong>成本优势最硬</strong>——视觉路线把单车成本从 30–50 万降到 10 万以内（−80%），比友商低 40%–50%</li>
+<li><strong>海外是真突破</strong>——阿布扎比 RoboVan 商业运营牌照（阿联酋首张）、欧洲总部卢森堡、韩国规模化、日本/新加坡/马来西亚落地，海外订单过万台</li>
+<li><strong>政策拐点已过</strong>——GA/T 2388-2026 全国标准落地、发改委/工信部/交通部三个文件点名支持</li>
+<li><strong>行业空间大</strong>——2026Q1 全国保有量 4.7 万台、超 100 城开放路权；艾瑞预计 2030 年销量近 150 万辆、保有量超 350 万辆</li>
+<li><strong>场景在扩散</strong>——从快递到建材、工厂、生鲜、医药、团餐、汽配、家纺布料，深圳 437 条夜间线路降本 30%</li>
+<li><strong>纯国内架构、无红筹</strong>——为境内上市做准备的信号</li>
+</ol>
+<h3>看空逻辑（Bear Case）</h3>
+<ol>
+<li><strong>盈利时间表推迟一年</strong>——2025-10 说 2026 年全面盈利，2026-10 改口 2027 年；且与"10 万辆/50 万辆才整体盈利"矛盾</li>
+<li><strong>单车日均仅 33 公里</strong>（设计 137 公里），利用率约 24%，TCO 0.25 元/公里的前提待验证</li>
+<li><strong>卖车是收入大头，而卖车正在打价格战</strong>——名义价格一个月内从 11.55 万（含服务）到 4 万（裸车），九识 E6 硬件 1.98 万</li>
+<li><strong>零财务披露</strong>——收入、净利、现金流、利用率、客户集中度、资产归属全部未知，且未递表</li>
+<li><strong>E 轮不公布估值</strong>——行业最高点、最大单笔融资，却对估值保密</li>
+<li><strong>份额不是第一</strong>——第三方 2026Q1：九识 53.2% &gt; 新石器 36.2%</li>
+<li><strong>Momenta 把 RoboVan 列为第一优先级</strong>——乘用车智驾龙头降维进入，是最大威胁</li>
+<li><strong>路权碎片化</strong>——全国牌照体系缺失，"一城一策"，部分车辆"灰跑"；规模扩张的边际成本不递减</li>
+<li><strong>客户兼对手</strong>——京东既是客户也是自研方</li>
+<li><strong>重资产属性</strong>——21 个国家 300 城要建服务中枢，每进一国重新处理法规、保险、售后、本地化</li>
+</ol>
+<hr />
+<h2 id="h12">十二、风险清单</h2>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>风险</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 高</td>
+<td><strong>盈利路径不清</strong></td>
+<td>2027 年 vs 10 万/50 万辆两个口径矛盾，且已推迟一次</td>
+</tr>
+<tr>
+<td>🔴 高</td>
+<td><strong>财务不透明</strong></td>
+<td>未递表、未披露收入/亏损/现金流/利用率，无法验证"毛利率 60%"</td>
+</tr>
+<tr>
+<td>🔴 高</td>
+<td><strong>价格战侵蚀主业</strong></td>
+<td>卖车占收入大头，价格快速下行</td>
+</tr>
+<tr>
+<td>🟡 中高</td>
+<td><strong>效率未验证</strong></td>
+<td>单车日均 33 公里 vs 设计 137 公里</td>
+</tr>
+<tr>
+<td>🟡 中高</td>
+<td><strong>路权与牌照</strong></td>
+<td>全国性牌照体系缺失，一城一策，灰跑普遍</td>
+</tr>
+<tr>
+<td>🟡 中高</td>
+<td><strong>Momenta 降维竞争</strong></td>
+<td>乘用车智驾龙头把 RoboVan 列为第一优先级</td>
+</tr>
+<tr>
+<td>🟡 中</td>
+<td><strong>海外交付能力</strong></td>
+<td>海外订单过万台，实际交付不足千台，瓶颈在交付不在订单</td>
+</tr>
+<tr>
+<td>🟡 中</td>
+<td><strong>一级市场估值风险</strong></td>
+<td>E 轮未公布估值，若在 240 亿以上则已透支 2027 年</td>
+</tr>
+<tr>
+<td>🟡 中</td>
+<td><strong>客户集中与客户兼对手</strong></td>
+<td>顺丰、京东、邮政、三通一达、极兔高度集中；京东自研</td>
+</tr>
+<tr>
+<td>🟢 低</td>
+<td><strong>资金链风险</strong></td>
+<td>累计融资 100 亿元、刚完成 4 亿美元，短期无融资压力</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="h13">十三、跟踪指标</h2>
+<p><strong>若要参与（等 IPO），这六件事决定估值：</strong></p>
+<ol>
+<li><strong>是否正式递表，以及招股书里的三个数字</strong>——营业收入、净亏损、经营现金流。<strong>这是唯一能证伪或证实一切的数据。</strong></li>
+<li><strong>单车日均里程</strong>（或车队总里程 ÷ 在运车辆数）——若能从 33 公里提升到 60 公里以上，TCO 逻辑成立；若停在 30–40 公里，0.25 元/公里就是纸面数字。</li>
+<li><strong>服务收入占比</strong>——从"卖车为主"到 2028 年"服务反超"，中间每年提升多少个百分点。</li>
+<li><strong>2027 年是否真盈利</strong>——以及盈利口径（经营现金流？EBITDA？净利润？含不含政府补助？）。</li>
+<li><strong>九识智能的 IPO 进度与定价</strong>——它是最直接的可比锚，若九识按 150 亿元上市，新石器的 240 亿元就要重估。</li>
+<li><strong>Momenta/佑驾/德赛西威在无人配送的进展</strong>——若它们 2027 年做到万台级，价格战会更惨烈。</li>
+</ol>
+<p><strong>其余：</strong></p>
+<ol start="7">
+<li>全国性无人配送车牌照/身份界定文件是否出台（这是行业从"灰跑"转正的关键）</li>
+<li>海外实际交付量（订单过万台 vs 交付不足千台，差距何时收窄）</li>
+<li>青岛 2,068 辆的单城模式能否在其他城市复制到千辆级</li>
+<li>是否有新的融资及对应估值（对比 240 亿是上调还是下调）</li>
+</ol>
+<hr />
+<h2 id="h14">十四、最终判断</h2>
+<p><strong>新石器是这轮无人配送浪潮里最像"赢家"的那家公司：规模最大、钱最多、股东最强、海外最远、成本最低。</strong></p>
+<p><strong>它做对了三件极难的事：</strong></p>
+<p>第一，<strong>七年前就选了视觉路线</strong>，把单车成本从 30–50 万元压到 10 万元以内（−80%），比友商低 40%–50%。这是它敢打价格战的底气，也是这个行业能商业化的前提。</p>
+<p>第二，<strong>从快递 KA 破圈到泛城配</strong>。顺丰、京东、邮政、三通一达、极兔基本全覆盖，然后扩到建材、生鲜、医药、团餐、汽配、工厂。深圳 437 条夜间线路把闲置道路资源和无人车的全天候优势对上了，降本 30%。</p>
+<p>第三，<strong>在所有人还在国内卷的时候出海</strong>。阿布扎比拿到阿联酋首张 RoboVan 商业运营牌照，欧洲总部落地卢森堡，韩国规模化运营，与 iMile 合作打欧洲/拉美/澳新。<strong>海外订单过万台——这是中国无人配送第一次真正卖到发达国家。</strong></p>
+<p><strong>但它有三个问题，市场还没有开始定价：</strong></p>
+<p><strong>第一个，也是最重要的：它把盈利时间表往后推了一年。</strong> 2025 年 10 月 CFO 说"2026 年全面盈利"，2026 年 10 月董事长说"2027 年"。理由是要投端到端大模型——<strong>理由成立，但一个已经推迟过一次的时间表，第二次推迟的概率会显著上升。</strong></p>
+<p><strong>第二个：3 万台的车，每天只跑 33 公里。</strong> 设计目标是 137 公里。利用率 24%。<strong>TCO 0.25 元/公里这个最漂亮的数字，是在高利用率假设下算出来的。而"卖车占收入大头、服务 2028 年才反超"意味着，它现在还没走到"靠里程赚钱"那一步。</strong></p>
+<p><strong>第三个：它的主营收入正在打价格战。</strong> 一个月内，名义价格从"11.55 万元含 FSD 服务"变成"4 万元裸车 + 888 元首付"，对手九识 E6 硬件 1.98 万元。<strong>毛利率 60% 这个说法，在没有收入披露的情况下无法验证。</strong></p>
+<p><strong>所以我的估值判断是：</strong></p>
+<p><strong>合理估值 180–260 亿元人民币（中值 220 亿元，约 25–36 亿美元），对应 2026E 营收的 7–10 倍 PS。</strong></p>
+<p><strong>E 轮未公布估值。如果实际定价在 240 亿元以上，那一轮已经把 2027 年盈利预期完全打满，二级市场没有安全边际；如果在 200 亿元以下，反而值得关注。</strong></p>
+<p><strong>如果要参与，我的建议是：</strong></p>
+<ul>
+<li><strong>等招股书</strong>。这是一家零财务披露的公司，<strong>在招股书出来之前，任何估值都是猜的</strong>。招股书会一次性回答收入、亏损、现金流、利用率、客户集中度五个问题。</li>
+<li><strong>如果 IPO 定价对应市值 ≤ 200 亿元</strong>（2026E PS ≤ 8x），值得认真研究。</li>
+<li><strong>如果定价在 250 亿元以上</strong>，那就是"用 2028 年的盈利买 2026 年的公司"，需要它连续两年不犯错。</li>
+<li><strong>仓位要按"未盈利、强周期、价格战"三重属性管理</strong>，单标的 ≤2%。</li>
+</ul>
+<p><strong>最后说一句我认为最该记住的话：</strong></p>
+<p><strong>这个赛道现在的竞争，不是"谁能把车造出来"，而是"谁能把每辆车跑得更久、每公里成本压得更低"。</strong></p>
+<p><strong>新石器赢下了前半句。后半句，要看那 33 公里什么时候变成 100 公里。</strong></p>
+<hr />
+<h2 id="h15">数据来源与口径说明</h2>
+<table>
+<thead>
+<tr>
+<th>数据</th>
+<th>来源</th>
+<th>可靠性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E 轮 4 亿美元、投资方名单、累计融资 100 亿元</td>
+<td>公司 2026-10-20 官方披露 + 央广网/新华财经/证券时报</td>
+<td>高</td>
+</tr>
+<tr>
+<td>3 万辆部署、近 20 国 300 城、2.6 亿公里、日增 100 万公里</td>
+<td>公司披露（2026-10）</td>
+<td>中（公司口径，无第三方审计）</td>
+</tr>
+<tr>
+<td>30,208 台（10-21 总部屏幕）</td>
+<td>证券时报记者现场观察</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>青岛 2,068 辆、年底目标 4 万台、2027 年盈利、卖车占大头、2028 年服务反超</td>
+<td>余恩源 2026-10-21 媒体沟通会</td>
+<td>中（管理层口径）</td>
+</tr>
+<tr>
+<td>TCO 0.25 元/公里、收费 0.5 元/公里、单车毛利率 60%+</td>
+<td>余恩源访谈</td>
+<td>中（未审计）</td>
+</tr>
+<tr>
+<td>2025 年营收 10 亿元量级、2026 年 2–3 倍</td>
+<td>CFO 李子夷（2025-10）+ 余恩源（2026-10）</td>
+<td>中（区间表述，非精确值）</td>
+</tr>
+<tr>
+<td>2025 年 10 月"2026 年全面盈利"</td>
+<td>CFO 李子夷，每日经济新闻</td>
+<td>较高（有明确引述）</td>
+</tr>
+<tr>
+<td>X3/X6 含 FSD 服务售价 11.55/12.51 万元</td>
+<td>时代周报（从公司获取）</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>X3 4 万元、X6 5 万元、888 元首付</td>
+<td>界面新闻引述官网（2025-11）</td>
+<td>中（官网标价，非成交价）</td>
+</tr>
+<tr>
+<td>X3 成本 7 万元、订单均价 8–12 万元</td>
+<td>华尔街见闻</td>
+<td>中（第三方测算）</td>
+</tr>
+<tr>
+<td>九识 E6 1.98 万元 + FSD 1800 元/月、Z8 7.98 万元</td>
+<td>九识官网 + 华尔街见闻</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>2026Q1 保有量格局（九识 2.5 万台/53.2%、新石器 1.7 万台/36.2%）</td>
+<td>三个皮匠报告引述第三方</td>
+<td><strong>中——与公司口径冲突，已并列呈现</strong></td>
+</tr>
+<tr>
+<td>艾瑞：新石器+九识合计约 84%（2025 年末）</td>
+<td>艾瑞《2025 年中国无人城配车行业白皮书》</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>2026Q1 全国保有量 4.7 万台、超 100 城开放路权</td>
+<td>中国交通运输协会物流投融资分会报告</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>2025 年销量 2.2 万辆、2030E 150 万辆/350 万辆</td>
+<td>艾瑞咨询</td>
+<td>中（预测）</td>
+</tr>
+<tr>
+<td>GA/T 2388-2026 及三个政策文件</td>
+<td>公安部/交通运输部/发改委/工信部</td>
+<td>高</td>
+</tr>
+<tr>
+<td>主线科技财务（2023-2025 收入 1.34/2.54/3.45 亿元，亏损 2.13/1.87/1.71 亿元）</td>
+<td>港股招股书</td>
+<td>高</td>
+</tr>
+<tr>
+<td>九识估值破百亿、白犀牛 C 轮 1 亿美元</td>
+<td>公开报道</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>单车日均 33.3 公里、利用率 24%</td>
+<td><strong>本报告推算</strong>（100 万公里 ÷ 3 万辆 ÷ 137 公里）</td>
+<td><strong>低——为分析师推算，依赖"3 万辆为在运车辆"的假设</strong></td>
+</tr>
+<tr>
+<td>180–260 亿元估值区间</td>
+<td><strong>本报告三法交叉推算</strong></td>
+<td><strong>低——非公司披露，误差可能极大</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>本报告最大的四个数据缺口：</strong></p>
+<ol>
+<li><strong>营业收入、净亏损、经营现金流</strong>——全部未披露，也未递表</li>
+<li><strong>单车日均里程/利用率</strong>——公司只披露"每天新增 100 万公里"和"3 万辆"，两个数字相除的结果公司从未说过</li>
+<li><strong>E 轮投后估值</strong>——刻意不公布</li>
+<li><strong>车辆资产归属</strong>（自有 or 客户持有）与客户集中度——决定这是"重资产运营商"还是"轻资产卖车商"，估值能差 3 倍</li>
+</ol>
+<hr />
+<p><em>本报告基于公开信息、公司披露与管理层访谈整理。所有财务数字（营收、亏损）均为区间表述或分析师推算，非审计数据。估值区间为分析师估算，不代表公司实际价值。本报告仅供研究参考，不构成个人投资建议，也不构成对任何一级市场投资的推荐。</em></p>
+<div class="foot">本页由 Markdown 原稿自动生成，内容以原稿为准。数据与观点仅作研究记录，不构成投资建议。</div>
+</div>
+</body>
+</html>
