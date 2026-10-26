@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waymo 首次覆盖报告 —— 附 Alphabet（GOOGL）分部估值</title>
+<style>
+:root{--ink:#111820;--ink2:#2c3644;--sub:#5f6b7a;--line:#e4e7ec;--line2:#eef1f4;--red:#a8271f;--blue:#1b4a75;--bg:#ffffff;--paper:#fafaf8;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;font-size:15.5px;line-height:1.85;-webkit-font-smoothing:antialiased;}
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.bar-in{max-width:820px;margin:0 auto;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:13px;}
+.bar a{color:var(--blue);text-decoration:none;}
+.bar a:hover{text-decoration:underline;}
+.bar .right{color:var(--sub);font-size:12px;}
+.wrap{max-width:820px;margin:0 auto;padding:40px 24px 90px;background:var(--bg);box-shadow:0 0 0 1px var(--line2);}
+h1{font-size:30px;line-height:1.35;margin:0 0 22px;font-weight:650;letter-spacing:-.01em;}
+h2{font-size:21px;margin:44px 0 14px;font-weight:650;padding-bottom:8px;border-bottom:1px solid var(--line);}
+h3{font-size:17px;margin:30px 0 10px;font-weight:650;color:var(--ink2);}
+h4{font-size:15px;margin:22px 0 8px;font-weight:650;color:var(--ink2);}
+p{margin:0 0 1.05em;}
+strong{font-weight:650;}
+em{font-style:normal;background:linear-gradient(transparent 62%,rgba(168,39,31,.16) 62%);}
+a{color:var(--blue);}
+blockquote{margin:20px 0;padding:14px 20px;border-left:3px solid var(--blue);background:#f4f8fb;color:var(--ink2);font-size:14px;}
+blockquote p:last-child{margin-bottom:0;}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0;}
+th{text-align:left;font-weight:650;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--ink);padding:9px 10px;background:#fcfcfb;}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+tbody tr:hover td{background:#fcfcfb;}
+td[style*="right"],th[style*="right"]{font-family:"SF Mono",Menlo,monospace;}
+ul,ol{margin:0 0 1.1em;padding-left:1.4em;}
+li{margin-bottom:.4em;}
+code{background:#f2f4f6;padding:1px 5px;border-radius:3px;font-size:.88em;font-family:"SF Mono",Menlo,monospace;}
+.toc{border:1px solid var(--line);padding:16px 20px;margin:0 0 34px;background:#fcfcfb;font-size:13.5px;}
+.toc .t{font-weight:650;margin-bottom:8px;font-size:12px;letter-spacing:.08em;color:var(--sub);}
+.toc a{display:block;padding:3px 0;color:var(--ink2);text-decoration:none;border-bottom:1px dashed transparent;}
+.toc a:hover{color:var(--red);border-bottom-color:var(--line);}
+.toc a.l3{padding-left:18px;color:var(--sub);font-size:12.8px;}
+.foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--sub);}
+@media (max-width:720px){.wrap{padding:26px 16px 70px;}h1{font-size:24px;}table{font-size:12px;}}
+@media print{.bar,.toc{display:none;}.wrap{box-shadow:none;max-width:none;}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a href="../index.html">← 返回产业链图谱</a>
+  <span class="right">智驾产业全貌 · 公司调研</span>
+</div></div>
+<div class="wrap">
+<h1>Waymo 首次覆盖报告 —— 附 Alphabet（GOOGL）分部估值</h1><div class="toc"><div class="t">目录</div><a href="#h0">零、必须先说清的前提：Waymo 买不到</a><a href="#h1">一、摘要与评级</a><a href="#h2">二、Waymo 是什么：16 年，从"登月项目"到"每周 50 万单"</a><a href="#h3">三、护城河：安全数据是唯一的硬通货</a><a href="#h4">四、财务：Waymo 的亏损藏在哪里</a><a href="#h5">五、竞争格局：Waymo 领先多少</a><a href="#h6">六、Waymo 估值：1,260 亿美元贵不贵</a><a href="#h7">七、Alphabet 分部估值（SOTP）：Waymo 只占每股 9 美元</a><a href="#h8">八、多空论点对照</a><a href="#h9">九、催化剂日历（未来 6–12 个月）</a><a href="#h10">十、风险清单（十项）</a><a href="#h11">十一、套入《风险收益决策能力》框架复盘</a><a href="#h12">十二、数据来源与口径说明</a></div>
+<blockquote>
+<p>报告日期：2026-10-26 ｜ 分析师：研股股<br />
+数据来源：Waymo 官方博客（2026-02 融资公告）、Alphabet 2026 Q2 财报及电话会记录（2026-07-22）、NHTSA 召回文件、公开行业研究<br />
+⚠️ 本报告基于公开信息整理，仅供研究参考，<strong>不构成个人投资建议</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="h0">零、必须先说清的前提：Waymo 买不到</h2>
+<p><strong>Waymo 不是上市公司。</strong> 它是 Alphabet（GOOGL/GOOG）的全资控股子公司，没有独立股票代码、不单独披露财报、没有可直接交易的二级市场标的。</p>
+<p>因此「Waymo 首期覆盖报告」只能拆成两件事：</p>
+<ol>
+<li><strong>Waymo 本身的深度研究</strong>（业务、运营、技术、成本、竞争、估值）</li>
+<li><strong>Alphabet 的分部估值（SOTP）</strong>——把 Waymo 从 Other Bets 里拆出来定价，回答"想买 Waymo，应该付多少钱买 Alphabet"</li>
+</ol>
+<p><strong>核心结论先给</strong>：Waymo 是<strong>全球 Robotaxi 毫无争议的第一名</strong>，且刚从"技术验证"跨入"规模商业化"（每周 50 万次付费出行、累计 2.2 亿英里、2026 年 2 月估值 1,260 亿美元）。但 <strong>Alphabet 的股价里，Waymo 只占 2.7%</strong>——你花 320 美元买 1 股 Alphabet，约 9 美元是 Waymo。<strong>Waymo 是极优质的资产，但通过 Alphabet 持有它的"含权量"极低。</strong></p>
+<hr />
+<h2 id="h1">一、摘要与评级</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Waymo 状态</strong></td>
+<td>Alphabet 控股子公司，<strong>不可直接买入</strong></td>
+</tr>
+<tr>
+<td><strong>Waymo 最近估值</strong></td>
+<td><strong>1,260 亿美元</strong>（2026-02，融资 160 亿美元后投后估值）</td>
+</tr>
+<tr>
+<td><strong>唯一可交易载体</strong></td>
+<td>Alphabet（GOOGL.O）</td>
+</tr>
+<tr>
+<td><strong>GOOGL 现价</strong></td>
+<td><strong>320.21 美元</strong>（2026-10-23）</td>
+</tr>
+<tr>
+<td><strong>GOOGL 市值</strong></td>
+<td>3.916 万亿美元（122.3 亿股）</td>
+</tr>
+<tr>
+<td><strong>GOOGL 评级</strong></td>
+<td><strong>增持（Overweight）</strong></td>
+</tr>
+<tr>
+<td><strong>GOOGL 目标价</strong></td>
+<td><strong>350 美元</strong>（较现价 +9.3%，= SOTP 中值）</td>
+</tr>
+<tr>
+<td><strong>Waymo 隐含每股价值</strong></td>
+<td><strong>≈ 8.75 美元（占现价 2.7%）</strong></td>
+</tr>
+<tr>
+<td><strong>建议仓位</strong></td>
+<td>Alphabet 核心仓 4–6%；<strong>若目的是押注 Waymo，需知弹性极低</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话结论</strong>：<strong>Waymo 值得买，但不该通过 Alphabet 来买</strong>。Waymo 的 1,260 亿美元估值对一家 2026 年年化收入约 10 亿美元的公司意味着约 126 倍 PS——这个价格已经计入了极其乐观的规模化预期。而 Alphabet 现价 320 美元相对 SOTP（约 351 美元）折价 8.8%，是一个"顺带送你一张 Waymo 期权"的合理价格——<strong>但请别把它当成 Waymo 的替代品。</strong></p>
+<hr />
+<h2 id="h2">二、Waymo 是什么：16 年，从"登月项目"到"每周 50 万单"</h2>
+<h3>2.1 关键里程碑</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009</td>
+<td>Google 自动驾驶汽车项目启动（后更名 Waymo，2016 独立）</td>
+</tr>
+<tr>
+<td>2020-10</td>
+<td>凤凰城郊区 Chandler 首次向公众提供<strong>无安全员</strong>付费服务</td>
+</tr>
+<tr>
+<td>2023-05</td>
+<td>每周付费出行约 1 万次</td>
+</tr>
+<tr>
+<td>2024-05</td>
+<td>每周约 5 万次</td>
+</tr>
+<tr>
+<td>2024-10</td>
+<td>C 轮融资 56 亿美元，投后估值 <strong>450 亿美元</strong></td>
+</tr>
+<tr>
+<td>2025 全年</td>
+<td>年出行量<strong>超 1,500 万次</strong>（同比翻三倍），累计突破 <strong>2,000 万次</strong></td>
+</tr>
+<tr>
+<td><strong>2026-02</strong></td>
+<td><strong>融资 160 亿美元，投后估值 1,260 亿美元</strong>（自动驾驶史上最大单轮）</td>
+</tr>
+<tr>
+<td>2026-03</td>
+<td>每周付费出行约 <strong>50 万次</strong>（两年增长十倍）</td>
+</tr>
+<tr>
+<td>2026-09</td>
+<td>覆盖 <strong>14–15 个美国都市区</strong>；丹佛、圣迭戈、坦帕全面开放</td>
+</tr>
+<tr>
+<td>2026-10</td>
+<td><strong>首笔 50 亿美元定期贷款</strong>（首次债务融资，不稀释股权）</td>
+</tr>
+<tr>
+<td>2026 年底目标</td>
+<td><strong>每周 100 万次</strong>付费出行；进入<strong>东京、伦敦</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>两年十倍</strong>。这是 Waymo 最硬的一条曲线，也是 1,260 亿美元估值的直接依据。</p>
+</blockquote>
+<h3>2.2 当前运营规模（截至 2026 年 8–10 月）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每周付费出行</td>
+<td><strong>约 50 万次</strong></td>
+</tr>
+<tr>
+<td>年化出行量</td>
+<td>约 <strong>2,600 万次</strong></td>
+</tr>
+<tr>
+<td>车队规模</td>
+<td><strong>3,700–3,871 辆</strong>（NHTSA 召回文件 3,871 辆为最权威官方数字）</td>
+</tr>
+<tr>
+<td>覆盖都市区</td>
+<td><strong>14–15 个</strong>（凤凰城、旧金山、洛杉矶、圣迭戈、丹佛、亚特兰大、奥斯汀、达拉斯、休斯顿、圣安东尼奥、奥兰多、坦帕、迈阿密、纳什维尔）</td>
+</tr>
+<tr>
+<td>单车日均订单</td>
+<td><strong>约 24 单</strong>（接近人类网约车司机利用率）</td>
+</tr>
+<tr>
+<td>累计自动驾驶里程</td>
+<td><strong>2.2 亿英里</strong>（乘客专属，2026 年中）</td>
+</tr>
+<tr>
+<td>2026 年底目标</td>
+<td>每周 100 万次（需车队扩张至约 5,900–9,500 辆）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一个关键的瓶颈点</strong>：Waymo 明确表示，<strong>限制增长的是车辆供应（进口管线），不是需求</strong>。新城市开放前有数万人排队注册。这意味着短期增长的上限由 Zeekr/现代等整车供应能力决定，而非市场接受度。</p>
+<hr />
+<h2 id="h3">三、护城河：安全数据是唯一的硬通货</h2>
+<h3>3.1 安全表现（这是 Waymo 最被低估的资产）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>累计完全自动驾驶里程</td>
+<td><strong>1.27 亿英里</strong>（2026-02 披露）→ <strong>2.2 亿英里</strong>（2026 年中）</td>
+</tr>
+<tr>
+<td>重伤/致命碰撞相对人类驾驶员</td>
+<td><strong>减少 90%</strong>（2026-02）→ <strong>92%–94%</strong>（2026-03）</td>
+</tr>
+<tr>
+<td>安全气囊触发碰撞</td>
+<td><strong>减少 82%–83%</strong></td>
+</tr>
+<tr>
+<td>对比参照</td>
+<td>1.27 亿英里 ≈ 地球到月球往返 260 次</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么这是护城河而非营销话术</strong>：<br />
+1. <strong>监管准入的通行证</strong>——各州/各国监管机构批准无人驾驶商业运营，最核心的判据就是"事故率数据"。Waymo 的 2.2 亿英里是<strong>唯一可用的规模级证据</strong>。<br />
+2. <strong>保险成本的定价基础</strong>——事故率降低 90%+，直接决定 Waymo 的保费能否做到人类司机的一小部分。这是单车经济能否翻转的关键变量。<br />
+3. <strong>数据飞轮</strong>——2.2 亿英里的长尾场景数据，是任何新进入者无法用钱买到的（只能用车队时间换）。</p>
+<h3>3.2 技术代际：第五代 → 第六代（Ojai）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>第五代（Jaguar I-Pace）</th>
+<th><strong>第六代 / Ojai（Zeekr 底盘）</strong></th>
+<th>变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>摄像头</td>
+<td>29 个</td>
+<td><strong>13 个</strong></td>
+<td><strong>−55%</strong></td>
+</tr>
+<tr>
+<td>激光雷达</td>
+<td>5 个</td>
+<td><strong>4 个</strong></td>
+<td>−20%</td>
+</tr>
+<tr>
+<td>传感器总数变化</td>
+<td>—</td>
+<td>—</td>
+<td><strong>约 −42%</strong></td>
+</tr>
+<tr>
+<td><strong>整车成本</strong></td>
+<td><strong>15–20 万美元</strong></td>
+<td><strong>5–5.5 万美元</strong></td>
+<td><strong>约为原来的 1/3</strong></td>
+</tr>
+<tr>
+<td>已投入商业运营</td>
+<td>数千辆</td>
+<td><strong>约 300 辆</strong>（2026 年）</td>
+<td>爬坡中</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>这是整份报告里最重要的一个数字</strong>：整车成本从 17.5 万美元降到 5.25 万美元，降幅 70%。Robotaxi 的经济学是否成立，几乎全部取决于这一项——因为车辆折旧是单车成本里最刚性的部分。</p>
+</blockquote>
+<p><strong>逻辑推演</strong>：若按 5 年折旧，旧平台单车年折旧约 3.5 万美元，新平台约 1.05 万美元——<strong>每辆车每年省下 2.45 万美元</strong>。按 5,000 辆车队规模，年化节省约 <strong>1.2 亿美元</strong>。这正好对应 Waymo 从"烧钱扩张"转向"规模盈利"的路径。</p>
+<hr />
+<h2 id="h4">四、财务：Waymo 的亏损藏在哪里</h2>
+<h3>4.1 归属板块：Alphabet 的「Other Bets」</h3>
+<p>Waymo 不单独出报表，它的收入与亏损并进 Alphabet 的 <strong>Other Bets</strong> 分部（含 Waymo、Wing、Verily、X、GFiber、Isomorphic Labs 等）。</p>
+<table>
+<thead>
+<tr>
+<th>期间</th>
+<th style="text-align: right;">Other Bets 收入</th>
+<th style="text-align: right;">Other Bets 经营亏损</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FY2024</td>
+<td style="text-align: right;">16.48 亿美元</td>
+<td style="text-align: right;"><strong>−44.44 亿美元</strong></td>
+</tr>
+<tr>
+<td>FY2025</td>
+<td style="text-align: right;">15.37 亿美元</td>
+<td style="text-align: right;"><strong>−75.15 亿美元</strong></td>
+</tr>
+<tr>
+<td>2025 Q3</td>
+<td style="text-align: right;">3.44 亿美元</td>
+<td style="text-align: right;">−14.2 亿美元</td>
+</tr>
+<tr>
+<td><strong>2026 Q2</strong></td>
+<td style="text-align: right;"><strong>3.82 亿美元</strong></td>
+<td style="text-align: right;"><strong>−18.0 亿美元</strong></td>
+</tr>
+<tr>
+<td>2026 Q2 年化</td>
+<td style="text-align: right;">~15.3 亿美元</td>
+<td style="text-align: right;"><strong>约 −72 亿美元</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 一个被忽略的正面信号：亏损没有随规模扩大而扩大</h3>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th style="text-align: right;">2025 全年</th>
+<th style="text-align: right;">2026 Q2 年化</th>
+<th>变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>出行量</td>
+<td style="text-align: right;">1,500 万次</td>
+<td style="text-align: right;">~2,600 万次</td>
+<td><strong>+73%</strong></td>
+</tr>
+<tr>
+<td>Other Bets 亏损</td>
+<td style="text-align: right;">−75.15 亿</td>
+<td style="text-align: right;">约 −72 亿</td>
+<td><strong>基本持平/略降</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>这是整份报告里最重要的财务洞察</strong>：<strong>规模增长 73%，亏损没有同步扩大。</strong> 说明：<br />
+- 单车运营层面<strong>已接近盈亏平衡</strong>（甚至可能已转正）<br />
+- 亏损的大头是<strong>固定研发投入</strong>（数千名工程师的薪酬，估占成本一半以上），而非每多跑一单就多亏一笔<br />
+- 一旦车队规模化摊薄研发，该分部有清晰的转正路径</p>
+<p>这与"每单都在亏钱、卖得越多亏得越多"的典型烧钱模式有本质区别。<strong>这是 Waymo 与绝大多数 Robotaxi 竞争者的分水岭。</strong></p>
+<h3>4.3 Waymo 自身收入估算</h3>
+<table>
+<thead>
+<tr>
+<th>口径</th>
+<th style="text-align: right;">估算</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Other Bets 季度收入</td>
+<td style="text-align: right;">3.82 亿美元</td>
+<td>Alphabet Q2 2026 财报</td>
+</tr>
+<tr>
+<td>Waymo 占比（估）</td>
+<td style="text-align: right;">60%–75%</td>
+<td>分析师推断（Waymo 为 Other Bets 最大收入源）</td>
+</tr>
+<tr>
+<td><strong>Waymo 季度收入（估）</strong></td>
+<td style="text-align: right;"><strong>2.3–2.9 亿美元</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Waymo 年化收入（估）</strong></td>
+<td style="text-align: right;"><strong>9–12 亿美元</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>隐含单均价格（估）</td>
+<td style="text-align: right;">约 35–40 美元</td>
+<td>年化 10 亿 ÷ 2,600 万单</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ Alphabet <strong>不单独披露 Waymo 收入</strong>，以上为基于 Other Bets 收入结构与出行量的推算，误差可能较大。这是研究 Waymo 最大的数据缺口。</p>
+</blockquote>
+<h3>4.4 融资结构：从"股权输血"转向"债务融资"（重要转折）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+<th style="text-align: right;">金额</th>
+<th>性质</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-03</td>
+<td>首轮外部融资</td>
+<td style="text-align: right;">32 亿美元</td>
+<td>股权</td>
+</tr>
+<tr>
+<td>2024-10</td>
+<td>C 轮</td>
+<td style="text-align: right;">56 亿美元</td>
+<td>股权，投后 <strong>450 亿美元</strong></td>
+</tr>
+<tr>
+<td><strong>2026-02</strong></td>
+<td>新一轮</td>
+<td style="text-align: right;"><strong>160 亿美元</strong></td>
+<td>股权，投后 <strong>1,260 亿美元</strong></td>
+</tr>
+<tr>
+<td><strong>2026-10</strong></td>
+<td><strong>首次债务融资</strong></td>
+<td style="text-align: right;"><strong>50 亿美元定期贷款</strong></td>
+<td><strong>债务，不稀释</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2026 年 2 月股权轮的投资方</strong>：Alphabet（控股，持续跟投）领衔；Dragoneer、DST Global、红杉资本联合领投；a16z、Mubadala、Bessemer、Silver Lake、Tiger Global、T. Rowe Price、CapitalG、Fidelity、GV、Kleiner Perkins、Perry Creek、淡马锡参投。</p>
+<p><strong>2026 年 10 月债务融资细节</strong>：PIMCO、Blackstone、Sixth Street 领投；高盛安排；从初始 30 亿美元目标<strong>上调至 50 亿</strong>；定价为基准利率 <strong>+525bp</strong>。资金用途：更多美国城市 + 东京、迪拜等国际市场。</p>
+<blockquote>
+<p><strong>这个转变的战略意义极大</strong>：从"靠股东输血"变成"用经营现金流和资产抵押借钱"，意味着<strong>贷款人开始把 Robotaxi 当作交通运营商来承销</strong>，而不是当作一个烧钱的科研项目。5 年承诺资本、零稀释，是 Waymo 财务成熟度的一个里程碑。525bp 的利差说明成本不低，但能借到本身就是背书。</p>
+</blockquote>
+<hr />
+<h2 id="h5">五、竞争格局：Waymo 领先多少</h2>
+<h3>5.1 全球主要玩家对比（2026 年）</h3>
+<table>
+<thead>
+<tr>
+<th>玩家</th>
+<th>覆盖城市</th>
+<th>周订单/车队</th>
+<th>累计里程</th>
+<th>关键标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Waymo</strong></td>
+<td><strong>14–15 城（美国）</strong></td>
+<td><strong>50 万单 / 3,700–3,871 辆</strong></td>
+<td><strong>2.2 亿英里</strong></td>
+<td>全球第一，安全数据最完整</td>
+</tr>
+<tr>
+<td>百度萝卜快跑</td>
+<td>26 城（含香港、迪拜）</td>
+<td>单周峰值 35 万单</td>
+<td>3.5 亿公里（全无人 2.4 亿公里）</td>
+<td>累计订单 2,300 万+，部分城市单城盈利</td>
+</tr>
+<tr>
+<td>小马智行</td>
+<td>20+ 城</td>
+<td>车队 3,500 辆（目标）</td>
+<td>—</td>
+<td>第七代整车成本 &lt;23 万元，深圳单车日净收入 338 元</td>
+</tr>
+<tr>
+<td>文远知行</td>
+<td>多国</td>
+<td>—</td>
+<td>—</td>
+<td>西班牙首张国家级 L4 牌照，阿布扎比覆盖 70% 核心区</td>
+</tr>
+<tr>
+<td><strong>特斯拉 Robotaxi</strong></td>
+<td>奥斯汀（1 城）</td>
+<td>数十至低百辆级</td>
+<td><strong>约 200 万英里</strong></td>
+<td><strong>里程仅为 Waymo 的 1/110</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 最硬的一个对比：里程差距 110 倍</h3>
+<pre><code>Waymo 累计自动驾驶里程    ≈ 2.2 亿英里
+特斯拉 Robotaxi 无监督里程  ≈ 200 万英里
+────────────────────────────────────
+差距                        ≈ 110 倍
+</code></pre>
+<p><strong>这个数字比任何叙事都有说服力。</strong> 在自动驾驶里，里程是唯一无法用钱和人才快速买到的资产——它只能用<strong>车队数量 × 时间</strong>去换。特斯拉的 FSD 有 174 万付费用户（数据量巨大），但那是<strong>有人监督的辅助驾驶</strong>，与无人监督的 L4 商业运营是两个不同的量级。</p>
+<h3>5.3 但 Waymo 也有真实弱点</h3>
+<ol>
+<li><strong>地理集中</strong>：全部收入来自美国 14–15 个都市区，国际化为零（东京、伦敦尚未开城）。</li>
+<li><strong>成本结构未验证</strong>：Ojai 平台仅约 300 辆车投入运营，5.25 万美元的成本目标是"目标"而非"实绩"。</li>
+<li><strong>单城复制成本高</strong>：每开一城都需要建 depot（充电/清洗/维护场地）、谈监管、招本地运营团队——这是重资产、地推式的扩张。</li>
+<li><strong>中国市场竞争缺席</strong>：全球 Robotaxi 日均 420 万单中，中国占大头，Waymo 完全没有参与。</li>
+<li><strong>有过召回事件</strong>：2026 年 6 月向 NHTSA 提交召回（涉及高速无人驾驶车辆批准），说明系统仍有需修正的边界场景。</li>
+</ol>
+<hr />
+<h2 id="h6">六、Waymo 估值：1,260 亿美元贵不贵</h2>
+<h3>6.1 倍数测算</h3>
+<table>
+<thead>
+<tr>
+<th>基准</th>
+<th style="text-align: right;">数值</th>
+<th style="text-align: right;">对应 PS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waymo 2026 年化收入（估）</td>
+<td style="text-align: right;">9–12 亿美元</td>
+<td style="text-align: right;"><strong>105–140×</strong></td>
+</tr>
+<tr>
+<td>2027E 收入（若 100 万单/周达成 + 国际开城，估 25–35 亿美元）</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;"><strong>36–50×</strong></td>
+</tr>
+<tr>
+<td>2028E 收入（乐观，估 60–90 亿美元）</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;"><strong>14–21×</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：按当下收入看，1,260 亿美元是<strong>极度昂贵</strong>（105–140 倍 PS）；但按 2028 年看，14–21 倍 PS 对一家 70%+ 增速的类别定义型公司<strong>并不离谱</strong>。</p>
+<h3>6.2 与行业 TAM 的张力（必须指出的风险）</h3>
+<table>
+<thead>
+<tr>
+<th>预测源</th>
+<th style="text-align: right;">全球 Robotaxi 市场规模</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业研究（2026 → 2034）</td>
+<td style="text-align: right;">12.7 亿 → <strong>963 亿美元</strong>，CAGR 71.9%</td>
+</tr>
+<tr>
+<td>CounterPoint（2035）</td>
+<td style="text-align: right;"><strong>1,680 亿美元</strong>，车队 360 万辆</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Waymo 的 1,260 亿美元估值 ≈ 2034 年全球市场规模的 1.3 倍。</strong></p>
+<p>这意味着两种可能：要么（a）Waymo 能拿下全球市场的绝大部分份额，要么（b）<strong>这些 TAM 预测严重低估了自动驾驶的渗透速度</strong>。历史经验看，颠覆性技术的 TAM 预测通常偏低——但<strong>这个张力本身说明 1,260 亿美元不是"便宜"的价格，而是"必须完美执行"的价格</strong>。</p>
+<h3>6.3 两种入场方式的价值对比（本报告核心洞察）</h3>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th style="text-align: right;"><strong>Waymo</strong></th>
+<th style="text-align: right;"><strong>特斯拉的自动驾驶期权</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>估值/隐含定价</td>
+<td style="text-align: right;"><strong>1,260 亿美元</strong></td>
+<td style="text-align: right;"><strong>11,848 亿美元</strong>（隐含）</td>
+</tr>
+<tr>
+<td>年化收入</td>
+<td style="text-align: right;">约 9–12 亿美元</td>
+<td style="text-align: right;">Robotaxi 收入 ≈ 0</td>
+</tr>
+<tr>
+<td>累计无监督里程</td>
+<td style="text-align: right;"><strong>2.2 亿英里</strong></td>
+<td style="text-align: right;">200 万英里</td>
+</tr>
+<tr>
+<td>覆盖城市</td>
+<td style="text-align: right;">14–15 城</td>
+<td style="text-align: right;">1 城（奥斯汀）</td>
+</tr>
+<tr>
+<td>安全数据</td>
+<td style="text-align: right;">重伤碰撞 −92~94%</td>
+<td style="text-align: right;">未披露规模级数据</td>
+</tr>
+<tr>
+<td><strong>倍数差</strong></td>
+<td style="text-align: right;"><strong>1×</strong></td>
+<td style="text-align: right;"><strong>9.4×</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>市场为特斯拉的自动驾驶期权支付的价格，是 Waymo 整家公司估值的 9.4 倍——而 Waymo 在每一个可验证的运营指标上都领先。</strong></p>
+<p>这不是说特斯拉被高估（它的期权还包含 Optimus 机器人和 FSD 的 174 万用户），但确实说明：<strong>如果你只想买"自动驾驶"，Waymo（通过 Alphabet）是远比 Tesla 便宜且有据可依的入口。</strong></p>
+</blockquote>
+<hr />
+<h2 id="h7">七、Alphabet 分部估值（SOTP）：Waymo 只占每股 9 美元</h2>
+<h3>7.1 先破一个数据陷阱：报表 PE 16 倍是假象</h3>
+<table>
+<thead>
+<tr>
+<th>口径</th>
+<th style="text-align: right;">数值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现价 / 市值</td>
+<td style="text-align: right;">320.21 美元 / 3.916 万亿美元</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TTM GAAP 净利</td>
+<td style="text-align: right;"><strong>2,442 亿美元</strong></td>
+<td>含巨额非经营性投资收益</td>
+</tr>
+<tr>
+<td><strong>报表 PE</strong></td>
+<td style="text-align: right;"><strong>16.0×</strong></td>
+<td><strong>看起来极便宜</strong></td>
+</tr>
+<tr>
+<td>TTM 营业利润（EBIT）</td>
+<td style="text-align: right;">1,516 亿美元</td>
+<td>真实经营盈利</td>
+</tr>
+<tr>
+<td><strong>核心净利（EBIT×0.8）</strong></td>
+<td style="text-align: right;"><strong>约 1,213 亿美元</strong></td>
+<td>剔除投资收益</td>
+</tr>
+<tr>
+<td><strong>核心 PE</strong></td>
+<td style="text-align: right;"><strong>约 32.3×</strong></td>
+<td><strong>这才是真实估值</strong></td>
+</tr>
+<tr>
+<td>EV / EBIT</td>
+<td style="text-align: right;">25.0×</td>
+<td>—</td>
+</tr>
+<tr>
+<td>EV / FCF</td>
+<td style="text-align: right;">71×</td>
+<td>FCF 正在被 AI 资本开支吞噬</td>
+</tr>
+</tbody>
+</table>
+<p><strong>陷阱来源</strong>：2026 年 Q1 与 Q2，Alphabet 的非经营性收益分别达约 <strong>375 亿</strong>与 <strong>981 亿美元</strong>（主要为 Anthropic、SpaceX 等非上市股权的公允价值重估）。这使 Q2 单季 GAAP 净利率高达 <strong>93.7%</strong>，净利润同比 +297.9%。<strong>这些是账面浮盈，不是现金盈利，也不可分红。</strong></p>
+<blockquote>
+<p>同一个陷阱我在梅卡曼德报告里也遇到过（优先股负债导致的"负净资产"）。<strong>看科技公司的 PE，永远要先问一句：利润里有多少是投资重估？</strong></p>
+</blockquote>
+<h3>7.2 Alphabet 业务基本面（截至 Q2 2026）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align: right;">数值</th>
+<th style="text-align: right;">同比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>季度营收</td>
+<td style="text-align: right;">1,196.9 亿美元</td>
+<td style="text-align: right;"><strong>+24%</strong></td>
+</tr>
+<tr>
+<td>毛利率</td>
+<td style="text-align: right;">61.6%</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>营业利润率</td>
+<td style="text-align: right;"><strong>34.0%</strong></td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td><strong>Google Cloud 营收</strong></td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;"><strong>+82%</strong></td>
+</tr>
+<tr>
+<td>Cloud 经营利润</td>
+<td style="text-align: right;">88 亿美元（利润率 35.6%，去年 20.7%）</td>
+<td style="text-align: right;"><strong>超三倍</strong></td>
+</tr>
+<tr>
+<td><strong>Cloud 订单储备（backlog）</strong></td>
+<td style="text-align: right;"><strong>5,140 亿美元</strong>（环比 +500 亿）</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>Other Bets 收入 / 亏损</td>
+<td style="text-align: right;">3.82 亿 / <strong>−18.0 亿</strong></td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>单季资本开支</td>
+<td style="text-align: right;"><strong>449 亿美元</strong>（+100%）</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td><strong>单季自由现金流</strong></td>
+<td style="text-align: right;"><strong>−59 亿美元</strong>（2004 年上市以来首次为负）</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>FY2026 资本开支指引</td>
+<td style="text-align: right;"><strong>1,950–2,050 亿美元</strong>（年内第四次上调）</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>三个必须正视的负面信号</strong>：<br />
+1. <strong>自由现金流转负</strong>（2004 年 IPO 以来首次）——AI 基建投入已超过经营现金流<br />
+2. <strong>启动股权融资 + 暂停回购</strong>——资本结构从"净返还股东"转为"净向股东要钱"<br />
+3. <strong>FY2026 资本开支四次上调至 1,950–2,050 亿美元，且 2027 将"显著增加"</strong>——投入周期看不到尽头</p>
+<p><strong>两个强力的正面支撑</strong>：<br />
+1. <strong>Cloud +82%、backlog 5,140 亿美元</strong>（其中约 50% 将在 24 个月内确认收入，即约 2,600 亿美元合约收入可见至 2028 年中）<br />
+2. <strong>TorchTPU 开源（与 Meta 联手）</strong>——TPU 成为 PyTorch 原生设备，直接侵蚀 CUDA 最深的护城河。这可能是 2026 年最重要的战略动作，把 TPU 从"内部降本工具"变成"可对外销售的算力标准"</p>
+<h3>7.3 SOTP 拆解</h3>
+<table>
+<thead>
+<tr>
+<th>分部</th>
+<th style="text-align: right;">估值（亿美元）</th>
+<th style="text-align: right;">每股（美元）</th>
+<th style="text-align: right;">占现价</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Services</td>
+<td style="text-align: right;">30,000</td>
+<td style="text-align: right;">245.3</td>
+<td style="text-align: right;">76.6%</td>
+<td>FY2026E 经营利润约 1,560 亿 × 19–20×</td>
+</tr>
+<tr>
+<td>Google Cloud</td>
+<td style="text-align: right;">10,350</td>
+<td style="text-align: right;">84.6</td>
+<td style="text-align: right;">26.4%</td>
+<td>FY2026E 收入约 1,050 亿 × 10×</td>
+</tr>
+<tr>
+<td><strong>Waymo（归属 Alphabet）</strong></td>
+<td style="text-align: right;"><strong>1,070</strong></td>
+<td style="text-align: right;"><strong>8.75</strong></td>
+<td style="text-align: right;"><strong>2.7%</strong></td>
+<td><strong>1,260 亿 × 约 85% 持股</strong></td>
+</tr>
+<tr>
+<td>Other Bets（除 Waymo）</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.8%</td>
+<td>Verily/Wing/X/Isomorphic，Isomorphic 刚融 20 亿+</td>
+</tr>
+<tr>
+<td>净现金</td>
+<td style="text-align: right;">1,251</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">3.2%</td>
+<td>现金+短投 2,424.7 亿 − 债务 1,173.5 亿</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td style="text-align: right;"><strong>42,971</strong></td>
+<td style="text-align: right;"><strong>351</strong></td>
+<td style="text-align: right;"><strong>109.6%</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>现价</strong></td>
+<td style="text-align: right;">39,161</td>
+<td style="text-align: right;"><strong>320.21</strong></td>
+<td style="text-align: right;">100%</td>
+<td>较 SOTP <strong>折价 8.8%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>关键结论 1</strong>：Alphabet 现价 320 美元相对 SOTP 约 351 美元<strong>折价 8.8%</strong>——整体是一个"大致合理、略偏便宜"的位置。</p>
+<p><strong>关键结论 2</strong>：<strong>你买 1 股 Alphabet（320 美元），其中只有约 8.75 美元（2.7%）是 Waymo。</strong> 即使 Waymo 估值翻倍到 2,520 亿美元，对 Alphabet 股价的贡献仅约 <strong>+8.75 美元（+2.7%）</strong>。这是"含权量"的残酷算术。</p>
+</blockquote>
+<hr />
+<h2 id="h8">八、多空论点对照</h2>
+<h3>看多（为 Waymo 与 Alphabet）</h3>
+<p><strong>Waymo 层面</strong><br />
+1. <strong>两年十倍</strong>的真实增长曲线：周订单 5 万 → 50 万，2026 年底目标 100 万。<br />
+2. <strong>安全数据是护城河</strong>：2.2 亿英里、重伤碰撞 −92~94%，是监管准入和保险定价的唯一硬证据。<br />
+3. <strong>成本革命已启动</strong>：Ojai 平台整车成本从 17.5 万降至 5.25 万美元，是经济翻转的关键。<br />
+4. <strong>亏损不随规模扩大</strong>：量增 73%、亏损持平，说明单车运营已接近盈亏平衡。<br />
+5. <strong>融资结构升级</strong>：首次 50 亿美元债务融资、零稀释、5 年承诺资本，贷款人开始按交通运输公司承销。<br />
+6. <strong>供应而非需求是瓶颈</strong>：新城市数万人排队——这是最好的"需求验证"。</p>
+<p><strong>Alphabet 层面</strong><br />
+7. <strong>SOTP 折价 8.8%</strong>，核心 PE 32× 对一个 Cloud +82%、Search 稳健的公司算合理。<br />
+8. <strong>Cloud backlog 5,140 亿美元</strong>，约 2,600 亿美元合约收入可见至 2028 年中。<br />
+9. <strong>TorchTPU 开源</strong>，直击 CUDA 护城河，TPU 可能成为对外销售的第二增长极。<br />
+10. <strong>Waymo 期权近乎免费</strong>：花 2.7% 的市值，附带全球 Robotaxi 龙头 85% 的股权。</p>
+<h3>看空</h3>
+<p><strong>Waymo 层面</strong><br />
+1. <strong>估值已透支</strong>：105–140× 当前 PS，且 1,260 亿美元 ≈ 2034 年全球市场规模的 1.3 倍。<br />
+2. <strong>国际化零起步</strong>：全部收入来自美国 14–15 城，东京/伦敦尚未开城。<br />
+3. <strong>单城复制成本高</strong>：depot、充电、清洗、维护、地推团队——扩张是重资产、慢变量。<br />
+4. <strong>中国缺席</strong>：全球 Robotaxi 日均 420 万单中中国占大头，Waymo 完全未参与。<br />
+5. <strong>Ojai 成本只是"目标"</strong>：仅约 300 辆在运营，"5.25 万美元"尚未被规模验证。<br />
+6. <strong>召回事件</strong>：2026 年 6 月 NHTSA 召回（涉及高速无人驾驶），系统仍有边界场景问题。</p>
+<p><strong>Alphabet 层面</strong><br />
+7. <strong>自由现金流首次转负</strong>（2004 年以来），且 2027 年资本开支还要"显著增加"。<br />
+8. <strong>股权融资 + 暂停回购</strong>，资本结构恶化，股东回报能力被削弱。<br />
+9. <strong>报表 PE 16× 是假象</strong>，核心 PE 32×——若市场按核心口径重新审视，估值支撑会变弱。<br />
+10. <strong>Search 面临 AI 颠覆风险</strong>（占收入主体的搜索广告正在被 AI 对话产品侵蚀）。<br />
+11. <strong>Waymo 对 Alphabet 股价弹性极低</strong>（2.7%），"买 Alphabet 押 Waymo"是低效表达。</p>
+<hr />
+<h2 id="h9">九、催化剂日历（未来 6–12 个月）</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+<th>重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2026 年 10 月底（本周）</strong></td>
+<td><strong>Alphabet Q3 2026 财报</strong>（关注 Cloud 利润率、capex、Other Bets 亏损）</td>
+<td><strong>极高（即时）</strong></td>
+</tr>
+<tr>
+<td>2026 年底</td>
+<td>Waymo 每周 100 万次付费出行目标是否达成</td>
+<td><strong>极高</strong></td>
+</tr>
+<tr>
+<td>2026 Q4–2027</td>
+<td><strong>东京、伦敦开城</strong>（首次国际化验证）</td>
+<td><strong>极高</strong></td>
+</tr>
+<tr>
+<td>2027-01 下旬</td>
+<td>Alphabet Q4 财报，FY2027 capex 首次量化</td>
+<td>高</td>
+</tr>
+<tr>
+<td>持续</td>
+<td>Ojai 平台车队规模（从 300 辆扩张速度）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>待定</td>
+<td>Waymo 是否分拆/独立上市（管理层已明确回避该问题）</td>
+<td>极高（若发生）</td>
+</tr>
+<tr>
+<td>待定</td>
+<td>更多国际监管牌照（欧洲、中东、日本）</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="h10">十、风险清单（十项）</h2>
+<ol>
+<li><strong>估值风险（高）</strong>：Waymo 105–140× 当前 PS，任何增长失速都会剧烈重定价。</li>
+<li><strong>安全尾部风险（极高影响/低概率）</strong>：一次致命事故可能引发监管冻结与品牌崩塌。</li>
+<li><strong>供应瓶颈（中高）</strong>：Zeekr/现代等整车供应能力决定增长上限。</li>
+<li><strong>国际化执行风险（高）</strong>：东京、伦敦的监管、路况、文化差异均未验证。</li>
+<li><strong>竞争加剧（中）</strong>：百度、小马、文远在中国及中东市场已规模运营。</li>
+<li><strong>单城重资产扩张（中）</strong>：depot 与运营团队建设拖慢复制速度。</li>
+<li><strong>Alphabet 资本开支失控（高）</strong>：FCF 已转负，2027 更高，可能压制整体估值。</li>
+<li><strong>报表利润质量（中）</strong>：GAAP PE 16× 含巨额投资重估，核心 PE 32×。</li>
+<li><strong>Search 被 AI 颠覆（高）</strong>：Alphabet 收入的绝对主体面临结构性挑战。</li>
+<li><strong>含权量过低（结构性）</strong>：Waymo 仅占 Alphabet 每股 2.7%，想押注 Waymo 者无法获得高弹性。</li>
+</ol>
+<hr />
+<h2 id="h11">十一、套入《风险收益决策能力》框架复盘</h2>
+<h3>对 Alphabet（可交易的部分）</h3>
+<table>
+<thead>
+<tr>
+<th>决策维度</th>
+<th>状态</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>好公司？</strong></td>
+<td>✅ 是（Search 现金牛 + Cloud 高增 + Waymo 期权）</td>
+<td>质地优秀</td>
+</tr>
+<tr>
+<td><strong>好投资？</strong></td>
+<td>⚠️ 大致合理（SOTP 折价 8.8%，核心 PE 32×）</td>
+<td>中性偏好</td>
+</tr>
+<tr>
+<td><strong>赚什么钱？</strong></td>
+<td>业绩增长（Cloud）+ 估值修复（折价收敛）</td>
+<td>偏基本面</td>
+</tr>
+<tr>
+<td><strong>胜率</strong></td>
+<td>较高（~60%，Cloud backlog 提供能见度）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>赔率</strong></td>
+<td>上行 +9%（至 350）/ 下行 −15%（至 270）</td>
+<td>略偏下</td>
+</tr>
+<tr>
+<td><strong>安全边际</strong></td>
+<td>中等（折价 8.8% + 净现金 1,251 亿美元）</td>
+<td>尚可</td>
+</tr>
+<tr>
+<td><strong>仓位建议</strong></td>
+<td>核心仓 4–6%，本周财报前不宜加仓</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>对 Waymo（买不到的部分）</h3>
+<p><strong>结论：想表达 Waymo 主题，Alphabet 是唯一合规入口，但它是"低纯度、低弹性"的表达方式。</strong></p>
+<ul>
+<li>若 Waymo 估值翻倍 → Alphabet 股价 +2.7%</li>
+<li>若 Waymo 归零 → Alphabet 股价 −2.7%</li>
+<li><strong>这本质上是一张"赠品期权"，不应该成为买入 Alphabet 的核心理由</strong></li>
+</ul>
+<p><strong>正确的使用方式</strong>：把 Waymo 当作 Alphabet 投资的<strong>免费看涨期权</strong>——不因为它便宜而买 Alphabet，但既然买了，就白拿一张全球 Robotaxi 龙头的期权。<strong>不要反过来，为了 Waymo 去买 Alphabet。</strong></p>
+<hr />
+<h2 id="h12">十二、数据来源与口径说明</h2>
+<ol>
+<li><strong>Waymo 融资与估值</strong>：Waymo 官方博客《Accelerating our global growth: Waymo raises $16 billion investment round》（2026-02），投后估值 1,260 亿美元、投资方名单、1.27 亿英里与 90% 安全改善数据均出自该文。</li>
+<li><strong>运营数据</strong>：周订单 50 万次（2026-03 与 2026-08 双源验证）、车队 3,871 辆（2026-06 NHTSA 召回文件，最权威官方数字）、覆盖 14–15 城、累计 2.2 亿英里、单车日均约 24 单——综合自 Waymo 披露与第三方行业研究。</li>
+<li><strong>Alphabet 财务</strong>：2026 Q2 财报（2026-07-22）与电话会记录（Official Transcript, s206.q4cdn.com）；Other Bets 收入 3.82 亿美元、经营亏损 18 亿美元、Cloud backlog 5,140 亿美元、FY2026 capex 指引 1,950–2,050 亿美元均为管理层原话。</li>
+<li><strong>历史财务</strong>：FY2024/FY2025 年报分部数据（Other Bets 收入 16.48/15.37 亿美元，经营亏损 −44.44/−75.15 亿美元）。</li>
+<li><strong>口径提示（重要）</strong>：<br />
+   - <strong>Alphabet 报表 PE 16× 与核心 PE 32×</strong> 的差异源于 2026 年 Q1/Q2 合计约 1,356 亿美元的非经营性投资收益（股权重估）。核心净利按 EBIT×(1−20%) 估算，为分析师口径，非公司披露。<br />
+   - <strong>Waymo 收入 9–12 亿美元为估算</strong>，Alphabet 不单独披露 Waymo 收入，误差可能较大。<br />
+   - <strong>Alphabet 持有 Waymo 比例约 85% 为估算</strong>（Alphabet 为控股股东，2020/2024/2026 三轮均有外部投资者），实际比例未公开。<br />
+   - <strong>SOTP 倍数为分析师假设</strong>，已在表中显式列出。</li>
+<li><strong>行业 TAM</strong>：全球 Robotaxi 市场 2026 年 12.7 亿美元 → 2034 年 963 亿美元（CAGR 71.9%）；CounterPoint 预测 2035 年 1,680 亿美元、车队 360 万辆。<strong>注意：2026 年 12.7 亿美元的口径与 Waymo 单位数收入存在矛盾，可能为较窄的定义或较早的预测，引用时请保留这一不确定性。</strong></li>
+</ol>
+<div class="foot">本页由 Markdown 原稿自动生成，内容以原稿为准。数据与观点仅作研究记录，不构成投资建议。</div>
+</div>
+</body>
+</html>

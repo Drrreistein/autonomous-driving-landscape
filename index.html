@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智驾产业全貌 · 自动驾驶供应链图谱</title>
+<meta name="description" content="自动驾驶行业供应链图谱：覆盖上游元器件、中游感知决策执行、下游整车与运营，按玩家模式、技术等级与应用场景交叉定位，链接公司调研报告。">
+<style>
+:root{
+  --ink:#0f1720; --ink2:#2b3644; --sub:#5f6b7a; --faint:#8b97a5;
+  --line:#e5e8ec; --line2:#eef1f4; --bg:#fbfbfa; --card:#ffffff;
+  --green:#1f6b52; --green-bg:#f0f7f4; --green-bd:#cfe4db;
+  --blue:#1b4a75; --blue-bg:#f1f6fa; --blue-bd:#d3e2ee;
+  --amber:#8a6416; --amber-bg:#fbf7ec; --amber-bd:#eadfc2;
+  --red:#a8271f;
+  --mono:"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,"Helvetica Neue","Microsoft YaHei",sans-serif;
+  font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+
+/* ---------- header ---------- */
+.top{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,251,250,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{
+  max-width:1440px;margin:0 auto;padding:12px 28px;
+  display:flex;align-items:center;gap:22px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap;}
+.brand .mark{
+  width:22px;height:22px;border-radius:5px;background:var(--ink);
+  position:relative;flex:0 0 auto;
+}
+.brand .mark::after{
+  content:"";position:absolute;inset:6px 6px auto 6px;height:2px;background:#fff;
+  box-shadow:0 4px 0 #fff, 0 8px 0 rgba(255,255,255,.55);
+}
+.brand small{font-weight:400;color:var(--faint);font-size:11px;letter-spacing:.06em;margin-left:2px;}
+.search{
+  margin-left:auto;display:flex;align-items:center;gap:8px;
+  border:1px solid var(--line);background:#fff;border-radius:7px;
+  padding:7px 11px;width:250px;transition:.15s;
+}
+.search:focus-within{border-color:var(--ink);}
+.search input{border:0;outline:0;font-size:13px;width:100%;background:transparent;font-family:inherit;color:var(--ink);}
+.search input::placeholder{color:var(--faint);}
+.search svg{flex:0 0 auto;opacity:.45;}
+.top-link{font-size:12.5px;color:var(--sub);white-space:nowrap;}
+.top-link:hover{color:var(--ink);}
+
+/* ---------- hero ---------- */
+.hero{max-width:1440px;margin:0 auto;padding:44px 28px 0;}
+.hero h1{
+  font-size:clamp(26px,3.4vw,38px);line-height:1.22;margin:0 0 12px;
+  font-weight:650;letter-spacing:-.02em;
+}
+.hero p{margin:0;color:var(--sub);font-size:14.5px;max-width:62em;}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin:26px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.stats div{padding:13px 26px 13px 0;margin-right:26px;font-size:12.5px;color:var(--sub);}
+.stats b{display:block;font-family:var(--mono);font-size:19px;color:var(--ink);font-weight:600;letter-spacing:-.02em;}
+.stats b i{font-style:normal;color:var(--green);}
+
+/* ---------- tabs ---------- */
+.tabs{max-width:1440px;margin:0 auto;padding:22px 28px 0;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.tab{
+  border:1px solid var(--line);background:#fff;border-radius:6px;
+  padding:7px 14px;font-size:13px;color:var(--sub);cursor:pointer;font-family:inherit;
+  transition:.15s;
+}
+.tab:hover{border-color:var(--faint);color:var(--ink);}
+.tab.on{background:var(--ink);border-color:var(--ink);color:#fff;}
+.legend{margin-left:auto;display:flex;gap:14px;font-size:11.5px;color:var(--faint);align-items:center;}
+.legend span{display:inline-flex;align-items:center;gap:5px;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;}
+.dot.g{background:#d6dbe1;}
+
+/* ---------- map ---------- */
+.wrap{max-width:1440px;margin:0 auto;padding:26px 28px 80px;}
+.view{display:none;}
+.view.on{display:block;}
+
+.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start;}
+.layer{position:relative;}
+.layer-h{
+  display:flex;align-items:baseline;gap:9px;
+  padding:0 0 10px;margin-bottom:12px;border-bottom:1.5px solid var(--ink);
+}
+.layer-h .n{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.08em;}
+.layer-h .t{font-size:15px;font-weight:600;letter-spacing:-.01em;}
+.layer-h .d{font-size:11.5px;color:var(--faint);margin-left:auto;}
+
+.seg{
+  background:var(--card);border:1px solid var(--line);border-radius:9px;
+  padding:11px 12px 12px;margin-bottom:10px;
+}
+.seg-h{display:flex;align-items:center;gap:7px;margin-bottom:9px;}
+.seg-h .st{font-size:12.5px;font-weight:600;color:var(--ink2);letter-spacing:.01em;}
+.seg-h .cnt{font-family:var(--mono);font-size:10px;color:var(--faint);margin-left:auto;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;}
+
+.chip{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12.3px;line-height:1.4;padding:3.5px 8px;border-radius:5px;
+  border:1px solid var(--line);background:#fcfcfb;color:var(--sub);
+  white-space:nowrap;transition:.12s;
+}
+.chip.r{
+  border-color:var(--green-bd);background:var(--green-bg);color:var(--green);
+  font-weight:500;
+}
+.chip.r::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green);flex:0 0 auto;}
+.chip.r:hover{background:#e6f2ec;border-color:#a9cfbf;}
+.chip .ar{font-size:10px;opacity:.7;}
+.chip .mc{
+  font-family:var(--mono);font-size:9.5px;line-height:1;
+  padding:2px 3.5px;border-radius:3px;background:rgba(15,23,32,.07);
+  color:var(--faint);margin-left:1px;
+}
+.chip.r .mc{background:rgba(31,107,82,.13);color:var(--green);}
+
+.support{margin-top:18px;}
+.support-h{
+  display:flex;align-items:baseline;gap:9px;
+  padding:0 0 10px;margin-bottom:12px;border-bottom:1.5px solid var(--ink);
+}
+.support-h .n{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.08em;}
+.support-h .t{font-size:15px;font-weight:600;}
+.support-h .d{font-size:11.5px;color:var(--faint);margin-left:auto;}
+.support-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:start;}
+.support-grid .seg{margin-bottom:0;}
+
+.seg.hide{display:none;}
+.chip.hide{display:none;}
+
+/* tech view */
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:start;}
+.col-h{
+  border-top:2px solid var(--ink);padding:9px 2px 12px;margin-bottom:8px;
+}
+.col-h .t{font-size:14.5px;font-weight:600;}
+.cc{
+  font-family:var(--mono);font-size:10px;font-weight:400;color:var(--faint);
+  margin-left:7px;letter-spacing:0;
+}
+.col-h .s{font-size:11.5px;color:var(--faint);line-height:1.5;margin-top:2px;}
+.col-h.acc{border-top-color:var(--red);}
+.colbox{border:1px solid var(--line);border-radius:9px;background:#fff;padding:10px;}
+.colbox .chip{margin:0 4px 4px 0;}
+
+/* scene view */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.scene{border:1px solid var(--line);background:#fff;border-radius:9px;padding:13px 14px;}
+.scene.wide{grid-column:span 2;}
+.scene h3{margin:0 0 3px;font-size:13.5px;font-weight:600;}
+.scene .m{font-size:11.5px;color:var(--faint);margin-bottom:9px;}
+.scene .chip{margin:0 4px 4px 0;}
+
+/* footer */
+.foot{max-width:1440px;margin:0 auto;padding:0 28px 70px;color:var(--faint);font-size:12px;line-height:1.8;}
+.foot b{color:var(--sub);font-weight:600;}
+.foot .rule{border:0;border-top:1px solid var(--line);margin:0 0 20px;}
+.foot .ext{margin-top:14px;}
+.foot .ext a{color:var(--green);border-bottom:1px solid var(--green-bd);}
+
+.empty{display:none;padding:60px 0;text-align:center;color:var(--faint);font-size:13.5px;}
+
+@media (max-width:1180px){
+  .chain{grid-template-columns:1fr;}
+  .grid5{grid-template-columns:repeat(2,1fr);}
+  .support-grid{grid-template-columns:repeat(3,1fr);}
+  .grid4{grid-template-columns:repeat(2,1fr);}
+  .search{width:180px;}
+  .legend{display:none;}
+}
+@media (max-width:640px){
+  .top-in{padding:10px 16px;gap:12px;}
+  .brand small{display:none;}
+  .hero,.tabs,.wrap{padding-left:16px;padding-right:16px;}
+  .hero{padding-top:28px;}
+  .grid5,.grid4,.support-grid{grid-template-columns:1fr;}
+  .search{width:auto;flex:1;}
+  .top-link{display:none;}
+  .stats div{margin-right:16px;padding-right:16px;}
+}
+@media print{
+  .top,.tabs,.search{display:none;}
+  .view{display:block !important;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><span class="mark"></span>智驾产业全貌<small>AD Landscape</small></div>
+    <label class="search">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+      <input id="q" type="search" placeholder="搜索企业 / 环节…" autocomplete="off">
+    </label>
+    <a class="top-link" href="#about">关于</a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>自动驾驶供应链图谱</h1>
+  <p>从晶圆代工到矿区矿卡，把这条产业链拆成 29 个环节、<span id="total">0</span> 家企业。点击带绿点的公司名，直达调研报告。</p>
+  <div class="stats">
+    <div><b id="s1">0</b>覆盖企业</div>
+    <div><b id="s2">0<i> 家</i></b>已出调研报告</div>
+    <div><b>29</b>产业链环节</div>
+    <div><b>5</b>技术等级</div>
+    <div><b>8</b>应用场景</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" data-v="chain">供应链图谱</button>
+  <button class="tab" data-v="tech">按技术等级</button>
+  <button class="tab" data-v="scene">按应用场景</button>
+  <div class="legend">
+    <span><i class="dot"></i>有调研报告</span>
+    <span><i class="dot g"></i>暂无报告</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="view on" id="v-chain">
+    <div class="chain">
+      <div class="layer">
+        <div class="layer-h"><span class="n">01</span><span class="t">上游</span><span class="d">材料 · 元器件 · 模组</span></div>
+        <div id="up"></div>
+      </div>
+      <div class="layer">
+        <div class="layer-h"><span class="n">02</span><span class="t">中游</span><span class="d">感知 · 决策 · 执行 · 软件</span></div>
+        <div id="mid"></div>
+      </div>
+      <div class="layer">
+        <div class="layer-h"><span class="n">03</span><span class="t">下游</span><span class="d">整车 · 运营 · 支撑</span></div>
+        <div id="down"></div>
+      </div>
+    </div>
+
+    <div class="support">
+      <div class="support-h"><span class="n">04</span><span class="t">支撑层</span><span class="d">地图 · 数据 · 云算力 · 车路云 · 保险检测</span></div>
+      <div class="support-grid" id="sup"></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-tech">
+    <div class="grid5" id="techGrid"></div>
+  </section>
+
+  <section class="view" id="v-scene">
+    <div class="grid4" id="sceneGrid"></div>
+  </section>
+
+  <div class="empty" id="empty">没有匹配的企业，换个关键词试试。</div>
+</main>
+
+<footer class="foot" id="about">
+  <hr class="rule">
+  <p><b>关于这张图。</b>企业按“主营业环节”归类，横跨多个环节的公司（如华为、特斯拉）会在多处出现，用“多环节”标记。技术等级按“该企业产品所能支持的最高等级”标注；应用场景按“已落地的运营场景”标注。归类为编辑判断，非官方口径。</p>
+  <p><b>数据与免责。</b>企业名单基于公开信息整理，用于行业结构展示，不构成任何投资建议；覆盖不代表推荐。报告内容以原稿为准，数据截止各报告标注日期。</p>
+  <p class="ext"><b>延伸阅读（非车规）：</b><a href="reports/梅卡曼德机器人-首次覆盖报告.html">梅卡曼德机器人 · 工业 3D 视觉</a>　·　<a href="reports/阿里巴巴-首次覆盖报告.html">阿里巴巴（云与算力）</a></p>
+</footer>
+
+<script>
+const SEG = {
+  u1:['上游','光学与镜头'], u2:['上游','光电芯片（激光/探测）'], u3:['上游','车规半导体'],
+  u4:['上游','晶圆代工'], u5:['上游','PCB 与连接器'], u6:['上游','结构件与压铸'],
+  u7:['上游','高精地图与定位'], u8:['上游','数据标注与仿真'], u9:['上游','云与训练算力'],
+  m1:['中游','车载摄像头'], m2:['中游','激光雷达'], m3:['中游','毫米波雷达'],
+  m4:['中游','智驾芯片'], m5:['中游','域控制器'], m6:['中游','算法与方案'],
+  m7:['中游','线控执行'], m8:['中游','车载 OS 与中间件'], m9:['中游','通信模组'],
+  d1:['下游','新势力整车'], d2:['下游','华为系整车'], d3:['下游','传统自主整车'],
+  d4:['下游','商用车'], d5:['下游','Robotaxi'], d6:['下游','无人配送'],
+  d7:['下游','干线物流'], d8:['下游','矿区'], d9:['下游','港口与园区'],
+  d10:['下游','车路云'], d11:['下游','保险与检测']
+};
+const TECH = [
+  ['L2','L2 · 基础辅助','驾驶员担责 · 已标配'],
+  ['L2+','L2+ · 城区 NOA','驾驶员担责 · 放量期'],
+  ['L3','L3 · 有条件','车企担责 · 试点期'],
+  ['L4F','L4 · 封闭场景','运营方担责 · 规模复制'],
+  ['L4O','L4 · 开放道路','运营方担责 · 商业验证']
+];
+const SCENE = [
+  ['乘用车','最大的量，最卷的价格'], ['商用车','重卡与轻卡，TCO 驱动'],
+  ['Robotaxi','单城密度决定生死'], ['配送','末端物流，单车已降至数万元'],
+  ['干线','编队先行，1 拖 2–6'], ['矿区','已跑出正毛利与复购'],
+  ['港口','7×24 作业，效率 +15%'], ['车路云','地方财政驱动，非前置条件']
+];
+const SC = {'乘用车':'乘用车','商用车':'商用车','Robotaxi':'Robotaxi','配送':'配送','干线':'干线','矿区':'矿区','港口':'港口','车路云':'车路云'};
+
+const byReport = (a,b)=> (b[4]?1:0)-(a[4]?1:0);
+const C = [
+["舜宇光学",["u1","m1"],["L2","L2+"],["乘用车"],null],
+["联创电子",["u1","m1"],["L2","L2+"],["乘用车"],null],
+["欧菲光",["u1","m1"],["L2","L2+"],["乘用车"],null],
+["水晶光电",["u1"],["L2","L2+"],["乘用车"],null],
+["蓝特光学",["u1"],["L2+"],["乘用车"],null],
+["丘钛科技",["m1"],["L2","L2+"],["乘用车"],null],
+["纵慧芯光",["u2"],["L2+","L3"],["乘用车"],null],
+["长光华芯",["u2"],["L2+","L3"],["乘用车"],null],
+["灵明光子",["u2"],["L3","L4F"],["乘用车","Robotaxi"],null],
+["芯视界",["u2"],["L3"],["乘用车"],null],
+["兆易创新",["u3"],["L2","L2+"],["乘用车"],null],
+["纳芯微",["u3"],["L2","L2+"],["乘用车"],null],
+["圣邦股份",["u3"],["L2"],["乘用车"],null],
+["北京君正",["u3"],["L2","L2+"],["乘用车"],null],
+["芯驰科技",["u3","m4"],["L2","L2+","L3"],["乘用车"],null],
+["杰发科技",["u3","m4"],["L2","L2+"],["乘用车"],null],
+["台积电",["u4"],["L3","L4F","L4O"],["乘用车","Robotaxi"],null],
+["中芯国际",["u4"],["L2","L2+"],["乘用车"],null],
+["华虹半导体",["u4"],["L2"],["乘用车"],null],
+["世运电路",["u5"],["L2","L2+"],["乘用车"],null],
+["沪电股份",["u5"],["L3","L4F"],["乘用车","Robotaxi"],null],
+["立讯精密",["u5"],["L2","L2+"],["乘用车"],null],
+["瑞可达",["u5"],["L2+"],["乘用车"],null],
+["电连技术",["u5"],["L2+"],["乘用车"],null],
+["旭升集团",["u6"],["L2+"],["乘用车"],null],
+["文灿股份",["u6"],["L2+"],["乘用车"],null],
+["拓普集团",["u6","m7"],["L2+"],["乘用车"],null],
+["四维图新",["u7"],["L2+","L3"],["乘用车"],"四维图新-首次覆盖报告"],
+["高德地图",["u7"],["L2+","L3"],["乘用车"],null],
+["百度地图",["u7"],["L2+","L3"],["乘用车"],null],
+["腾讯地图",["u7"],["L2+"],["乘用车"],null],
+["北斗星通",["u7"],["L2+","L3","L4F"],["乘用车","矿区"],null],
+["华测导航",["u7"],["L3","L4F"],["乘用车","矿区"],null],
+["千寻位置",["u7"],["L2+","L3"],["乘用车"],null],
+["海天瑞声",["u8"],["L2+","L3","L4O"],["乘用车","Robotaxi"],"海天瑞声-首次覆盖报告"],
+["云测数据",["u8"],["L2+"],["乘用车"],null],
+["数据堂",["u8"],["L2+"],["乘用车"],null],
+["腾讯 TAD Sim",["u8"],["L2+","L3"],["乘用车"],null],
+["51WORLD",["u8"],["L2+","L4F"],["乘用车","矿区"],null],
+["深信科创",["u8"],["L2+","L3"],["乘用车"],null],
+["阿里云",["u9"],["L2+","L3","L4O"],["乘用车","Robotaxi","车路云"],"阿里巴巴-首次覆盖报告"],
+["腾讯云",["u9"],["L2+","L3"],["乘用车"],null],
+["华为云",["u9"],["L2+","L3","L4O"],["乘用车","车路云"],null],
+["火山引擎",["u9"],["L2+","L3"],["乘用车"],null],
+["商汤科技",["u9","m6"],["L2+","L3"],["乘用车"],null],
+["德赛西威",["m1","m5"],["L2","L2+","L3"],["乘用车"],"德赛西威-首次覆盖报告"],
+["禾赛科技",["m2"],["L2+","L3","L4F","L4O"],["乘用车","Robotaxi","矿区"],"禾赛科技-首次覆盖报告"],
+["速腾聚创",["m2"],["L2+","L3","L4F"],["乘用车","Robotaxi"],"速腾聚创-首次覆盖报告"],
+["图达通",["m2"],["L2+","L3"],["乘用车"],null],
+["一径科技",["m2"],["L3","L4F"],["乘用车","矿区"],null],
+["亮道智能",["m2"],["L3"],["乘用车"],null],
+["览沃科技",["m2"],["L4F","L4O"],["配送","港口"],null],
+["森思泰克",["m3"],["L2","L2+"],["乘用车"],null],
+["承泰科技",["m3"],["L2+"],["乘用车"],null],
+["楚航科技",["m3"],["L2+"],["乘用车"],null],
+["华域汽车",["m3","m5"],["L2+"],["乘用车"],null],
+["博世",["m3","m5","m7"],["L2","L2+","L3"],["乘用车","港口"],null],
+["大陆集团",["m3","m7"],["L2","L2+"],["乘用车"],null],
+["采埃孚",["m7"],["L3","L4F"],["乘用车","港口"],null],
+["奥迪威",["m3"],["L2"],["乘用车"],null],
+["地平线",["m4"],["L2","L2+","L3"],["乘用车"],"地平线机器人-首次覆盖报告"],
+["黑芝麻智能",["m4"],["L2","L2+"],["乘用车"],"黑芝麻智能-首次覆盖报告"],
+["英伟达",["m4"],["L2+","L3","L4O"],["乘用车","Robotaxi","干线"],null],
+["Mobileye",["m4"],["L2","L2+"],["乘用车"],null],
+["高通",["m4"],["L2+","L3"],["乘用车"],null],
+["特斯拉",["m4","d1","d5"],["L2+","L4O"],["乘用车","Robotaxi"],"特斯拉-首次覆盖报告"],
+["华为",["m4","m5","m6","d2","d10"],["L2","L2+","L3","L4F"],["乘用车","矿区","港口","车路云"],"华为智驾发展报告"],
+["经纬恒润",["m5"],["L2","L2+","L3"],["乘用车","商用车"],"经纬恒润-首次覆盖报告"],
+["华阳集团",["m5"],["L2+"],["乘用车"],null],
+["均胜电子",["m5"],["L2+"],["乘用车"],null],
+["知行科技",["m5"],["L2+"],["乘用车"],"知行科技-首次覆盖报告"],
+["科博达",["m5"],["L2+"],["乘用车"],null],
+["Momenta",["m6"],["L2+","L3"],["乘用车"],"Momenta-首次覆盖报告"],
+["元戎启行",["m6"],["L2+","L3"],["乘用车"],null],
+["轻舟智航",["m6"],["L2+","L4F"],["乘用车","港口"],null],
+["卓驭科技",["m6"],["L2+"],["乘用车"],null],
+["百度 Apollo",["m6","d5"],["L4O"],["Robotaxi"],"百度Apollo-首次覆盖报告"],
+["商汤绝影",["m6"],["L2+"],["乘用车"],null],
+["福瑞泰克",["m6"],["L2","L2+"],["乘用车"],null],
+["所托瑞安",["m6"],["L2"],["商用车"],null],
+["毫末智行",["m6"],["L2+"],["乘用车"],null],
+["Waymo",["m6","d5"],["L4O"],["Robotaxi"],"Waymo-首次覆盖报告"],
+["伯特利",["m7"],["L2+","L3"],["乘用车"],null],
+["亚太股份",["m7"],["L2+","L3"],["乘用车"],null],
+["拿森科技",["m7"],["L3"],["乘用车"],null],
+["耐世特",["m7"],["L3"],["乘用车"],null],
+["浙江世宝",["m7"],["L2+"],["乘用车"],null],
+["保隆科技",["m7"],["L2+"],["乘用车"],null],
+["中鼎股份",["m7"],["L2+"],["乘用车"],null],
+["孔辉科技",["m7"],["L2+"],["乘用车"],null],
+["中科创达",["m8"],["L2+","L3"],["乘用车"],null],
+["斑马智行",["m8"],["L2+"],["乘用车"],null],
+["东软睿驰",["m8"],["L2+"],["乘用车"],null],
+["普华基础软件",["m8"],["L2+","L3"],["乘用车"],null],
+["TTTech",["m8"],["L3"],["乘用车"],null],
+["移远通信",["m9"],["L2+"],["乘用车"],null],
+["广和通",["m9"],["L2+"],["乘用车"],null],
+["美格智能",["m9"],["L2+"],["乘用车"],null],
+["小鹏汽车",["d1"],["L2+","L3","L4O"],["乘用车","Robotaxi"],"小鹏汽车-首次覆盖报告"],
+["蔚来汽车",["d1"],["L2+","L3"],["乘用车"],"蔚来汽车-首次覆盖报告"],
+["理想汽车",["d1"],["L2+","L3"],["乘用车"],null],
+["小米汽车",["d1"],["L2+"],["乘用车"],null],
+["零跑汽车",["d1"],["L2+"],["乘用车"],null],
+["赛力斯",["d2"],["L2+"],["乘用车"],"赛力斯-首次覆盖报告"],
+["北汽蓝谷",["d2"],["L3"],["乘用车"],null],
+["长安汽车",["d2"],["L3"],["乘用车"],null],
+["江淮汽车",["d2"],["L2+"],["乘用车"],null],
+["广汽集团",["d2"],["L3"],["乘用车"],null],
+["比亚迪",["d3"],["L2","L2+"],["乘用车"],null],
+["吉利汽车",["d3"],["L2","L2+"],["乘用车"],null],
+["长城汽车",["d3"],["L2+"],["乘用车"],null],
+["奇瑞汽车",["d3"],["L2+"],["乘用车"],null],
+["上汽集团",["d3"],["L2+"],["乘用车"],null],
+["一汽集团",["d3"],["L2+"],["乘用车"],null],
+["东风汽车",["d3"],["L3"],["乘用车"],null],
+["一汽解放",["d4"],["L2+","L4F"],["商用车","港口"],null],
+["中国重汽",["d4"],["L2+"],["商用车"],null],
+["福田汽车",["d4"],["L2+","L4F"],["商用车","港口"],null],
+["陕重汽",["d4"],["L4F"],["干线"],null],
+["三一重卡",["d4"],["L4F"],["干线"],null],
+["小马智行",["d5","d7"],["L4O"],["Robotaxi","干线"],"小马智行-首次覆盖报告"],
+["文远知行",["d5"],["L4O"],["Robotaxi"],"文远知行-首次覆盖报告"],
+["滴滴自动驾驶",["d5"],["L4O"],["Robotaxi"],"滴滴自动驾驶-首次覆盖报告"],
+["如祺出行",["d5"],["L4O"],["Robotaxi"],null],
+["曹操出行",["d5"],["L4O"],["Robotaxi"],null],
+["T3 出行",["d5"],["L4O"],["Robotaxi"],null],
+["九识智能",["d6"],["L4F"],["配送"],null],
+["新石器",["d6"],["L4F"],["配送"],null],
+["白犀牛",["d6"],["L4F"],["配送"],null],
+["美团",["d6"],["L4F"],["配送"],null],
+["京东物流",["d6"],["L4F"],["配送"],null],
+["卡尔动力",["d7"],["L4F"],["干线"],null],
+["嬴彻科技",["d7"],["L4F"],["干线"],null],
+["主线科技",["d7","d9"],["L4F"],["干线","港口"],null],
+["智加科技",["d7"],["L4F"],["干线"],null],
+["DeepWay 深向",["d7"],["L4F"],["干线"],null],
+["易控智驾",["d8"],["L4F"],["矿区"],"易控智驾-首次覆盖报告"],
+["希迪智驾",["d8"],["L4F"],["矿区"],"希迪智驾-首次覆盖报告"],
+["踏歌智行",["d8"],["L4F"],["矿区"],null],
+["慧拓智能",["d8"],["L4F"],["矿区"],null],
+["博雷顿",["d8"],["L4F"],["矿区"],null],
+["斯年智驾",["d9"],["L4F"],["港口"],null],
+["西井科技",["d9"],["L4F"],["港口"],null],
+["友道智途",["d9"],["L4F"],["港口"],null],
+["仙途智能",["d9"],["L4F"],["港口"],null],
+["酷哇机器人",["d9"],["L4F"],["港口"],null],
+["蘑菇车联",["d10"],["L2+","L4F"],["车路云","乘用车"],"蘑菇车联-首次覆盖报告"],
+["千方科技",["d10"],["L2+"],["车路云"],null],
+["万集科技",["d10"],["L2+","L3"],["车路云"],null],
+["金溢科技",["d10"],["L2+"],["车路云"],null],
+["星云互联",["d10"],["L2+","L3"],["车路云"],null],
+["中国人保",["d11"],["L3","L4F"],["乘用车","Robotaxi"],null],
+["平安产险",["d11"],["L3","L4F"],["乘用车"],null],
+["中国太保",["d11"],["L3","L4F"],["乘用车"],null],
+["中国汽研",["d11","u8"],["L2+","L3"],["乘用车"],null],
+["中汽中心",["d11"],["L2+","L3"],["乘用车"],null]
+];
+
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const reportCount = C.filter(x=>x[4]).length;
+$('#total').textContent = C.length;
+$('#s1').textContent = C.length;
+$('#s2').innerHTML = reportCount + '<i> 家</i>';
+
+function chip(c){
+  const [n,segs,tech,scene,r] = c;
+  const multi = segs.length>1 ? ' multi' : '';
+  const badge = segs.length>1 ? `<span class="mc" title="横跨 ${segs.length} 个环节">${segs.length}</span>` : '';
+  const inner = esc(n) + badge + (r ? '<span class="ar">↗</span>' : '');
+  if(r) return `<a class="chip r${multi}" href="reports/${encodeURIComponent(r)}.html" title="${esc(n)} · 查看调研报告" data-n="${esc(n)}">${inner}</a>`;
+  return `<span class="chip${multi}" data-n="${esc(n)}" title="${esc(n)}（暂无调研报告）">${esc(n)}</span>`;
+}
+
+const up = [], mid = [], down = [], sup = [];
+const SUPPORT_SEGS = ['u7','u8','u9','d10','d11'];
+Object.keys(SEG).forEach(k=>{
+  const [layer,name] = SEG[k];
+  const list = C.filter(c=>c[1].includes(k)).sort(byReport);
+  if(!list.length) return;
+  const html = `<div class="seg" data-seg="${k}">
+    <div class="seg-h"><span class="st">${name}</span><span class="cnt">${list.length}</span></div>
+    <div class="chips">${list.map(chip).join('')}</div>
+  </div>`;
+  if(SUPPORT_SEGS.includes(k)) sup.push(html);
+  else if(layer==='上游') up.push(html);
+  else if(layer==='中游') mid.push(html);
+  else down.push(html);
+});
+$('#up').innerHTML = up.join('');
+$('#mid').innerHTML = mid.join('');
+$('#down').innerHTML = down.join('');
+$('#sup').innerHTML = sup.join('');
+
+$('#techGrid').innerHTML = TECH.map(([k,t,s])=>{
+  const list = C.filter(c=>c[2].includes(k)).sort(byReport);
+  return `<div><div class="col-h"><div class="t">${t}<span class="cc">${list.length}</span></div><div class="s">${s}</div></div>
+    <div class="colbox" data-tech="${k}">${list.map(chip).join('')}</div></div>`;
+}).join('');
+
+$('#sceneGrid').innerHTML = SCENE.map(([k,d])=>{
+  const list = C.filter(c=>c[3].includes(k)).sort(byReport);
+  return `<div class="scene${k==='乘用车'?' wide':''}" data-scene="${k}"><h3>${k}<span class="cc">${list.length}</span></h3><div class="m">${d}</div>
+    <div>${list.map(chip).join('')}</div></div>`;
+}).join('');
+
+document.querySelectorAll('.tab').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+    $('#v-'+b.dataset.v).classList.add('on');
+  };
+});
+
+if(location.hash==='#tech'||location.hash==='#scene'||location.hash==='#chain'){
+  const k = location.hash.slice(1);
+  const b = document.querySelector('.tab[data-v="'+k+'"]');
+  if(b) b.click();
+}
+
+const q = $('#q');
+q.addEventListener('input', ()=>{
+  const v = q.value.trim().toLowerCase();
+  let shown = 0;
+  document.querySelectorAll('.chip').forEach(el=>{
+    const hit = !v || el.dataset.n.toLowerCase().includes(v);
+    el.classList.toggle('hide', !hit);
+    if(hit) shown++;
+  });
+  document.querySelectorAll('.seg, .scene').forEach(el=>{
+    const any = [...el.querySelectorAll('.chip')].some(c=>!c.classList.contains('hide'));
+    el.classList.toggle('hide', !any);
+  });
+  document.querySelectorAll('.colbox').forEach(el=>{
+    const box = el.closest('div').parentElement;
+    const any = [...el.querySelectorAll('.chip')].some(c=>!c.classList.contains('hide'));
+    if(box) box.style.opacity = any ? 1 : .35;
+  });
+  $('#empty').style.display = (v && shown===0) ? 'block' : 'none';
+});
+</script>
+</body>
+</html>

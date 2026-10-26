@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>滴滴自动驾驶（DiDi Autonomous Driving）首次覆盖报告</title>
+<style>
+:root{--ink:#111820;--ink2:#2c3644;--sub:#5f6b7a;--line:#e4e7ec;--line2:#eef1f4;--red:#a8271f;--blue:#1b4a75;--bg:#ffffff;--paper:#fafaf8;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;font-size:15.5px;line-height:1.85;-webkit-font-smoothing:antialiased;}
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.bar-in{max-width:820px;margin:0 auto;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:13px;}
+.bar a{color:var(--blue);text-decoration:none;}
+.bar a:hover{text-decoration:underline;}
+.bar .right{color:var(--sub);font-size:12px;}
+.wrap{max-width:820px;margin:0 auto;padding:40px 24px 90px;background:var(--bg);box-shadow:0 0 0 1px var(--line2);}
+h1{font-size:30px;line-height:1.35;margin:0 0 22px;font-weight:650;letter-spacing:-.01em;}
+h2{font-size:21px;margin:44px 0 14px;font-weight:650;padding-bottom:8px;border-bottom:1px solid var(--line);}
+h3{font-size:17px;margin:30px 0 10px;font-weight:650;color:var(--ink2);}
+h4{font-size:15px;margin:22px 0 8px;font-weight:650;color:var(--ink2);}
+p{margin:0 0 1.05em;}
+strong{font-weight:650;}
+em{font-style:normal;background:linear-gradient(transparent 62%,rgba(168,39,31,.16) 62%);}
+a{color:var(--blue);}
+blockquote{margin:20px 0;padding:14px 20px;border-left:3px solid var(--blue);background:#f4f8fb;color:var(--ink2);font-size:14px;}
+blockquote p:last-child{margin-bottom:0;}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0;}
+th{text-align:left;font-weight:650;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--ink);padding:9px 10px;background:#fcfcfb;}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+tbody tr:hover td{background:#fcfcfb;}
+td[style*="right"],th[style*="right"]{font-family:"SF Mono",Menlo,monospace;}
+ul,ol{margin:0 0 1.1em;padding-left:1.4em;}
+li{margin-bottom:.4em;}
+code{background:#f2f4f6;padding:1px 5px;border-radius:3px;font-size:.88em;font-family:"SF Mono",Menlo,monospace;}
+.toc{border:1px solid var(--line);padding:16px 20px;margin:0 0 34px;background:#fcfcfb;font-size:13.5px;}
+.toc .t{font-weight:650;margin-bottom:8px;font-size:12px;letter-spacing:.08em;color:var(--sub);}
+.toc a{display:block;padding:3px 0;color:var(--ink2);text-decoration:none;border-bottom:1px dashed transparent;}
+.toc a:hover{color:var(--red);border-bottom-color:var(--line);}
+.toc a.l3{padding-left:18px;color:var(--sub);font-size:12.8px;}
+.foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--sub);}
+@media (max-width:720px){.wrap{padding:26px 16px 70px;}h1{font-size:24px;}table{font-size:12px;}}
+@media print{.bar,.toc{display:none;}.wrap{box-shadow:none;max-width:none;}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a href="../index.html">← 返回产业链图谱</a>
+  <span class="right">智驾产业全貌 · 公司调研</span>
+</div></div>
+<div class="wrap">
+<h1>滴滴自动驾驶（DiDi Autonomous Driving）首次覆盖报告</h1><div class="toc"><div class="t">目录</div><a href="#h0">一、摘要：这是"含权量"最高的 Robotaxi 标的</a><a href="#h1">二、这个生意的核心不是技术，是"混合派单"</a><a href="#h2">三、车队与运营：一年半增长 5.4 倍</a><a href="#h3">四、产品：R2 的成本降幅才是真信号</a><a href="#h4">五、融资与估值：这是最值得注意的一节</a><a href="#h5">六、母公司：主业在增长，利润在下滑</a><a href="#h6">七、估值：SOTP 与"含权量"</a><a href="#h7">八、竞争格局：三家模式的对照</a><a href="#h8">九、风险清单</a><a href="#h9">十、跟踪指标（按重要性排序）</a><a href="#h10">十一、评级翻转条件</a><a href="#h11">十二、一句话结论</a></div>
+<p><strong>评级：中性（Hold）— 落在滴滴出行（DIDIY，美股 OTC）｜目标价 4.00 美元｜参考价 3.60 美元（+11.1%）</strong><br />
+<strong>滴滴自动驾驶单独估值约 340 亿元人民币，归属滴滴权益约 221 亿元 = 母公司市值的 19.1%</strong><br />
+<strong>报告日期：2026 年 10 月 26 日</strong></p>
+<blockquote>
+<p><strong>必须最先说清的两个前提</strong>：</p>
+<p><strong>① 滴滴自动驾驶不是独立上市公司</strong>，是滴滴出行旗下的 L4 自动驾驶子公司（境内主体：上海滴滴沃芽科技有限公司），无独立股票代码，不单独披露财报。</p>
+<p><strong>② 母公司滴滴出行 2022 年 6 月已从纽交所退市</strong>，ADS 现以 <strong>DIDIY</strong> 在美股 <strong>OTC Pink（粉单）</strong> 报价 —— <strong>该市场不在主流结构化数据源覆盖范围内，本报告无法获取标准化的行情与财务接口数据</strong>。</p>
+<p>因此本报告做三件事：<strong>Apollo 式业务深研 + 一级市场估值锚定 + 母公司 SOTP 拆分</strong>。所有数据来自公司官网新闻、公开报道与母公司季度披露，非结构化接口。</p>
+</blockquote>
+<hr />
+<h2 id="h0">一、摘要：这是"含权量"最高的 Robotaxi 标的</h2>
+<p>如果一个人只想买自动驾驶，不想买一家巨大的互联网公司，那么在中国几家 Robotaxi 玩家背后，他各能买到多少"纯度"？</p>
+<table>
+<thead>
+<tr>
+<th>标的名</th>
+<th>载体公司</th>
+<th style="text-align: right;">载体市值</th>
+<th style="text-align: right;">自动驾驶业务估值</th>
+<th style="text-align: right;"><strong>含权量</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Waymo</strong></td>
+<td>Alphabet</td>
+<td style="text-align: right;">3.92 万亿美元</td>
+<td style="text-align: right;">1,260 亿美元</td>
+<td style="text-align: right;"><strong>2.7%</strong></td>
+</tr>
+<tr>
+<td><strong>滴滴自动驾驶</strong></td>
+<td>滴滴出行（DIDIY）</td>
+<td style="text-align: right;"><strong>约 162 亿美元</strong></td>
+<td style="text-align: right;"><strong>约 48 亿美元</strong></td>
+<td style="text-align: right;"><strong>19.1%</strong></td>
+</tr>
+<tr>
+<td><strong>Apollo Go</strong></td>
+<td>百度</td>
+<td style="text-align: right;">2,085 亿港元</td>
+<td style="text-align: right;">505—855 亿港元</td>
+<td style="text-align: right;"><strong>24%—41%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>滴滴自动驾驶的含权量是 Waymo 的 7 倍。</strong></p>
+<p><strong>这不是一个技术判断，是一个结构判断：</strong> 滴滴的市值只有 162 亿美元，而它的自动驾驶子公司一级市场估值 340 亿元人民币（约 48 亿美元）——<strong>一家子公司的估值，等于母公司的 30%</strong>。</p>
+<h3>核心结论</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>车队规模</td>
+<td>🟢 <strong>1,446 台</strong>（2026-03-25），从 2024 年底 270 台增长 <strong>5.4 倍</strong>；目标 2026 年底 <strong>3,000+ 台</strong></td>
+</tr>
+<tr>
+<td>商业模式</td>
+<td>🟢 <strong>混合派单</strong>是真差异化——接入滴滴日均数千万单的网络，不需要独立获客</td>
+</tr>
+<tr>
+<td>产品</td>
+<td>🟢 <strong>R2 成本降低 74%</strong>（2,000+ TOPS 三域融合中央计算、33 颗传感器、中欧双五星）</td>
+</tr>
+<tr>
+<td>运营</td>
+<td>🟡 2026-08-31 起在北京/广州示范区通过滴滴 App 开放<strong>全无人试运营</strong>，连续安全运营 2,200 天</td>
+</tr>
+<tr>
+<td><strong>订单数据</strong></td>
+<td>🔴 <strong>完全不披露</strong>。这是无法估值精确的根本原因</td>
+</tr>
+<tr>
+<td><strong>一级市场估值</strong></td>
+<td>🔴 <strong>340 亿元（2026-06 胡润），比 2025 年的 365 亿元下降 6.8%</strong></td>
+</tr>
+<tr>
+<td>母公司财务</td>
+<td>🟡 主业规模在增长（Q2 GTV +9.5%），但<strong>盈利在下滑</strong>（H1 归母 −3.54 亿元，扩大 174.4%）</td>
+</tr>
+<tr>
+<td>载体流动性</td>
+<td>🔴 <strong>OTC 粉单交易</strong>，流动性折价可能吃掉 30%—40% 的价值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话结论：滴滴自动驾驶是这个行业里商业化路径最"取巧"、也最容易被验证的一家——它不需要证明"用户愿不愿意坐无人车"，只需要证明"无人车比网约车便宜"。但它同时是信息最不透明的一家，而且一级市场已经给它降了估值。</strong></p>
+<hr />
+<h2 id="h1">二、这个生意的核心不是技术，是"混合派单"</h2>
+<h3>2.1 一个绕开冷启动难题的设计</h3>
+<p>所有 Robotaxi 公司都面对同一个死循环：<strong>车队少 → 等车久 → 用户不用 → 订单少 → 没钱扩车队。</strong></p>
+<p>滴滴的解法是把自己十年积累的网约车网络当作"接盘方"：</p>
+<blockquote>
+<p><strong>用户在滴滴 App 输入起终点 → 系统判断该区域是否有自动驾驶运力 → 有则派无人车，无则派人工车。</strong></p>
+</blockquote>
+<p><strong>这个机制的意义被严重低估：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>独立 Robotaxi App（Apollo Go / 小马 / 文远）</th>
+<th><strong>滴滴混合派单</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户获取</td>
+<td>需要单独下载 App、单独教育</td>
+<td><strong>复用滴滴数亿用户</strong></td>
+</tr>
+<tr>
+<td>冷启动</td>
+<td>靠补贴拉单量</td>
+<td><strong>天然流量，无需补贴</strong></td>
+</tr>
+<tr>
+<td>空驶率</td>
+<td>车队少时空驶率高</td>
+<td><strong>无人车不够时由人工车兜底</strong></td>
+</tr>
+<tr>
+<td>用户体验</td>
+<td>派不到就流失</td>
+<td><strong>永远派得到车</strong></td>
+</tr>
+<tr>
+<td>数据获取</td>
+<td>只有自家车队的里程</td>
+<td><strong>全部网约车订单的时空分布</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>它把"车队规模"和"用户体验"解耦了。</strong> 这是滴滴独有的、别人抄不走的结构性优势——<strong>因为这个优势的前提是"你已经有一个每天几千万单的打车平台"</strong>。</p>
+<h3>2.2 但也正是这个设计，让它的单位经济无法验证</h3>
+<p><strong>这是这份报告最关键的批评：</strong></p>
+<p><strong>混合派单意味着滴滴自动驾驶没有独立的"收入"科目。</strong> 无人车赚的钱和人工车赚的钱混在一起，公司在财报里披露的是"中国出行 GTV 903.5 亿元（Q2）"——你无法从中拆出自动驾驶贡献了多少。</p>
+<p>对比一下同行：<br />
+- <strong>Pony.ai</strong>：单独披露 Robotaxi 收入（2026Q2 8,192 万元，+691.2%）<br />
+- <strong>文远知行</strong>：披露 L4 收入（2026H1 1.79 亿元，占收入 51.9%）<br />
+- <strong>百度</strong>：不披露 Apollo 收入（但至少披露订单量：Q2 约 100 万单）<br />
+- <strong>滴滴自动驾驶</strong>：<strong>订单量不披露、收入不披露、单均成本不披露、亏损不披露</strong></p>
+<p><strong>公告里唯一给出的运营数据是"车队 1,446 台"和"连续安全运营 2,200 天"。</strong></p>
+<p><strong>一家估值 340 亿元的公司，只披露车队数和安全天数，这在信息透明度上是不合格的。</strong> 这也是我给它中性、而不给更高评级的最直接原因——<strong>不是不看好，是看不到</strong>。</p>
+<h3>2.3 混合派单真正的考验在后面</h3>
+<p>现在无人车数量少（1,446 台 vs 滴滴日均数千万单），所以"无人车不够时人工兜底"很自然。</p>
+<p><strong>但当无人车达到 3,000 台、1 万台时，会产生一个新问题：</strong></p>
+<p><strong>在无人车覆盖的区域内，人工车司机接不到单了。</strong></p>
+<p><strong>这不是技术问题，是利益分配问题。</strong> 滴滴平台上有数百万司机，如果无人车在核心区域抢走订单，会引发司机端的强烈反弹——这个风险在 Waymo（不自营网约车平台）和小马（不拥有司机）身上都不存在，<strong>只有滴滴有</strong>。</p>
+<p><strong>公告和所有公开信息都没有讨论这个问题。这是这份报告认为最被低估的长期风险。</strong></p>
+<hr />
+<h2 id="h2">三、车队与运营：一年半增长 5.4 倍</h2>
+<h3>3.1 车队曲线</h3>
+<table>
+<thead>
+<tr>
+<th>时点</th>
+<th style="text-align: right;">车队规模</th>
+<th style="text-align: right;">增长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024-12-31</td>
+<td style="text-align: right;"><strong>270 台</strong></td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>2026-03-25</td>
+<td style="text-align: right;"><strong>1,446 台</strong></td>
+<td style="text-align: right;"><strong>+435%（15 个月）</strong></td>
+</tr>
+<tr>
+<td>2026 年底（目标）</td>
+<td style="text-align: right;"><strong>3,000+ 台</strong></td>
+<td style="text-align: right;">目标</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这个增速在中国 Robotaxi 玩家中处于第一梯队：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">车队规模</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waymo</td>
+<td style="text-align: right;">约 3,700—3,871 辆</td>
+<td>2026</td>
+</tr>
+<tr>
+<td><strong>滴滴自动驾驶</strong></td>
+<td style="text-align: right;"><strong>1,446 台</strong></td>
+<td>2026-03</td>
+</tr>
+<tr>
+<td>Apollo Go</td>
+<td style="text-align: right;">3,500 辆</td>
+<td>2026Q1</td>
+</tr>
+<tr>
+<td>小马智行</td>
+<td style="text-align: right;">1,975 辆（年底目标 3,500+）</td>
+<td>2026-06</td>
+</tr>
+<tr>
+<td>文远知行</td>
+<td style="text-align: right;">约 3,400 辆 L4（含 1,800+ Robotaxi）</td>
+<td>2026-07</td>
+</tr>
+</tbody>
+</table>
+<p><strong>按 2026 年底 3,000 台的目标，它会进入全球前三。</strong></p>
+<h3>3.2 运营进展</h3>
+<p><strong>① 全无人载客</strong></p>
+<ul>
+<li><strong>2025Q4</strong>：在广州、北京部分示范应用区域开启<strong>全天候、全无人载客测试</strong></li>
+<li><strong>2026-08-31</strong>：R2 开始<strong>全无人服务试运营</strong>，在北京、广州指定示范区域<strong>通过滴滴 App 可下单</strong></li>
+<li><strong>广州部分区域已提供 24/7 全无人载客测试</strong></li>
+<li><strong>连续安全运营超 2,200 天</strong></li>
+</ul>
+<p><strong>② 慧桔港（Huiju Port）—— 全流程运营中心</strong></p>
+<p>集智能回港、充电、清洗功能于一体。<strong>2023 年初就在上海实现 24 小时无间断自动驾驶服务。</strong></p>
+<p><strong>这是容易被忽略的一块资产：Robotaxi 的成本结构里，运维（充电、清洗、泊车、故障处理）占了很大比重，而这块最脏最累的活恰好是滴滴在网约车时代就擅长的。</strong></p>
+<p><strong>③ 出海：依托 14 国网络</strong></p>
+<ul>
+<li>2025-11 加入<strong>阿联酋 SAVI 自动驾驶产业集群</strong></li>
+<li>2026 年内计划在阿联酋开展试点</li>
+<li>滴滴海外出行覆盖 <strong>14 个国家</strong>，全球日服务超 <strong>5,000 万用户</strong></li>
+<li>张博表述：以<strong>混合网络业态</strong>推进自动驾驶出海，首站聚焦"政策友好、需求旺盛的新兴市场"</li>
+</ul>
+<p><strong>这条路径和 Waymo（自建）、小马（与 Uber 合作）、文远（与 Uber/Grab 合作）都不同——滴滴是"带着自己的平台和用户一起出海"。</strong></p>
+<hr />
+<h2 id="h3">四、产品：R2 的成本降幅才是真信号</h2>
+<h3>4.1 R2 的关键参数</h3>
+<p>与<strong>广汽埃安</strong>联合打造（合资公司 2024-04 成立），<strong>2026-01-23 交付</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传感器</td>
+<td><strong>33 颗</strong>（激光雷达 + 摄像头 + 4D 毫米波雷达 + 红外相机 + 音频传感器）</td>
+</tr>
+<tr>
+<td>计算平台</td>
+<td><strong>"Orca 虎鲸"三域融合中央计算大脑，超 2,000 TOPS GPU 算力</strong>（称行业首个量产三域融合）</td>
+</tr>
+<tr>
+<td><strong>成本</strong></td>
+<td><strong>相比上一代降低 74%</strong></td>
+</tr>
+<tr>
+<td>安全</td>
+<td><strong>C-NCAP + Euro NCAP 双五星</strong>；覆盖算法/软件/硬件/制动/转向/通信/供电的多层冗余</td>
+</tr>
+<tr>
+<td>座舱</td>
+<td>17.3 英寸顶置屏、AI 语音（语音完成 PIN 验证、空调、车窗、氛围灯）、紫外线消杀、迎宾开窗通风</td>
+</tr>
+<tr>
+<td>外观识别</td>
+<td>前保险杠智能交互屏显示实时状态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>"成本降低 74%"是这份产品资料里最重要的一句话。</strong></p>
+<p><strong>因为 Robotaxi 的整个商业模式成立条件就是"单车成本足够低"。</strong> 参考 Waymo 的数据：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>第五代（Jaguar）</th>
+<th>第六代 Ojai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整车成本</td>
+<td>15—20 万美元</td>
+<td><strong>5—5.5 万美元</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>全行业的成本曲线都在以"降到三分之一"的速度下移。R2 降 74% 意味着降到了原来的 26%——如果上一代改装成本约 100 万元，R2 约 26 万元。</strong></p>
+<p><strong>这是把 Robotaxi 从"演示品"变成"资产"的关键一步。</strong></p>
+<h3>4.2 一个中国第一</h3>
+<blockquote>
+<p>"这是<strong>中国首次由自动驾驶公司与车企通过合资公司推出 Robotaxi 车型</strong>。"</p>
+</blockquote>
+<p><strong>合资模式的意义</strong>：不是"我买你的车来改装"，而是从设计阶段就按 Robotaxi 需求做前装量产。<strong>这决定了成本、可靠性和产能上限。</strong></p>
+<p>对比：<br />
+- 百度 Apollo Go：与北汽极狐、江铃合作（RT6 基于 Zeekr 底盘）<br />
+- 小马：与丰田、广汽丰田合作<br />
+- 文远：与吉利远程、奇瑞、宇通合作<br />
+- <strong>滴滴：与广汽埃安成立合资公司，深度前装</strong></p>
+<hr />
+<h2 id="h4">五、融资与估值：这是最值得注意的一节</h2>
+<h3>5.1 融资历史：七轮，累计约 132 亿元</h3>
+<table>
+<thead>
+<tr>
+<th>轮次</th>
+<th>时间</th>
+<th>金额</th>
+<th>主要投资方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A 轮</td>
+<td>2020-05</td>
+<td><strong>5 亿美元</strong></td>
+<td>软银愿景基金领投</td>
+</tr>
+<tr>
+<td>战略投资</td>
+<td>2021-01</td>
+<td>3 亿美元</td>
+<td>IDG 资本领投（建银国际、中俄投资基金、国泰君安国际、CPE、Paulson）</td>
+</tr>
+<tr>
+<td>战略投资</td>
+<td>2021-05</td>
+<td>数亿人民币</td>
+<td>广汽集团</td>
+</tr>
+<tr>
+<td>战略投资</td>
+<td>2023-05</td>
+<td>未披露</td>
+<td>Valeo（法雷奥）</td>
+</tr>
+<tr>
+<td>战略投资</td>
+<td>2023-10</td>
+<td>1.49 亿美元</td>
+<td>广州开发区投资集团、广汽资本</td>
+</tr>
+<tr>
+<td>C 轮</td>
+<td>2024-10</td>
+<td><strong>2.98 亿美元</strong></td>
+<td><strong>广汽集团领投</strong>、滴滴</td>
+</tr>
+<tr>
+<td><strong>D 轮</strong></td>
+<td><strong>2025-10</strong></td>
+<td><strong>20 亿元人民币</strong></td>
+<td>海拜科技、滴滴出行、广州广花基金、<strong>广汽集团</strong>、中关村科学城科技成长基金、北京信息产业发展基金</td>
+</tr>
+</tbody>
+</table>
+<p><strong>累计融资约 132 亿元人民币。</strong></p>
+<p><strong>两个观察：</strong></p>
+<p><strong>① 广汽是贯穿全程的战略投资者</strong>——从 2021 年首次投资，到 C 轮领投、D 轮跟投，再到合资公司、R2 前装量产。<strong>这不是财务投资，是产业链绑定。</strong> 这既保证了产能，也意味着滴滴在谈判桌上要让渡一部分。</p>
+<p><strong>② 投资方结构从"美元 VC"变成"地方国资 + 产业资本"</strong>。A 轮是软银愿景，D 轮是中关村科学城、北京信息产业基金、广州广花基金。<strong>这个转变意味着：①融资难度上升；②落地城市与出资方高度绑定（北京、广州）。</strong></p>
+<h3>5.2 估值：一级市场已经降了价</h3>
+<table>
+<thead>
+<tr>
+<th>时点</th>
+<th style="text-align: right;">估值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2025 年（胡润全球独角兽榜）</strong></td>
+<td style="text-align: right;"><strong>365 亿元</strong></td>
+</tr>
+<tr>
+<td><strong>2026-06（胡润全球独角兽榜）</strong></td>
+<td style="text-align: right;"><strong>340 亿元</strong></td>
+</tr>
+<tr>
+<td>变化</td>
+<td style="text-align: right;"><strong>−6.8%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>这是本报告最重要的一个数字。</strong></p>
+<p><strong>在 2026 年这个时间点上，同赛道的希迪智驾、易控智驾都在港股 IPO 融资，Robotaxi 板块虽然杀估值但叙事仍在，而滴滴自动驾驶的一级市场估值却在下降。</strong></p>
+<p><strong>含义：</strong><br />
+- 一级市场对 Robotaxi 的定价在趋于理性<br />
+- 或者是 D 轮融资时点的谈判结果偏保守（国资主导，不以高估值为诉求）<br />
+- <strong>无论哪种，都说明"340 亿元"不是被市场追捧出来的数字，而是被审慎定出来的</strong></p>
+<h3>5.3 一个交叉验证：340 亿元合不合理</h3>
+<p>用同业单车价值法：</p>
+<table>
+<thead>
+<tr>
+<th>参照</th>
+<th style="text-align: right;">单车价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小马智行（市值 22.37 亿美元 / 1,975 辆）</td>
+<td style="text-align: right;"><strong>113 万美元/辆</strong></td>
+</tr>
+<tr>
+<td>Waymo（估值 1,260 亿美元 / 约 3,800 辆）</td>
+<td style="text-align: right;">3,316 万美元/辆</td>
+</tr>
+</tbody>
+</table>
+<p>滴滴自动驾驶 1,446 台 × 113 万美元 = <strong>16.3 亿美元 = 116 亿人民币</strong></p>
+<p><strong>要给到 340 亿元，需要约 3 倍溢价。</strong> 这个溢价可以这样解释：<br />
+- 混合派单带来的流量优势（不需要独立获客）<br />
+- R2 成本降低 74%<br />
+- 慧桔港运维体系<br />
+- 出海 14 国网络<br />
+- 广汽的产能背书</p>
+<p><strong>结论：340 亿元不是拍脑袋的数字，但它对应的是"混合派单优势能兑现"这个前提。如果兑现不了，按单车价值法它只值 116 亿元。</strong></p>
+<p><strong>这个上下限之间差 3 倍。这就是不透明带来的估值困难。</strong></p>
+<hr />
+<h2 id="h5">六、母公司：主业在增长，利润在下滑</h2>
+<p>要理解滴滴自动驾驶为什么重要，必须先看母公司的处境。</p>
+<h3>6.1 规模：还在增长，而且不小</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align: right;">2026Q2</th>
+<th style="text-align: right;">同比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心平台交易量</td>
+<td style="text-align: right;"><strong>50.52 亿单</strong></td>
+<td style="text-align: right;"><strong>+13.2%</strong></td>
+</tr>
+<tr>
+<td>中国出行业务交易量</td>
+<td style="text-align: right;">36.48 亿单</td>
+<td style="text-align: right;">+8.1%</td>
+</tr>
+<tr>
+<td><strong>中国出行 GTV</strong></td>
+<td style="text-align: right;"><strong>903.5 亿元</strong></td>
+<td style="text-align: right;"><strong>+9.5%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>2026Q1：核心平台订单 48 亿单、GTV 1,233 亿元、中国出行日均 <strong>3,940 万单</strong>、国际 GTV <strong>+60%</strong>。</p>
+<p><strong>日均近 4,000 万单的中国出行平台——这是混合派单模式唯一的基础设施，也是任何纯自动驾驶公司都无法复制的东西。</strong></p>
+<h3>6.2 利润：在下滑，而且原因明确</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align: right;">2026H1</th>
+<th style="text-align: right;">同比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>归母净利润</strong></td>
+<td style="text-align: right;"><strong>−3.54 亿元</strong></td>
+<td style="text-align: right;"><strong>扩大 174.4%</strong>（去年同期 −1.29 亿元）</td>
+</tr>
+<tr>
+<td>Q2 经调整 EBIT</td>
+<td style="text-align: right;">5.4 亿元</td>
+<td style="text-align: right;">大幅下滑</td>
+</tr>
+<tr>
+<td>Q2 经调整净利润</td>
+<td style="text-align: right;">2.84 亿元</td>
+<td style="text-align: right;">大幅下滑</td>
+</tr>
+<tr>
+<td><strong>其他创新业务（自动驾驶、充电等）Q2 经调整 EBIT</strong></td>
+<td style="text-align: right;"><strong>−7.42 亿元</strong></td>
+<td style="text-align: right;"><strong>扩大 99%</strong>（去年同期 −3.73 亿元）</td>
+</tr>
+<tr>
+<td>Q2 研发费用</td>
+<td style="text-align: right;"><strong>23.76 亿元</strong></td>
+<td style="text-align: right;"><strong>+22.5%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意最后两行：</strong></p>
+<p><strong>① 创新业务（含自动驾驶）单季亏 7.42 亿元，占研发费用 23.76 亿元的三分之一。</strong></p>
+<p><strong>② 研发费用 +22.5%，而中国出行 GTV 只 +9.5%。</strong> 投入增速快过主业增速。</p>
+<h3>6.3 现金流：一次性的坑已经过去</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align: right;">2026H1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>经营活动现金流净额</td>
+<td style="text-align: right;"><strong>−85.32 亿元</strong></td>
+</tr>
+<tr>
+<td>· Q1 单季</td>
+<td style="text-align: right;"><strong>−77.35 亿元</strong>（含和解集体诉讼支付约 <strong>53 亿元</strong>）</td>
+</tr>
+<tr>
+<td>· Q2 单季</td>
+<td style="text-align: right;"><strong>−7.97 亿元</strong>（已收窄）</td>
+</tr>
+<tr>
+<td><strong>现金及现金等价物等</strong></td>
+<td style="text-align: right;"><strong>486.89 亿元</strong>（2025 年末 557.06 亿元，净减约 70 亿元）</td>
+</tr>
+<tr>
+<td>上半年融资活动净流入</td>
+<td style="text-align: right;">约 +50 亿元</td>
+</tr>
+<tr>
+<td>累计回购（截至 2026-07-31）</td>
+<td style="text-align: right;"><strong>约 4.33 亿份 ADS、耗资约 19.1 亿美元</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Q1 那 53 亿元的集体诉讼和解是一次性的。Q2 经营现金流只流出 7.97 亿元，按此速度，486.89 亿元现金可以支撑很久。</strong></p>
+<p><strong>回购 19.1 亿美元（约 136 亿人民币）占当前市值（162 亿美元）的 11.8%——这是一个相当有力的信号。</strong></p>
+<h3>6.4 资本市场的身份问题</h3>
+<p><strong>这是绕不过去的一节：</strong></p>
+<ul>
+<li>2021 年纽交所上市，市值一度超 600 亿美元</li>
+<li><strong>2022 年 6 月退市</strong>，ADS 转至 <strong>OTC Pink</strong>，代码 DIDIY</li>
+<li><strong>截至 2026-10-09，OTC 价格约 3.60 美元，市值约 162 亿美元</strong>（较上市初期缩水超 70%）</li>
+<li>公司 2026 年年报中仍保留"继续探索符合条件的潜在其他上市安排"的表述</li>
+<li><strong>未启动私有化程序</strong></li>
+</ul>
+<p><strong>OTC Pink 的后果：</strong><br />
+1. <strong>流动性极差</strong>——机构资金多数不能配置（很多基金的合规限制排除粉单）<br />
+2. <strong>信息披露要求低于主板</strong><br />
+3. <strong>无法进入主要指数，没有被动资金</strong><br />
+4. <strong>估值折价是结构性的，不会因为基本面改善而消失</strong></p>
+<p><strong>我的估算：这个流动性+信息披露折价约为 30%—40%。</strong></p>
+<hr />
+<h2 id="h6">七、估值：SOTP 与"含权量"</h2>
+<h3>7.1 关键参数</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align: right;">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>滴滴出行 ADS 价格</td>
+<td style="text-align: right;"><strong>3.60 美元</strong>（2026-10-09）</td>
+</tr>
+<tr>
+<td>母公司市值</td>
+<td style="text-align: right;"><strong>约 162 亿美元 = 约 1,155 亿人民币</strong></td>
+</tr>
+<tr>
+<td>现金及等价物</td>
+<td style="text-align: right;"><strong>486.89 亿元</strong></td>
+</tr>
+<tr>
+<td><strong>滴滴自动驾驶一级市场估值</strong></td>
+<td style="text-align: right;"><strong>340 亿元</strong>（2026-06 胡润）</td>
+</tr>
+<tr>
+<td>滴滴持股比例（估算）</td>
+<td style="text-align: right;"><strong>约 65%</strong>（累计融资 132 亿元后，为非公开信息，<strong>本报告假设</strong>）</td>
+</tr>
+<tr>
+<td><strong>归属滴滴的自动驾驶权益</strong></td>
+<td style="text-align: right;"><strong>约 221 亿元 = 母公司市值的 19.1%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 SOTP 拆分</h3>
+<table>
+<thead>
+<tr>
+<th>分部</th>
+<th>方法</th>
+<th style="text-align: right;">价值（亿元人民币）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>中国出行主业</strong></td>
+<td>2026E 中国出行 GTV 约 3,600 亿元，take rate 约 20% → 收入约 720 亿元；按 EV/GTV 0.15x 或 PE 15x（年化经调整 EBIT 约 80 亿元）</td>
+<td style="text-align: right;"><strong>1,100—1,300</strong></td>
+</tr>
+<tr>
+<td>国际业务</td>
+<td>2026Q1 GTV +60% 但亏损扩大，按 0.3—0.5x PS</td>
+<td style="text-align: right;">150—250</td>
+</tr>
+<tr>
+<td><strong>滴滴自动驾驶（65%）</strong></td>
+<td>一级市场估值 340 亿元 × 65%</td>
+<td style="text-align: right;"><strong>221</strong></td>
+</tr>
+<tr>
+<td>创新业务其他（充电等）</td>
+<td>亏损资产，按清算/低倍数</td>
+<td style="text-align: right;">30—50</td>
+</tr>
+<tr>
+<td>加：净现金</td>
+<td>现金 486.89 亿元，滴滴应为净现金状态</td>
+<td style="text-align: right;"><strong>400—480</strong></td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>1,901—2,301</strong></td>
+</tr>
+<tr>
+<td><strong>减：OTC 流动性+信披折价 35%</strong></td>
+<td>粉单交易的机构配置限制</td>
+<td style="text-align: right;"><strong>−665 至 −805</strong></td>
+</tr>
+<tr>
+<td><strong>调整后</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>1,236—1,496</strong></td>
+</tr>
+<tr>
+<td><strong>对比现价市值 1,155 亿元</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>+7% 至 +30%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>目标价 4.00 美元，对应 +11.1%，落在区间下沿。</strong></p>
+<h3>7.3 那个 19.1% 该怎么用</h3>
+<p><strong>如果一个人只想要自动驾驶敞口：</strong></p>
+<p><strong>买 1 股 3.60 美元的滴滴，其中约 0.69 美元（19.1%）是滴滴自动驾驶。</strong></p>
+<p><strong>这个纯度是 Waymo 的 7 倍（2.7%）。</strong></p>
+<p><strong>但要接受三个代价：</strong><br />
+1. <strong>你同时买了 1,100 亿元的中国网约车业务</strong>（增长个位数、利润在下滑）<br />
+2. <strong>你还买了正在扩大亏损的国际业务</strong><br />
+3. <strong>你买的载体在粉单市场交易，机构买不了</strong></p>
+<p><strong>这与我对百度 Apollo 的判断是同一个逻辑：买百度不是买 Apollo，是买"PB 0.67 + 昆仑芯 IPO + 港股通 + 回购"的组合。买滴滴也不是买滴滴自动驾驶，是买"中国出行 1,100 亿 + 净现金 480 亿 + 自动驾驶期权"的组合。</strong></p>
+<hr />
+<h2 id="h7">八、竞争格局：三家模式的对照</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>滴滴自动驾驶</strong></th>
+<th>小马智行</th>
+<th>文远知行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>车队</td>
+<td><strong>1,446 台</strong>（2026-03）→ 目标 3,000+</td>
+<td>1,975 辆（年底 3,500+）</td>
+<td>约 3,400 辆 L4（1,800+ Robotaxi）</td>
+</tr>
+<tr>
+<td><strong>获客方式</strong></td>
+<td><strong>混合派单（复用滴滴数亿用户）</strong></td>
+<td>自建 App + Uber</td>
+<td>自建 App + Uber/Grab</td>
+</tr>
+<tr>
+<td><strong>订单披露</strong></td>
+<td><strong>🔴 完全不披露</strong></td>
+<td>🟢 Q2 Robotaxi 收入 8,192 万元</td>
+<td>🟡 L4 收入 1.79 亿元</td>
+</tr>
+<tr>
+<td>单位经济</td>
+<td>未披露</td>
+<td><strong>广州、深圳单车盈利转正</strong>（2025-11、2026-02）</td>
+<td>国内单车日均 <strong>21 单</strong>、高峰 28 单；Q2 毛利率 37.5%</td>
+</tr>
+<tr>
+<td>车型合作</td>
+<td><strong>广汽埃安合资（R2，成本 −74%）</strong></td>
+<td>丰田/广汽丰田</td>
+<td>吉利远程、奇瑞、宇通</td>
+</tr>
+<tr>
+<td>出海</td>
+<td><strong>依托滴滴 14 国网络，阿联酋 SAVI</strong></td>
+<td>与 Uber 合作，欧洲五城 2,000 台</td>
+<td>阿布扎比/迪拜纯无人；<strong>西班牙首张国家级 L4 牌照</strong></td>
+</tr>
+<tr>
+<td>资本状态</td>
+<td>未上市（一级市场 340 亿元）</td>
+<td>纳斯达克 PONY + 港股 02026</td>
+<td>纳斯达克 WRD + 港股 0800</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键对比点：</strong></p>
+<p><strong>① 小马智行和文远知行已经在验证单位经济，滴滴还没有。</strong></p>
+<p><strong>小马在广州、深圳实现单车运营盈利转正——这是国内首家在一线城市完成城市级 Robotaxi 盈利验证的企业。文远国内单车日均 21 单、Q2 毛利率 37.5%（这个数字甚至高于禾赛的 39.7% 附近，在 Robotaxi 行业里极罕见）。</strong></p>
+<p><strong>而滴滴的"混合派单"让这个验证在结构上无法进行——因为无人车和人工车的成本收益混在一个池子里。</strong></p>
+<p><strong>② 但滴滴的规模扩张最快。</strong></p>
+<p>从 270 台到 1,446 台用了 15 个月（5.4 倍）。如果 2026 年底真到 3,000 台，它的车队会超过小马和文远。</p>
+<p><strong>③ 混合派单的优势与劣势是同一件事。</strong></p>
+<p>优势：不需要获客、不需要补贴、不需要教育用户。<br />
+劣势：无法独立核算单位经济，也无法证明"用户是真的想坐无人车"还是"只是恰好派到了无人车"。</p>
+<hr />
+<h2 id="h8">九、风险清单</h2>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数据完全不透明</strong></td>
+<td>🔴 高</td>
+<td>订单量、收入、单均成本、亏损全部不披露。<strong>估值只能靠一级市场价和车队数</strong></td>
+</tr>
+<tr>
+<td><strong>一级市场估值已在下调</strong></td>
+<td>🔴 高</td>
+<td>365 亿 → 340 亿（−6.8%）。在同行纷纷 IPO 的背景下，这是反向信号</td>
+</tr>
+<tr>
+<td><strong>混合派单不可独立验证</strong></td>
+<td>🔴 中高</td>
+<td>无人车与人工车混池，无法证明用户主动选择无人车</td>
+</tr>
+<tr>
+<td><strong>司机端利益冲突</strong></td>
+<td>🔴 中高</td>
+<td><strong>车队扩到万级时，无人车会抢走核心区域订单，数百万司机的反弹是结构性问题。这条风险只有滴滴有</strong></td>
+</tr>
+<tr>
+<td><strong>母公司在 OTC 粉单交易</strong></td>
+<td>🔴 中高</td>
+<td>流动性极差、机构无法配置、无指数纳入、估值折价 30%—40% 且不易消除</td>
+</tr>
+<tr>
+<td><strong>母公司盈利下滑</strong></td>
+<td>🟡 中高</td>
+<td>H1 归母 −3.54 亿元（扩大 174.4%）；创新业务 Q2 EBIT −7.42 亿元（扩大 99%）</td>
+</tr>
+<tr>
+<td><strong>自动驾驶亏损不单列</strong></td>
+<td>🟡 中</td>
+<td>混在"其他创新业务"里（Q2 −7.42 亿元，含充电等），无法单独判断自动驾驶烧多少</td>
+</tr>
+<tr>
+<td><strong>对广汽的依赖</strong></td>
+<td>🟡 中</td>
+<td>车型靠广汽埃安合资、C/D 轮靠广汽领投。产能与资本双重绑定，议价空间受限</td>
+</tr>
+<tr>
+<td><strong>出海尚无收入</strong></td>
+<td>🟡 中</td>
+<td>阿联酋 SAVI 只是加入集群，2026 年内才试点</td>
+</tr>
+<tr>
+<td><strong>披露口径随上市地变化</strong></td>
+<td>🟢 低中</td>
+<td>若未来在港股/A 股重新上市，披露会大幅改善，但时点不可控</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="h9">十、跟踪指标（按重要性排序）</h2>
+<ol>
+<li><strong>车队规模与目标达成率</strong> —— 2026 年底 3,000 台能否实现。这是唯一可验证的量化指标</li>
+<li><strong>是否开始披露订单量</strong> —— 哪怕只是"日均单量"，都会让估值从"猜"变成"算"</li>
+<li><strong>混合派单的城市扩展</strong> —— 广州黄埔 → 北京 → 杭州（已签约）→ 更多</li>
+<li><strong>R2 的成本能否守住 −74% 之后的水平</strong> —— 这是商业模式的生死线</li>
+<li><strong>一级市场估值变化</strong> —— 下轮融资的估值 vs 340 亿元</li>
+<li><strong>母公司"其他创新业务"的 EBIT 亏损</strong> —— Q2 −7.42 亿元，看是否继续扩大</li>
+<li><strong>司机端舆情</strong> —— 无人车与网约车司机的利益冲突，是最容易引发监管变化的一条</li>
+<li><strong>重新上市/双重上市的进展</strong> —— 年报中"探索其他上市安排"的表述是否落地</li>
+<li><strong>阿联酋试点的实际投放量</strong> —— 出海第一个实证</li>
+</ol>
+<hr />
+<h2 id="h10">十一、评级翻转条件</h2>
+<p><strong>上调至增持</strong>，需同时满足：<br />
+- ① 开始<strong>披露 Robotaxi 订单量或收入</strong>（信息透明度改善）<br />
+- ② 一级市场估值<strong>恢复上行</strong>（下轮融资估值高于 340 亿元）<br />
+- ③ 母公司"其他创新业务"EBIT 亏损<strong>收窄</strong></p>
+<p><strong>下调至减持</strong>，任一成立：<br />
+- ① 2026 年底车队<strong>未达 2,000 台</strong>（目标 3,000 台）<br />
+- ② 下轮融资<strong>估值低于 300 亿元</strong><br />
+- ③ 出现<strong>大规模网约车司机抗议或监管限制</strong>混合派单<br />
+- ④ 母公司现金跌破 <strong>350 亿元</strong></p>
+<hr />
+<h2 id="h11">十二、一句话结论</h2>
+<p><strong>滴滴自动驾驶做对了一件别人抄不走的事：它把 Robotaxi 挂在一个日均近 4,000 万单的打车平台上，于是"用户不够"这个行业通病对它不存在。</strong></p>
+<p><strong>它做对的第二件事是 R2 成本降了 74%——这是把 Robotaxi 从"演示品"变成"资产"的唯一路径。</strong></p>
+<p><strong>但它做错的（或者说明说没做的）是：一份估值 340 亿元的生意，只肯披露"车队 1,446 台"和"安全运营 2,200 天"。订单量、收入、单均成本、亏损，一个都没有。</strong></p>
+<p><strong>而一级市场已经给它降了价：365 亿 → 340 亿，−6.8%。</strong></p>
+<p><strong>我给中性，目标价 4.00 美元（+11.1%）。不是因为不看好这条路径，而是因为：</strong></p>
+<p><strong>在一个已经有人（小马、文远）用可验证数据证明单位经济转正、而这家只能用"车队数"说话的行业里，"看不到"本身就是一种定价。</strong></p>
+<p><strong>如果你只想要自动驾驶敞口，滴滴的含权量（19.1%）是 Waymo（2.7%）的 7 倍，这是它最实在的优势。但你要接受：你同时买了 1,100 亿元增长个位数的网约车主业，和一个机构买不了的粉单载体。</strong></p>
+<hr />
+<h3>数据来源与口径说明</h3>
+<ol>
+<li><strong>最重要的前提</strong>：<strong>滴滴自动驾驶不是独立上市公司</strong>（境内主体上海滴滴沃芽科技有限公司，成立 2019-03-01）；<strong>滴滴出行 2022-06 从纽交所退市，ADS 以 DIDIY 在 OTC Pink 交易，不在主流结构化数据源覆盖范围</strong>。<strong>本报告无标准化行情与财务接口数据，全部来自公司官网新闻、公开报道与母公司季度披露</strong></li>
+<li><strong>车队数据</strong>：2024-12-31 约 270 台、2026-03-25 约 1,446 台、2026 年底目标 3,000+ 台，均来自公开报道</li>
+<li><strong>估值</strong>：2026-06 胡润全球独角兽榜 340 亿元（2025 年 365 亿元）。<strong>这是第三方榜单口径，非公司确认的融资估值</strong></li>
+<li><strong>滴滴持股比例约 65% 为本报告假设</strong>（累计融资 132 亿元后），公司未披露。<strong>这是 SOTP 中最关键也最不确定的假设，请按自己的判断调整</strong></li>
+<li><strong>母公司数据</strong>：2026Q2 核心平台交易量 50.52 亿单、中国出行 GTV 903.5 亿元；2026H1 归母净利 −3.54 亿元；其他创新业务 Q2 经调整 EBIT −7.42 亿元；现金及等价物 486.89 亿元；回购 4.33 亿份 ADS/19.1 亿美元</li>
+<li><strong>市值</strong>：2026-10-09 OTC 价格 3.60 美元、市值约 162 亿美元（第三方估算）。<strong>OTC 价格波动大且缺乏统一定价，请以实际交易为准</strong></li>
+<li><strong>R2 参数</strong>：33 颗传感器、超 2,000 TOPS 三域融合中央计算、成本降低 74%、C-NCAP+Euro NCAP 双五星，来自滴滴官网新闻稿（2026-01-23、2026-08-31）</li>
+<li><strong>未获取（本报告最大缺口）</strong>：<strong>滴滴自动驾驶的订单量、收入、单均成本、亏损额、滴滴确切持股比例、D 轮对应估值</strong>。<strong>在这六项中任何一项被披露之前，本报告的估值都应当被视为区间估计而非精确值</strong></li>
+<li><strong>对比数据</strong>：Waymo 估值 1,260 亿美元、Alphabet 市值约 3.92 万亿美元（2026-10-26）；Apollo Go 单独估值 505—855 亿港元、百度市值 2,084.84 亿港元。均引自本对话前序报告，同一时点口径</li>
+</ol>
+<hr />
+<p>⚠️ 本报告仅供参考，<strong>不构成个人投资建议</strong>。滴滴出行 ADS 在 <strong>OTC 粉单市场</strong>交易，流动性极差、信息披露要求低于主板、多数机构投资者无法配置；<strong>滴滴自动驾驶为未上市子公司，无独立交易标的</strong>。本报告核心假设（滴滴持股 65%、一级市场估值 340 亿元）均存在重大不确定性。请以公司正式公告为准。</p>
+<div class="foot">本页由 Markdown 原稿自动生成，内容以原稿为准。数据与观点仅作研究记录，不构成投资建议。</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蘑菇车联（MOGOX）首次覆盖报告</title>
+<style>
+:root{--ink:#111820;--ink2:#2c3644;--sub:#5f6b7a;--line:#e4e7ec;--line2:#eef1f4;--red:#a8271f;--blue:#1b4a75;--bg:#ffffff;--paper:#fafaf8;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;font-size:15.5px;line-height:1.85;-webkit-font-smoothing:antialiased;}
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.bar-in{max-width:820px;margin:0 auto;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:13px;}
+.bar a{color:var(--blue);text-decoration:none;}
+.bar a:hover{text-decoration:underline;}
+.bar .right{color:var(--sub);font-size:12px;}
+.wrap{max-width:820px;margin:0 auto;padding:40px 24px 90px;background:var(--bg);box-shadow:0 0 0 1px var(--line2);}
+h1{font-size:30px;line-height:1.35;margin:0 0 22px;font-weight:650;letter-spacing:-.01em;}
+h2{font-size:21px;margin:44px 0 14px;font-weight:650;padding-bottom:8px;border-bottom:1px solid var(--line);}
+h3{font-size:17px;margin:30px 0 10px;font-weight:650;color:var(--ink2);}
+h4{font-size:15px;margin:22px 0 8px;font-weight:650;color:var(--ink2);}
+p{margin:0 0 1.05em;}
+strong{font-weight:650;}
+em{font-style:normal;background:linear-gradient(transparent 62%,rgba(168,39,31,.16) 62%);}
+a{color:var(--blue);}
+blockquote{margin:20px 0;padding:14px 20px;border-left:3px solid var(--blue);background:#f4f8fb;color:var(--ink2);font-size:14px;}
+blockquote p:last-child{margin-bottom:0;}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0;}
+th{text-align:left;font-weight:650;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--ink);padding:9px 10px;background:#fcfcfb;}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+tbody tr:hover td{background:#fcfcfb;}
+td[style*="right"],th[style*="right"]{font-family:"SF Mono",Menlo,monospace;}
+ul,ol{margin:0 0 1.1em;padding-left:1.4em;}
+li{margin-bottom:.4em;}
+code{background:#f2f4f6;padding:1px 5px;border-radius:3px;font-size:.88em;font-family:"SF Mono",Menlo,monospace;}
+.toc{border:1px solid var(--line);padding:16px 20px;margin:0 0 34px;background:#fcfcfb;font-size:13.5px;}
+.toc .t{font-weight:650;margin-bottom:8px;font-size:12px;letter-spacing:.08em;color:var(--sub);}
+.toc a{display:block;padding:3px 0;color:var(--ink2);text-decoration:none;border-bottom:1px dashed transparent;}
+.toc a:hover{color:var(--red);border-bottom-color:var(--line);}
+.toc a.l3{padding-left:18px;color:var(--sub);font-size:12.8px;}
+.foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--sub);}
+@media (max-width:720px){.wrap{padding:26px 16px 70px;}h1{font-size:24px;}table{font-size:12px;}}
+@media print{.bar,.toc{display:none;}.wrap{box-shadow:none;max-width:none;}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a href="../index.html">← 返回产业链图谱</a>
+  <span class="right">智驾产业全貌 · 公司调研</span>
+</div></div>
+<div class="wrap">
+<h1>蘑菇车联（MOGOX）首次覆盖报告</h1><div class="toc"><div class="t">目录</div><a href="#h0">⚠️ 阅读前必读：三个前提</a><a href="#h1">一、核心结论</a><a href="#h2">二、第一个必须拆的数字：110 亿签约 vs 21 亿全国市场</a><a href="#h3">三、新加坡首单：814 万元，一个完美的样板和一个极小的数字</a><a href="#h4">四、模式转向：这是它做对的最大一件事</a><a href="#h5">五、车路云这条路线的现实：一个正在退潮的赛道</a><a href="#h6">六、股东结构：腾讯、顺丰、京东、地方国资</a><a href="#h7">七、估值：三个方法交叉，结论是"高估"</a><a href="#h8">八、如果想买蘑菇车联敞口，唯一有意义的载体是今创集团</a><a href="#h9">九、多空对照</a><a href="#h10">十、风险清单</a><a href="#h11">十一、跟踪指标（12 个月）</a><a href="#h12">十二、最终判断</a><a href="#h13">数据来源与口径说明</a></div>
+<p><strong>报告日期：2026 年 10 月 26 日</strong></p>
+<p><strong>评级：未评级（Not Rated）— 不可直接买入</strong></p>
+<p><strong>合理估值区间：人民币 50–75 亿元（中值 62.5 亿元）</strong></p>
+<p><strong>一级市场参考估值：207.84 亿元（亿欧数据）/ 10 亿美元 ≈ 71 亿元（深圳独角兽报告）</strong></p>
+<hr />
+<h2 id="h0">⚠️ 阅读前必读：三个前提</h2>
+<h3>前提一：这是一家未上市公司，买不到</h3>
+<p>蘑菇车联<strong>不是上市公司</strong>，没有股票代码，没有公开财报。</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>主体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌</td>
+<td>蘑菇车联（MOGOX，官网 mogox.com / mogo.ai）</td>
+</tr>
+<tr>
+<td>运营主体</td>
+<td><strong>蘑菇车联信息科技有限公司</strong>（智道网联 100% 持股，认缴 53,544 万元）</td>
+</tr>
+<tr>
+<td>控股主体</td>
+<td><strong>智道网联科技（深圳）有限公司</strong>（2018-01-05 成立，法定代表人朱磊，注册资本 1,835.45 万元）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>必须纠正一处流传甚广的错误</strong>：某份《2026 深圳独角兽企业研究报告》在蘑菇车联条目下标注了"股票代码 838497"。经核实，<strong>838497 是"中商产业"（新三板）的代码，与蘑菇车联毫无关系</strong>——那份报告把自己的文档编号误当成了股票代码。这类错误在小众榜单里并不罕见，但它提醒了一件事：<strong>关于这家公司的公开数据，可信度需要逐条验证。</strong></p>
+</blockquote>
+<h3>前提二：它的公开财务数据为零</h3>
+<p>蘑菇车联<strong>从未披露</strong>任何期间的收入、毛利、净利润、现金流、订单转化率。唯一可得的量化信息是<strong>公司自己发布的宣传口径</strong>：</p>
+<ul>
+<li>"签约总金额突破 110 亿元"</li>
+<li>"国内 20 余城落地运营"</li>
+<li>"累计行驶里程突破 500 万公里"</li>
+<li>"服务乘客超 20 万人次"</li>
+</ul>
+<p>这四项<strong>全部没有审计、没有口径定义、没有第三方验证</strong>。本报告的估值因此只能建立在外部推算与可比公司对照之上，<strong>必须视为区间估计，不是精确值</strong>。</p>
+<h3>前提三：有两个相差 3 倍的估值口径</h3>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th style="text-align: right;">估值</th>
+<th style="text-align: right;">折人民币</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>亿欧数据（更新至 2026-06-30）</td>
+<td style="text-align: right;"><strong>207.84 亿元</strong></td>
+<td style="text-align: right;">207.84 亿</td>
+</tr>
+<tr>
+<td>深圳独角兽企业研究报告（2026）</td>
+<td style="text-align: right;"><strong>10 亿美元</strong></td>
+<td style="text-align: right;">约 71 亿</td>
+</tr>
+</tbody>
+</table>
+<p><strong>同一家公司，估值差 2.9 倍。</strong> 这个差异不是误差，是本报告要回答的核心问题之一。</p>
+<hr />
+<h2 id="h1">一、核心结论</h2>
+<p><strong>一句话：这是一家技术路线正确、海外突破真实、但被自己的宣传口径严重高估的公司。</strong></p>
+<p>三个关键判断：</p>
+<ol>
+<li>
+<p><strong>它的"110 亿签约额"与全国市场 21 亿的规模存在数量级矛盾</strong>——这不是会计问题，是性质问题。"签约"是战略框架协议，"市场"是实际成交。两者之间的转化率，是评估这家公司唯一重要的变量。</p>
+</li>
+<li>
+<p><strong>新加坡首单是一个完美的样板，但只有 814 万元</strong>——象征意义 100 分，财务意义接近 0 分。然而它证明了模式可复制，这是全篇最实质的利好。</p>
+</li>
+<li>
+<p><strong>合理的估值中枢在 50–75 亿元，而亿欧的 207.84 亿高出 2.8–4.2 倍</strong>。反倒是那个看起来保守的"10 亿美元"，落在了合理区间内。</p>
+</li>
+</ol>
+<hr />
+<h2 id="h2">二、第一个必须拆的数字：110 亿签约 vs 21 亿全国市场</h2>
+<p>这是整份报告最重要的一节。</p>
+<h3>公司口径</h3>
+<p>C2/C+ 轮融资（2023 年 5 月，5.8 亿元）时的对外口径：</p>
+<blockquote>
+<p>"其'车路云一体化'方案已在<strong>北京、湖南、云南、山东、四川等 10 多个省市落地，签约总金额突破 110 亿元</strong>。"</p>
+</blockquote>
+<p>同期公开的单个项目签约：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align: right;">金额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无锡梁溪区</td>
+<td style="text-align: right;"><strong>约 20 亿元</strong></td>
+</tr>
+<tr>
+<td>湖北鄂州临空经济区</td>
+<td style="text-align: right;"><strong>约 11.14 亿元</strong></td>
+</tr>
+<tr>
+<td>云南大理环洱海</td>
+<td style="text-align: right;">约 2.89 亿元（一期）</td>
+</tr>
+</tbody>
+</table>
+<h3>行业实际规模</h3>
+<p>赛文研究院《2026 年中国车路云一体化市场研究报告》：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align: right;">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2025 年中国车路云一体化市场规模</strong></td>
+<td style="text-align: right;"><strong>约 21 亿元</strong></td>
+</tr>
+<tr>
+<td>同比</td>
+<td style="text-align: right;"><strong>下降超 30%</strong></td>
+</tr>
+<tr>
+<td>项目数量</td>
+<td style="text-align: right;">同比 <strong>+20%</strong></td>
+</tr>
+<tr>
+<td>单项目平均投资额</td>
+<td style="text-align: right;">显著下降</td>
+</tr>
+<tr>
+<td>示范城市投资占比</td>
+<td style="text-align: right;"><strong>87%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>矛盾就在这里</h3>
+<p><strong>如果全国车路云一体化一年的实际成交规模只有 21 亿元，一家公司怎么可能在一年里"签约 110 亿"？</strong></p>
+<p>答案只有一个：<strong>"签约"不等于"订单"，更不等于"收入"。</strong></p>
+<p>地方政府的"战略合作协议"通常是<strong>框架性、非约束性、分期分批、视财政情况启动</strong>的。一个 20 亿元的框架协议，实际落地可能是第一期 3,000 万元的某几个路口改造，后面的 19.7 亿永远不会发生。</p>
+<p><strong>这不是蘑菇车联独有的问题，而是整个 To G 基建行业的通例。</strong> 但对蘑菇车联而言，这个口径被反复用于融资和品牌宣传，就构成了实质的误导。</p>
+<h3>一个可验证的旁证：中标名单里几乎没有它</h3>
+<p>我把 2026 年公开披露的车路云项目中标结果整理了一遍：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align: right;">金额</th>
+<th><strong>中标方</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>十堰市（一期）</td>
+<td style="text-align: right;">1.188 亿元</td>
+<td>武汉东研智慧设计院、<strong>中信科智联</strong>、中国移动湖北、十堰建投市政</td>
+</tr>
+<tr>
+<td>长春市（标段 2）</td>
+<td style="text-align: right;">1.30 亿元</td>
+<td><strong>中移系统集成</strong></td>
+</tr>
+<tr>
+<td>长春市（标段 3）</td>
+<td style="text-align: right;">1.35 亿元</td>
+<td><strong>联通数字科技</strong></td>
+</tr>
+<tr>
+<td>长春市（标段 4）</td>
+<td style="text-align: right;">1.05 亿元</td>
+<td><strong>中通服和信科技</strong></td>
+</tr>
+<tr>
+<td>北京四环路</td>
+<td style="text-align: right;">13.32 亿元</td>
+<td>设计阶段</td>
+</tr>
+<tr>
+<td>天津河北区</td>
+<td style="text-align: right;">3.00 亿元</td>
+<td>项目备案</td>
+</tr>
+<tr>
+<td>扬州江都经开区</td>
+<td style="text-align: right;">3.01 亿元</td>
+<td>项目备案</td>
+</tr>
+<tr>
+<td>湖北宜宾</td>
+<td style="text-align: right;">1.32 亿元</td>
+<td>设计阶段</td>
+</tr>
+</tbody>
+</table>
+<p><strong>在这份名单里，一次都没有出现蘑菇车联（或智道网联）。</strong></p>
+<p><strong>这是本报告最硬的一个发现：车路云基础设施的实际中标者，是三大运营商（移动/联通/电信的系统集成公司）、央企设计院（中信科智联、中通服）和地方国资建设平台。</strong> 科技创业公司在这个环节拿到的是分包，不是总包。</p>
+<p>所以"110 亿签约"的真实含义，最乐观的解读是"参与过的项目规划总投资额"，最悲观的解读是"发过新闻稿的框架协议总额"。</p>
+<h3>2026 年的市场规模</h3>
+<p>2026 年是 20 个试点城市的<strong>收官年</strong>，各地在密集招标：</p>
+<ul>
+<li>上半年公布项目总金额超 <strong>70 亿元</strong>（含框架）</li>
+<li>北京 21 天内披露 8 个招标计划、涉及 16 个区域、投资总额约 <strong>45.86 亿元</strong></li>
+</ul>
+<p><strong>2026 年体量会明显高于 2025 年的 21 亿元，但这是因为收官冲刺，不是市场自然增长。收官之后呢？</strong></p>
+<p>20 个试点城市 2024 年 7 月公布，2026 年收官——<strong>没有第二批大规模扩容的明确信号</strong>。这意味着 2027 年起，车路云基建这个收入池可能显著缩水。</p>
+<p><strong>这是蘑菇车联必须完成转型的根本压力，也是它近两年全力转向 RoboBus 的真实原因。</strong></p>
+<hr />
+<h2 id="h3">三、新加坡首单：814 万元，一个完美的样板和一个极小的数字</h2>
+<h3>交易结构</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td><strong>2025 年 10 月</strong>中标，2026 年 3 月车辆抵达新加坡</td>
+</tr>
+<tr>
+<td>招标方</td>
+<td><strong>新加坡陆路交通管理局（LTA）</strong></td>
+</tr>
+<tr>
+<td>中标方</td>
+<td>联合体：<strong>蘑菇车联 + 比亚迪 + MKX Technologies</strong>（独家）</td>
+</tr>
+<tr>
+<td><strong>合同金额</strong></td>
+<td><strong>约 814 万元人民币</strong></td>
+</tr>
+<tr>
+<td>采购内容</td>
+<td><strong>6 辆 16 座 L4 级自动驾驶巴士</strong></td>
+</tr>
+<tr>
+<td>线路</td>
+<td><strong>纬壹科技城 191 路、滨海湾 400 路</strong>（常规公交线路）</td>
+</tr>
+<tr>
+<td>运营方</td>
+<td><strong>康福德高巴士</strong>（ComfortDelGro Bus，新加坡最大私营巴士运营商）</td>
+</tr>
+<tr>
+<td>票价</td>
+<td>与普通公共巴士一致，成本不转嫁乘客</td>
+</tr>
+</tbody>
+</table>
+<h3>为什么 814 万是一个"完美"的数字</h3>
+<p><strong>因为它是全篇最有力的证据，证明模式可以跑通：</strong></p>
+<ol>
+<li><strong>采购主体明确</strong>——LTA 出钱买系统、买整车，不需要教育 C 端用户、不需要补贴拉新、不承担定价风险</li>
+<li><strong>运营责任清晰</strong>——日常运营交给本土运营商，蘑菇车联只负责交付车辆 + 确保系统稳定</li>
+<li><strong>进入了最严苛的准入体系</strong>——新加坡要求从 M1 封闭场地测试到远程运营评估的全链条准入</li>
+<li><strong>首次进入发达国家公交骨干网络</strong>——这是中国自动驾驶巴士的第一次</li>
+</ol>
+<p><strong>它同时解释了蘑菇车联为什么必须从 To G 基建转向 To P（Public Procurement）：</strong> 政府采购的确定性、回款可靠性、可复制性，全面优于地方政府框架协议。</p>
+<h3>为什么 814 万也是一个"残酷"的数字</h3>
+<p><strong>814 万 ÷ 6 辆 = 每辆 135.7 万元。</strong></p>
+<p>对照它宣传的"110 亿签约"，这笔真实落地的海外首单是签约额的 <strong>0.07%</strong>。</p>
+<p>即使假设新加坡后续扩展到圣淘沙、大士等区域，假设规模扩大 10 倍到 60 辆，也只有 8,140 万元。</p>
+<p><strong>新加坡项目 2026 年能贡献的收入，最乐观估计不超过 1,000 万元量级。</strong></p>
+<h3>但这确实是国内 RoboBus 同行没做到的事</h3>
+<table>
+<thead>
+<tr>
+<th>玩家</th>
+<th>主战场</th>
+<th>海外进展</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>蘑菇车联</strong></td>
+<td>城市公交、景区、口岸</td>
+<td><strong>新加坡（已交付）、卢森堡、韩国（LG）、欧洲（CLEMENT BAYARD）</strong></td>
+</tr>
+<tr>
+<td>文远知行</td>
+<td>Robotaxi + Robobus（广州 10+ 线路）</td>
+<td>11 国牌照，但以 Robotaxi 为主</td>
+</tr>
+<tr>
+<td>驭势科技</td>
+<td><strong>机场</strong>（市占率 90.5%，天山机场 160 万公里）</td>
+<td>有限</td>
+</tr>
+<tr>
+<td>苏州金龙（海格清源）</td>
+<td>国内多省市示范运营</td>
+<td>有限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>蘑菇车联是唯一把"RoboBus 出口到发达国家公交系统"这条路走通的中国公司。</strong> 这个位置值得给溢价，但溢价有上限。</p>
+<h3>2026 年的海外节奏（公司官网口径）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025.10</td>
+<td>独家中标新加坡 LTA 首个 L4 RoboBus 官方项目</td>
+</tr>
+<tr>
+<td>2026.01</td>
+<td>与 <strong>LG 电子</strong>战略合作，联合拓展中韩市场</td>
+</tr>
+<tr>
+<td>2026.03</td>
+<td>新一代 MOGOBUS 登陆新加坡（新加坡首辆自动驾驶公交巴士）；横琴"琴澳医线"开通</td>
+</tr>
+<tr>
+<td>2026.05</td>
+<td>日照万平口景区首条自动驾驶接驳环线试运营</td>
+</tr>
+<tr>
+<td>2026.07</td>
+<td>与<strong>康福德高巴士</strong>战略合作；新加坡全国交通工友联合会牵头、联合 LTA 及新捷运/SMRT/易塔通/前进巴士四大运营商 + 裕廊港组团到访</td>
+</tr>
+<tr>
+<td>2026.09</td>
+<td>与卢森堡 <strong>Sales-Lentz</strong>、法国 <strong>CLEMENT BAYARD</strong> 签约，成为卢森堡引入的首家中国自动驾驶巴士企业</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一年内从 1 个海外项目变成 4 个国家和地区的接触面</strong>——这个节奏是真的快。但要注意：<strong>除了新加坡是正式中标合同，其余全部是"战略合作/合作协议"</strong>，没有金额、没有数量、没有时间表。这和"110 亿签约"是同一个性质。</p>
+<hr />
+<h2 id="h4">四、模式转向：这是它做对的最大一件事</h2>
+<h3>从"卖基建"到"卖车"</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>旧模式（2021–2023）</th>
+<th><strong>新模式（2024–）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户</td>
+<td>地方政府</td>
+<td>公交运营商 / 交通主管部门</td>
+</tr>
+<tr>
+<td>产品</td>
+<td>车路云一体化系统总包</td>
+<td><strong>前装量产 L4 RoboBus + 路侧系统</strong></td>
+</tr>
+<tr>
+<td>收入性质</td>
+<td>项目制、分期、回款慢</td>
+<td>交付制、可复制、有明确合同</td>
+</tr>
+<tr>
+<td>单项目金额</td>
+<td>亿元级（框架）</td>
+<td>千万元级（实单）</td>
+</tr>
+<tr>
+<td><strong>可复制性</strong></td>
+<td>低（每个城市重新谈）</td>
+<td><strong>高（同一套产品交付）</strong></td>
+</tr>
+<tr>
+<td>资产属性</td>
+<td>重（要垫资建设）</td>
+<td><strong>相对轻</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>支撑转型的技术底牌</h3>
+<p>公司自己披露的两个数字，如果成立，是这个模式的核心竞争力：</p>
+<ol>
+<li><strong>硬件成本仅为传统机械雷达方案的 1/3 到 1/5</strong></li>
+<li><strong>车型适配周期从行业平均 4–10 个月压缩到 2 个月</strong></li>
+</ol>
+<p>第 2 条比第 1 条更重要。<strong>在 B 端公交采购里，"能不能快速适配不同车企的底盘"决定了能不能接单。</strong> 蘑菇车联的做法是从车辆设计之初就把自动驾驶系统与整车深度融合（副总裁吕斌的表述），并与比亚迪联合开发——这解释了它为什么能和比亚迪组联合体去投标。</p>
+<p>技术路线是 <strong>"前装量产 + 视觉与固态激光雷达融合"</strong>，加上 MogoMind 多模态物理世界模型（2025 年 7 月 WAIC 发布）。</p>
+<h3>产品矩阵</h3>
+<ul>
+<li>MOGO BUS（自动驾驶巴士）— <strong>核心产品</strong></li>
+<li>MOGO ROBO-TAXI（自动驾驶出租车）</li>
+<li>MOGO SCOUT（自动驾驶清扫车）</li>
+<li>MOGO PATROL（自动驾驶巡逻车）</li>
+<li>MOGO LOGISTICS（自动驾驶物流车）</li>
+<li>智慧交通 AI 云平台（车联网数据分析、信号控制、拥堵预测、智能停车）</li>
+</ul>
+<p><strong>产品线铺得很宽。这在 To G 时代是加分项（什么都能卖），在 To P 时代可能是减分项</strong>——因为公交客户只看一件事：你的巴士能不能稳定跑三年。</p>
+<hr />
+<h2 id="h5">五、车路云这条路线的现实：一个正在退潮的赛道</h2>
+<h3>支持方与反对方的核心论据</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>支持车路协同</th>
+<th>反对（单车智能足够）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>逻辑</td>
+<td>路侧感知补足车端盲区，降低车端成本，实现超视距</td>
+<td>端到端大模型进步太快，车端能力每年翻倍</td>
+</tr>
+<tr>
+<td>证据</td>
+<td>20 城 6 万套设备、5.7 万公里测试道路</td>
+<td>特斯拉纯视觉、华为 ADS 白盒无图</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>车端可减配</td>
+<td><strong>路侧基建投资巨大且回收不明</strong></td>
+</tr>
+<tr>
+<td>现实</td>
+<td>2025 年市场 21 亿、<strong>同比 −30%</strong></td>
+<td>单车智能已在 L2++ 大规模量产</td>
+</tr>
+</tbody>
+</table>
+<p><strong>我必须指出一个对蘑菇车联不利的事实：它押注的"车路云"路线，在中国正处于"政策明确支持，但商业规模收缩"的尴尬状态。</strong></p>
+<p>2025 年市场规模同比 <strong>−30%</strong>，说明地方财政在收紧；20 城试点 2026 年收官，没有第二批大规模扩容。这两个信号叠加，意味着<strong>路侧基建这个收入池在 2027 年会显著变小</strong>。</p>
+<h3>但今天出现了一个新变量</h3>
+<p><strong>2026 年 10 月 26 日（今日），车联网板块集体异动</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>个股</th>
+<th style="text-align: right;">当日涨幅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多伦科技</td>
+<td style="text-align: right;">开盘一字涨停</td>
+</tr>
+<tr>
+<td><strong>金溢科技（002869）</strong></td>
+<td style="text-align: right;"><strong>+9.99%（涨停）</strong></td>
+</tr>
+<tr>
+<td><strong>万集科技（300552）</strong></td>
+<td style="text-align: right;"><strong>触及 20cm 涨停，收 +13.22%</strong></td>
+</tr>
+<tr>
+<td>汉鑫科技</td>
+<td style="text-align: right;">一度涨超 20%</td>
+</tr>
+<tr>
+<td>鸿泉技术、高新兴、皖通科技</td>
+<td style="text-align: right;">跟涨</td>
+</tr>
+</tbody>
+</table>
+<p><strong>催化剂是：C-V2X（蜂窝车联网）强制国家标准制定工作已启动，工作组已成立，几十家单位参与。</strong></p>
+<p>政策脉络：<br />
+- 2026 年 7 月，交通运输部发布国家标准《营运车辆运营安全技术和管理要求》（计划编号 20254333-Q-348）征求意见稿<br />
+- 明确落地时间表：<strong>标准实施满 25 个月后，国内所有新增营运客车、货车、牵引列车必须出厂搭载 LTE-V2X 直连车载交互终端</strong><br />
+- 这意味着 <strong>C-V2X 终端首次以强制国标形式要求前装量产</strong></p>
+<p><strong>对蘑菇车联的意义：中性偏正面，但不要误读。</strong></p>
+<p>正面：C-V2X 强标会推动路侧设备与车端终端的双向渗透，理论上扩大"车路云"生态。</p>
+<p><strong>但受益的第一顺位不是它。</strong> 强标强制的是<strong>车载终端前装</strong>，直接受益方是终端设备商——金溢科技、万集科技、高新兴、鸿泉技术。蘑菇车联是<strong>系统集成与运营方</strong>，强标不会自动变成它的订单。</p>
+<p><strong>而且这条消息的信息源是"一位不愿透露姓名的 C-V2X 领域从业者向记者透露"</strong>——不是工信部或交通部的官方公告。这类消息驱动的主题行情通常持续时间短、回落快。</p>
+<h3>竞争者名单（它的真实对手）</h3>
+<table>
+<thead>
+<tr>
+<th>战线</th>
+<th>对手</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>车路云基建</strong>（政府总包）</td>
+<td>三大运营商系统集成公司、中信科智联、中通服、千方科技（002373，市值 127 亿）、万集科技（300552，48 亿）、金溢科技（002869，35 亿）</td>
+</tr>
+<tr>
+<td><strong>RoboBus 产品</strong></td>
+<td>文远知行（00800.HK，108 亿港元）、驭势科技（机场场景 90.5% 份额）、苏州金龙海格清源</td>
+</tr>
+<tr>
+<td><strong>海外 RoboBus</strong></td>
+<td>目前几乎没有直接对手（Waymo/百度做 C 端 Robotaxi，不做公交）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>最值得注意的一点：蘑菇车联在"车路云基建"这条战线上，实际上并不占优势。</strong> 它的真正差异化优势在"RoboBus 前装量产 + 海外公交系统落地"这个交叉点上——<strong>这是它唯一值得被单独定价的地方。</strong></p>
+<hr />
+<h2 id="h6">六、股东结构：腾讯、顺丰、京东、地方国资</h2>
+<h3>股权穿透（两个口径，存在差异）</h3>
+<p><strong>口径 A（36 氪创投平台，智道网联层级）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>股东</th>
+<th style="text-align: right;">持股比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>南京众智益华信息科技合伙企业</td>
+<td style="text-align: right;">27.7968%</td>
+</tr>
+<tr>
+<td>上海博雅景泓企业管理合伙企业</td>
+<td style="text-align: right;">15.1759%</td>
+</tr>
+<tr>
+<td><strong>林芝腾讯科技有限公司</strong></td>
+<td style="text-align: right;"><strong>15.0816%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>口径 B（产业星链 GEA 报告，穿透后）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>股东</th>
+<th style="text-align: right;">持股比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天津众智益华信息科技合伙企业</td>
+<td style="text-align: right;">37.96%</td>
+</tr>
+<tr>
+<td>深圳市博邦投资有限公司</td>
+<td style="text-align: right;">17.41%</td>
+</tr>
+<tr>
+<td><strong>林芝腾讯科技有限公司</strong></td>
+<td style="text-align: right;"><strong>17.3%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>两个口径不一致，我无法确认哪个是当前最新状态。</strong> 但两点是稳定的：<strong>① 腾讯是第一大外部机构股东（15%–17.3%）；② 创始人朱磊最终受益股份约 27.8%。</strong></p>
+</blockquote>
+<h3>融资历史</h3>
+<table>
+<thead>
+<tr>
+<th>轮次</th>
+<th>时间</th>
+<th style="text-align: right;">金额</th>
+<th>投资方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A 轮</td>
+<td>2019-02</td>
+<td style="text-align: right;"><strong>1.2 亿美元</strong></td>
+<td>腾讯、京东、顺丰投资、BAI、易鑫资本</td>
+</tr>
+<tr>
+<td>B 轮</td>
+<td>2021-09</td>
+<td style="text-align: right;">未披露</td>
+<td>腾讯、京东、顺丰控股、中信资本、湖南国资、挚信资本</td>
+</tr>
+<tr>
+<td>C2/C+ 轮</td>
+<td><strong>2023-05</strong></td>
+<td style="text-align: right;"><strong>5.8 亿元人民币</strong></td>
+<td>腾讯投资、易鑫集团、珠海海都科创投、成都科创投</td>
+</tr>
+<tr>
+<td><strong>累计</strong></td>
+<td>—</td>
+<td style="text-align: right;"><strong>约 14.89 亿元人民币</strong></td>
+<td>亿欧口径</td>
+</tr>
+</tbody>
+</table>
+<h3>一个关键事实：<strong>已经三年没有新融资了</strong></h3>
+<p><strong>2023 年 5 月 C2 轮之后，截至 2026 年 9 月，没有公开新增融资记录。</strong></p>
+<p>在一级市场，三年没有新融资通常意味着两种可能：① 现金流可以自持，不需要融资；② 融资推进不顺利。</p>
+<p><strong>考虑到 2025 年全国车路云市场同比 −30%、公司 2026 年披露的全部海外项目除新加坡外均无金额，我倾向第二种可能性不能排除。</strong></p>
+<h3>核心团队</h3>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>职务</th>
+<th>背景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>朱磊</strong></td>
+<td>创始人兼 CEO</td>
+<td>曾任职百度、滴滴出行、易车；最终受益股份约 27.8%</td>
+</tr>
+<tr>
+<td>万如</td>
+<td>执行副总裁、法定代表人</td>
+<td>智能交通领域十余年经验；持股约 19%</td>
+</tr>
+<tr>
+<td>王湛</td>
+<td>首席战略官</td>
+<td>前百度</td>
+</tr>
+<tr>
+<td>杨洛伟 / 汪宁 / 杨新红</td>
+<td>副总裁</td>
+<td>市场、销售、业务拓展</td>
+</tr>
+</tbody>
+</table>
+<p><strong>团队构成是典型的"互联网 + 汽车"组合</strong>，朱磊在百度、滴滴、易车的经历解释了公司的路线选择（既懂地图/数据，也懂出行运营）。但没有一位核心高管有公交系统或政府基建的深度背景，这可能是它在车路云总包招标中不占优势的组织原因。</p>
+<hr />
+<h2 id="h7">七、估值：三个方法交叉，结论是"高估"</h2>
+<h3>方法 1：可比公司 PS 法</h3>
+<p>先估收入。因为没有披露，我用两个角度倒推：</p>
+<p><strong>角度 A：RoboBus 交付口径</strong><br />
+- 新加坡：814 万元（已交付 6 辆）<br />
+- 国内 20 余城：假设平均每城 3–8 辆、单价 100–140 万元 → 每城 300–1,120 万元 → <strong>合计 0.6–2.2 亿元</strong><br />
+- 累计服务乘客 20 万人次、行驶 500 万公里，与这个车辆规模量级相符</p>
+<p><strong>角度 B：车路云项目口径</strong><br />
+- 若"110 亿签约"实际转化为 2023–2026 四年累计确认收入，按行业惯例转化率 5%–15% → <strong>5.5–16.5 亿元（四年）</strong> → 年均 1.4–4.1 亿元<br />
+- 但这个转化率极度不确定</p>
+<p><strong>综合估算：2025 年收入约 2–4 亿元人民币。</strong></p>
+<p><strong>可比公司 PS 对照：</strong></p>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th style="text-align: right;">市值</th>
+<th style="text-align: right;">2025/2026E 收入</th>
+<th style="text-align: right;">PS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>千方科技（002373）</td>
+<td style="text-align: right;">127.21 亿元</td>
+<td style="text-align: right;">约 80 亿元</td>
+<td style="text-align: right;"><strong>1.6x</strong></td>
+</tr>
+<tr>
+<td>万集科技（300552）</td>
+<td style="text-align: right;">47.95 亿元</td>
+<td style="text-align: right;">约 10 亿元</td>
+<td style="text-align: right;"><strong>4.8x</strong></td>
+</tr>
+<tr>
+<td>文远知行（00800.HK）</td>
+<td style="text-align: right;">108.06 亿港元</td>
+<td style="text-align: right;">约 6,500 万美元（2025A $95.2M）</td>
+<td style="text-align: right;"><strong>约 16x</strong></td>
+</tr>
+<tr>
+<td>速腾聚创（02498.HK）</td>
+<td style="text-align: right;">67.50 亿港元</td>
+<td style="text-align: right;">约 20 亿人民币（2026E）</td>
+<td style="text-align: right;"><strong>2.6x</strong></td>
+</tr>
+<tr>
+<td>金龙汽车（600686）</td>
+<td style="text-align: right;">68.41 亿元</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">PE 10.9x</td>
+</tr>
+</tbody>
+</table>
+<p><strong>蘑菇车联该给多少 PS？</strong></p>
+<ul>
+<li>比千方科技/万集科技高（它有真实的前装产品 + 海外落地）</li>
+<li>比文远知行低（文远有 1,300 辆 Robotaxi 车队、连续 4 季收入破亿、毛利率 35%，且财务透明）</li>
+</ul>
+<p><strong>给 10–18x PS（介于两者之间，靠近文远但折价）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>收入假设</th>
+<th style="text-align: right;">× 10x</th>
+<th style="text-align: right;">× 15x</th>
+<th style="text-align: right;">× 18x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 亿元</td>
+<td style="text-align: right;">20 亿</td>
+<td style="text-align: right;">30 亿</td>
+<td style="text-align: right;">36 亿</td>
+</tr>
+<tr>
+<td>3 亿元</td>
+<td style="text-align: right;">30 亿</td>
+<td style="text-align: right;">45 亿</td>
+<td style="text-align: right;">54 亿</td>
+</tr>
+<tr>
+<td>4 亿元</td>
+<td style="text-align: right;">40 亿</td>
+<td style="text-align: right;">60 亿</td>
+<td style="text-align: right;">72 亿</td>
+</tr>
+</tbody>
+</table>
+<p><strong>区间：20–72 亿元，中值约 45 亿元。</strong></p>
+<h3>方法 2：分部估值（SOTP）</h3>
+<table>
+<thead>
+<tr>
+<th>分部</th>
+<th>估值方法</th>
+<th style="text-align: right;">价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RoboBus 产品业务</td>
+<td>2025 年收入 1–2.5 亿 × 12–18x PS</td>
+<td style="text-align: right;">12–45 亿</td>
+</tr>
+<tr>
+<td>车路云系统业务</td>
+<td>2025 年收入 1–1.5 亿 × 3–6x PS</td>
+<td style="text-align: right;">3–9 亿</td>
+</tr>
+<tr>
+<td><strong>新加坡/海外突破的期权价值</strong></td>
+<td>发达国家公交体系门票</td>
+<td style="text-align: right;"><strong>10–20 亿</strong></td>
+</tr>
+<tr>
+<td>20 城运营数据资产</td>
+<td>500 万公里 + 独有巴士/路侧数据集</td>
+<td style="text-align: right;">5–10 亿</td>
+</tr>
+<tr>
+<td>净现金（C 轮后估计）</td>
+<td>估计 8–15 亿元，但三年无新融资需扣减</td>
+<td style="text-align: right;">5–12 亿</td>
+</tr>
+</tbody>
+</table>
+<p><strong>合计：35–96 亿元，中值约 65 亿元。</strong></p>
+<h3>方法 3：反向验证——一级市场估值隐含了什么</h3>
+<p>若按 <strong>207.84 亿元</strong>估值、2025 年收入 3 亿元：<br />
+- <strong>PS = 69x</strong><br />
+- 是文远知行的 <strong>4.3 倍</strong><br />
+- 是千方科技的 <strong>43 倍</strong><br />
+- 隐含假设：<strong>2028 年收入需达到 25–30 亿元</strong>（对应 PS 7–8x），即三年增长 8 倍</p>
+<p>若按 <strong>71 亿元</strong>（10 亿美元）估值：<br />
+- <strong>PS = 23.7x</strong><br />
+- 隐含 2028 年收入 10–12 亿元，三年增长 3–4 倍<br />
+- <strong>这个假设在"新加坡模式复制到 5–10 个国家"的情况下是可能的</strong></p>
+<h3>三种方法的收敛</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th style="text-align: right;">估值区间</th>
+<th style="text-align: right;">中值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可比 PS 法</td>
+<td style="text-align: right;">20–72 亿</td>
+<td style="text-align: right;">45 亿</td>
+</tr>
+<tr>
+<td>分部估值 SOTP</td>
+<td style="text-align: right;">35–96 亿</td>
+<td style="text-align: right;">65 亿</td>
+</tr>
+<tr>
+<td>反向验证（合理 PS 15–25x）</td>
+<td style="text-align: right;">45–75 亿</td>
+<td style="text-align: right;">60 亿</td>
+</tr>
+<tr>
+<td><strong>综合</strong></td>
+<td style="text-align: right;"><strong>50–75 亿</strong></td>
+<td style="text-align: right;"><strong>62.5 亿</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<table>
+<thead>
+<tr>
+<th>口径</th>
+<th style="text-align: right;">数值</th>
+<th style="text-align: right;">相对合理中值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>我的合理估值</strong></td>
+<td style="text-align: right;"><strong>50–75 亿元</strong></td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>深圳独角兽报告</td>
+<td style="text-align: right;">71 亿元</td>
+<td style="text-align: right;"><strong>合理（上沿）</strong></td>
+</tr>
+<tr>
+<td>亿欧数据</td>
+<td style="text-align: right;">207.84 亿元</td>
+<td style="text-align: right;"><strong>高估 2.8–4.2 倍</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>所以在两个相互矛盾的公开估值中，那个看起来"保守"的 10 亿美元，才是有基本面支撑的那个。</strong></p>
+<hr />
+<h2 id="h8">八、如果想买蘑菇车联敞口，唯一有意义的载体是今创集团</h2>
+<p>既然买不到，就必须回答一个问题：<strong>二级市场有没有一个含权量足够高的载体？</strong></p>
+<p>我算了所有已知的公开市场关联方：</p>
+<table>
+<thead>
+<tr>
+<th>载体</th>
+<th style="text-align: right;">市值</th>
+<th style="text-align: right;">对智道网联持股</th>
+<th style="text-align: right;"><strong>穿透后价值</strong></th>
+<th style="text-align: right;"><strong>占载体市值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>今创集团（603680）</strong></td>
+<td style="text-align: right;"><strong>81.66 亿元</strong></td>
+<td style="text-align: right;">4.36% × LP 出资比例 93.33% = <strong>4.07%</strong></td>
+<td style="text-align: right;"><strong>8.46 亿元</strong>（按 207.84 亿）；<strong>2.54 亿元</strong>（按 62.5 亿合理值）</td>
+<td style="text-align: right;"><strong>3.1%–10.4%</strong></td>
+</tr>
+<tr>
+<td>腾讯控股（00700）</td>
+<td style="text-align: right;">35,133.98 亿港元</td>
+<td style="text-align: right;">17.3%</td>
+<td style="text-align: right;">35.96 亿人民币 ≈ 39.5 亿港元</td>
+<td style="text-align: right;"><strong>0.11%</strong></td>
+</tr>
+<tr>
+<td>顺丰控股（002352）</td>
+<td style="text-align: right;">1,650.49 亿元</td>
+<td style="text-align: right;">未披露（B 轮投资）</td>
+<td style="text-align: right;">假设 2–3% ≈ 4–6 亿元</td>
+<td style="text-align: right;"><strong>0.2%–0.4%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>今创集团的含权量是腾讯的 95 倍。</strong></p>
+<p>但要泼三盆冷水：</p>
+<ol>
+<li>
+<p><strong>这 4.07% 是通过"宁波梅山保税港区挚顺股权投资合伙企业"间接持有</strong>（今创电工作为该基金 LP，出资比例 93.33%）。间接持股在报表上可能按<strong>成本法</strong>计量，不会因为一级市场估值涨到 207 亿而重估。<strong>市场不会给它这个溢价。</strong></p>
+</li>
+<li>
+<p><strong>今创集团主业是轨道交通内饰</strong>（动车组内装），2026 年前三季度营收 26.59 亿元、归母净利 2.12 亿元（+49.27%）。<strong>蘑菇车联在它体内的价值，无论是 2.5 亿还是 8.5 亿，都不足以改变它的投资逻辑。</strong></p>
+</li>
+<li>
+<p><strong>今创集团今天收 10.42 元（+4.30%）、PE 12.61x、PB 1.36x、YTD −31.72%。</strong> 如果它因为"蘑菇车联概念"被炒起来，那是主题交易，不是价值投资。</p>
+</li>
+</ol>
+<p><strong>结论：如果你真的想表达"蘑菇车联观点"，今创集团是唯一可用的工具，但它是一个含权量 3%–10%、无法单独变现、且主业无关的间接载体。这不是一个投资蘑菇车联的方式，只是一个相关性的赌注。</strong></p>
+<hr />
+<h2 id="h9">九、多空对照</h2>
+<h3>看多逻辑（Bull Case）</h3>
+<ol>
+<li><strong>海外突破是中国 RoboBus 唯一的</strong>——新加坡 LTA 独家中标（比亚迪 + MKX 联合体）、卢森堡首家中国自动驾驶巴士企业、LG 电子合作进入韩国、与法国 CLEMENT BAYARD 合作进入欧洲。<strong>这个位置没有第二个中国公司拿到。</strong></li>
+<li><strong>模式对了</strong>——从 To G 框架协议转向 To P 政府采购交付，客户明确、回款清晰、可复制。成本只有传统方案 1/3–1/5、适配周期 2 个月，这是接单的硬指标。</li>
+<li><strong>股东阵容强大</strong>——腾讯（15%–17.3%）、顺丰、京东、中信资本、成都/珠海/湖南地方国资。</li>
+<li><strong>赛道有政策底</strong>——20 城试点、C-V2X 强标制定中（今日板块集体涨停的直接原因）、L3/L4 强制性国标报批稿已发布。</li>
+<li><strong>若 IPO，有稀缺性溢价</strong>——A 股/港股目前没有纯 RoboBus 标的，文远知行是 Robotaxi + Robobus 混合体。</li>
+</ol>
+<h3>看空逻辑（Bear Case）</h3>
+<ol>
+<li><strong>收入规模与估值严重不匹配</strong>——合理估值 50–75 亿元，亿欧口径 207.84 亿元高出 2.8–4.2 倍。</li>
+<li><strong>"110 亿签约"与全国 21 亿市场存在数量级矛盾</strong>，且公开中标名单里找不到它。</li>
+<li><strong>车路云赛道在收缩</strong>——2025 年市场 −30%，20 城 2026 年收官，没有第二批大规模扩容。</li>
+<li><strong>三年无新融资</strong>（2023-05 之后），可能反映一级市场对估值的分歧。</li>
+<li><strong>新加坡首单只有 814 万元</strong>，其余海外项目全部是"战略合作"、无金额无数量。</li>
+<li><strong>零财务披露</strong>——收入、毛利、净利、订单转化率全无，估值无从验证。</li>
+<li><strong>产品线过宽</strong>——5 类车型 + 云平台，在需要聚焦的 To P 阶段是负担。</li>
+<li><strong>结算与回款风险</strong>——To G 项目的应收账款周期长是行业通病，蘑菇车联从未披露应收情况。</li>
+</ol>
+<hr />
+<h2 id="h10">十、风险清单</h2>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>风险</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 高</td>
+<td><strong>收入与估值脱节</strong></td>
+<td>207.84 亿元估值隐含 69x PS，需 2028 年收入达 25–30 亿元支撑</td>
+</tr>
+<tr>
+<td>🔴 高</td>
+<td><strong>车路云市场收缩</strong></td>
+<td>2025 年 −30%，20 城收官后无接续政策，收入池可能显著缩小</td>
+</tr>
+<tr>
+<td>🔴 高</td>
+<td><strong>财务不透明</strong></td>
+<td>零披露，无法验证任何经营假设</td>
+</tr>
+<tr>
+<td>🟡 中高</td>
+<td><strong>海外项目落地不确定</strong></td>
+<td>除新加坡外全部为无金额战略合作</td>
+</tr>
+<tr>
+<td>🟡 中高</td>
+<td><strong>三年无新融资</strong></td>
+<td>现金流状况未知</td>
+</tr>
+<tr>
+<td>🟡 中</td>
+<td><strong>To G 回款风险</strong></td>
+<td>地方财政压力，应收周期可能极长</td>
+</tr>
+<tr>
+<td>🟡 中</td>
+<td><strong>技术路线被消解</strong></td>
+<td>单车智能（端到端）进步可能降低车路协同必要性</td>
+</tr>
+<tr>
+<td>🟡 中</td>
+<td><strong>竞争劣势</strong></td>
+<td>车路云总包被运营商/央企占据；RoboBus 面临文远、驭势竞争</td>
+</tr>
+<tr>
+<td>🟢 低</td>
+<td><strong>股权结构风险</strong></td>
+<td>创始人 27.8% 控股，腾讯 15%+ 制衡，结构相对健康</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="h11">十一、跟踪指标（12 个月）</h2>
+<ol>
+<li><strong>新加坡 191 路 / 400 路常态化运营后的乘客数据与安全事故</strong>（最硬的验证）</li>
+<li><strong>新加坡是否扩容</strong>（圣淘沙、大士等区域）及新合同金额</li>
+<li><strong>卢森堡、韩国、欧洲项目是否出现有金额的正式合同</strong></li>
+<li><strong>是否启动 IPO</strong>（递表港交所/科创板）——这是估值定价的唯一硬答案</li>
+<li><strong>是否出现新融资及对应估值</strong>（对比 207.84 亿是上调还是下调）</li>
+<li><strong>国内车路云项目中标公告中是否出现"智道网联"或"蘑菇车联"</strong></li>
+<li><strong>C-V2X 强标是否正式发布及实施时间表</strong></li>
+<li><strong>2027 年车路云市场规模</strong>——是否出现第二批试点城市，这是赛道生死的关键</li>
+</ol>
+<hr />
+<h2 id="h12">十二、最终判断</h2>
+<p><strong>蘑菇车联做对了这个行业最难的两件事：</strong></p>
+<p><strong>第一，它选对了商业模式。</strong> 从"给地方政府做基建总包"转向"给公交系统卖前装量产车"，这是从项目制到产品制的关键一跃。成本和适配周期的数据（1/3–1/5、2 个月）说明这不是概念，是工程能力。</p>
+<p><strong>第二，它拿下了新加坡。</strong> 6 辆车、814 万元，数字微不足道，但它是中国自动驾驶巴士第一次进入发达国家的公交骨干网络。<strong>这个位置的价值不在这一单，在它为后续 10 单、100 单提供的准入信用。</strong></p>
+<p><strong>但它同时做错了一件事：把"框架协议"当成了"签约"对外宣传。</strong> 110 亿签约额与全国 21 亿实际市场的数量级矛盾，以及公开中标名单里的缺席，让这个口径经不起推敲。</p>
+<p><strong>所以我的判断是：</strong></p>
+<p><strong>这家公司的合理估值是 50–75 亿元人民币（中值 62.5 亿）。</strong> 按这个数字，亿欧的 207.84 亿高出近 3 倍，而"10 亿美元"那个看起来保守的口径反而是对的。</p>
+<p><strong>它值得持续跟踪，但不值得按当前一级市场报价参与。</strong></p>
+<p><strong>如果它 IPO，按 50–75 亿定价（对应 2025 年 PS 15–25x），我会认真考虑；按 200 亿以上定价，我会回避。</strong></p>
+<p><strong>至于二级市场，今创集团（603680）是唯一有意义的载体，含权量 3.1%–10.4%，但那是一个相关性赌注，不是投资蘑菇车联的方式。</strong></p>
+<hr />
+<h2 id="h13">数据来源与口径说明</h2>
+<table>
+<thead>
+<tr>
+<th>数据</th>
+<th>来源</th>
+<th>可靠性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公司成立时间、产品矩阵、2025–2026 年发展历程</td>
+<td>蘑菇车联官网（mogox.com/about）</td>
+<td>公司自述</td>
+</tr>
+<tr>
+<td>融资历史、累计融资额、207.84 亿估值</td>
+<td>亿欧数据（更新至 2026-06-30）</td>
+<td>第三方数据库</td>
+</tr>
+<tr>
+<td>10 亿美元估值</td>
+<td>《2026 深圳独角兽企业研究报告》</td>
+<td>第三方报告（<strong>该报告股票代码标注有误</strong>）</td>
+</tr>
+<tr>
+<td>股权结构</td>
+<td>36 氪创投平台 + 产业星链 GEA 报告</td>
+<td><strong>两个口径不一致，已并列呈现</strong></td>
+</tr>
+<tr>
+<td>新加坡项目金额 814 万元、6 辆、线路、运营方</td>
+<td>公开报道（含 LTA 公告转述）</td>
+<td>较高，多源一致</td>
+</tr>
+<tr>
+<td>车路云市场规模 21 亿元、−30%、87% 集中度</td>
+<td>赛文研究院《2026 年中国车路云一体化市场研究报告》</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>2026 年各城市中标项目及中标方</td>
+<td>赛文交通网、公开招标信息</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>20 城试点成效（6 万套设备、5.7 万公里等）</td>
+<td>工信部/五部门公开信息转述</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>C-V2X 强标进展、国家标准计划编号</td>
+<td>交通运输部征求意见稿、媒体转述</td>
+<td><strong>信息源为"不愿透露姓名的从业者"，未经官方确认</strong></td>
+</tr>
+<tr>
+<td>同业市值与估值</td>
+<td>实时行情（2026-10-26 收盘）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>收入估算（2–4 亿元）、转化率（5%–15%）</td>
+<td><strong>分析师推算，非公司披露</strong></td>
+<td><strong>低，仅供参考</strong></td>
+</tr>
+<tr>
+<td>今创集团穿透持股 4.07%</td>
+<td>今创集团投资者关系答复（挚顺投资持 4.36%、今创电工 LP 出资 93.33%）</td>
+<td>较高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>本报告最大的三个数据缺口：</strong><br />
+1. <strong>蘑菇车联任何期间的收入、毛利、净亏损</strong>——全部未披露<br />
+2. <strong>"110 亿签约"的具体项目清单与转化率</strong>——无法验证<br />
+3. <strong>智道网联最新一轮融资的估值与时间</strong>——两个公开口径相差 2.9 倍</p>
+<hr />
+<p><em>本报告基于公开信息整理，不含任何内幕信息。核心财务数据（收入、利润）均为分析师推算，非公司披露，误差可能极大。本报告仅供研究参考，不构成个人投资建议，也不构成对任何一级市场投资的推荐。</em></p>
+<div class="foot">本页由 Markdown 原稿自动生成，内容以原稿为准。数据与观点仅作研究记录，不构成投资建议。</div>
+</div>
+</body>
+</html>
