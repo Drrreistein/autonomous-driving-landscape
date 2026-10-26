@@ -342,9 +342,9 @@ ul.plain li::before{content:"—";position:absolute;left:0;color:var(--red);}
 </head>
 <body>
 <div style="position:sticky;top:0;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e5e8ec;">
-<div style="max-width:1120px;margin:0 auto;padding:10px 24px;font:13px/1.6 -apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;">
+<div style="max-width:1120px;margin:0 auto;padding:10px 24px;font:13px/1.6 -apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;display:flex;justify-content:space-between;align-items:center;">
 <a href="../index.html" style="color:#1b4a75;text-decoration:none;">← 返回 自动驾驶产业研究</a>
-<span style="float:right;color:#8b97a5;font-size:12px;">行业深度 · 2026 年 10 月</span>
+<span style="font-size:12px;color:#8b97a5;">行业深度 · 2026 年 10 月　<a href="自动驾驶行业首覆报告.html" style="color:#1b4a75;">首次覆盖 →</a></span>
 </div></div>
 
 <div class="page">
@@ -775,12 +775,119 @@ ul.plain li::before{content:"—";position:absolute;left:0;color:var(--red);}
   <h3><span class="h3n">3.5</span>价格带：下沉速度比想象中快，但下沉的是“硬件”不是“收入”</h3>
   <p>2026 年城区 NOA 已下探至 10 万元以下车型（零跑、比亚迪、小鹏 MONA 系列），15 万元级成为主战场。<span class="tag f">事实</span>同时 8–16 万元、16–24 万元区间的辅助驾驶装车增速<strong>远超</strong>高端车型。<span class="tag f">事实</span></p>
   <p>但价格带下沉对产业链是“双刃”：出货量放大 × 单价腰斩。以激光雷达为例，15–20 万元车型批量搭载，直接结果就是单台均价从万元级跌到 1,297 元。<span class="tag f">事实</span><strong>用“下沉”讲成长故事，必须同时讲“单价下滑”的抵消效应，否则预测必然高估。</strong><span class="tag j">判断</span></p>
+  <h3><span class="h3n">3.6</span>渠道库存穿透：装车量之上还有一层“堰塞湖”</h3>
+  <p>前五节讲的都是“装车”。但装车不等于卖出，卖出不等于上牌。汽车行业有一套现成的穿透工具——<strong>三层库存验证</strong>，本报告把它移植到智驾语境：</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>层级</th><th>传统汽车口径</th><th>智驾语境下的对应</th><th>可验证指标</th></tr></thead>
+    <tbody>
+      <tr><td><b>第一层 · 厂家</b></td><td>主机厂成品车库存</td><td>芯片 / 激光雷达厂的成品与在途库存</td><td>存货周转天数、在手订单/出货比</td></tr>
+      <tr><td><b>第二层 · 渠道</b></td><td>经销商库存</td><td>整车厂压给经销商的车（含 NOA 配置）</td><td><b>库存预警指数、库存系数、批零差</b></td></tr>
+      <tr><td><b>第三层 · 终端</b></td><td>上牌 / 上险</td><td>真正交付到用户、并可能激活 NOA 的车</td><td>上险量、NOA 激活率</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cap"><b>为什么智驾必须做这一步：</b>本报告前文引用的“前装标配 NOA 交付量”是<b>批发口径</b>——车出厂即计入。这部分车有多少停在经销商院子里、有多少真到了用户手上，决定了“渗透率”这个数字的成色。</p>
+
+  <div class="fig">
+    <div class="figt"><span>图 8</span>渠道“堰塞湖”：月批发 164 万辆，只有约 140 万辆流到终端</div>
+    <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="262" x2="860" y2="262" stroke="#111820" stroke-width="1.2"/>
+      <g stroke="#eef1f4" stroke-width="1">
+        <line x1="60" y1="207" x2="860" y2="207"/>
+        <line x1="60" y1="151" x2="860" y2="151"/>
+        <line x1="60" y1="96" x2="860" y2="96"/>
+        <line x1="60" y1="40" x2="860" y2="40"/>
+      </g>
+      <g font-family="SF Mono,monospace" font-size="9.5" fill="#a3adb9" text-anchor="end">
+        <text x="52" y="266">0</text><text x="52" y="211">60</text>
+        <text x="52" y="155">120</text><text x="52" y="100">180</text><text x="52" y="44">240</text>
+      </g>
+
+      <rect x="110" y="112" width="112" height="150" fill="#8fb0c9"/>
+      <text x="166" y="100" text-anchor="middle" font-family="SF Mono,monospace" font-size="15" font-weight="600" fill="#1b4a75">164</text>
+      <text x="166" y="282" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#2c3644">月批发</text>
+      <text x="166" y="298" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" fill="#8a95a3">万辆 · 9 月推算</text>
+
+      <rect x="330" y="42" width="220" height="220" fill="#f3c9c2"/>
+      <rect x="330" y="42" width="220" height="220" fill="none" stroke="#a8271f" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <text x="440" y="146" text-anchor="middle" font-family="SF Mono,monospace" font-size="26" font-weight="600" fill="#8f1f18">244</text>
+      <text x="440" y="168" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="12" fill="#a8271f">万辆压在渠道</text>
+      <text x="440" y="188" text-anchor="middle" font-family="SF Mono,monospace" font-size="11" fill="#a8271f">库存系数 1.58 · 47 天</text>
+      <text x="440" y="282" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#2c3644">渠道库存</text>
+      <text x="440" y="298" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" fill="#8a95a3">8 月数据，按当月零售推算</text>
+
+      <rect x="650" y="134" width="112" height="128" fill="#a8c4b8"/>
+      <text x="706" y="122" text-anchor="middle" font-family="SF Mono,monospace" font-size="15" font-weight="600" fill="#216b52">140</text>
+      <text x="706" y="282" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#2c3644">月上险</text>
+      <text x="706" y="298" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" fill="#8a95a3">万辆 · 终端真实交付</text>
+
+      <line x1="222" y1="190" x2="320" y2="190" stroke="#8a95a3" stroke-width="1.1"/>
+      <polygon points="330,190 321,185.5 321,194.5" fill="#8a95a3"/>
+      <line x1="550" y1="200" x2="640" y2="200" stroke="#8a95a3" stroke-width="1.1"/>
+      <polygon points="650,200 641,195.5 641,204.5" fill="#8a95a3"/>
+
+      <text x="271" y="180" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10.5" fill="#5f6b7a">流入</text>
+      <text x="595" y="190" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10.5" fill="#5f6b7a">流出</text>
+      <text x="595" y="222" text-anchor="middle" font-family="SF Mono,monospace" font-size="10.5" fill="#a8271f">差 24 / 月</text>
+    </svg>
+  </div>
+  <p class="cap"><b>数据来源：</b>乘联会（9 月 1–27 日零售 125.8 万辆、批发 147.4 万辆，按同比例推算全月）、中国汽车流通协会（8 月库存系数 1.58，按当月零售 154.1 万辆推算渠道库存约 244 万辆、可支撑 47 天）。<b>推算为本报告测算，非官方口径。</b></p>
+
+  <h4>2026 年的渠道水位：已经不是“偏高”，是“倒挂”</h4>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>指标</th><th class="n">2026 年读数</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td>经销商库存预警指数</td><td class="n hi">63.2%（9 月）</td><td>连续 6 个月高于 50% 荣枯线；同比 +8.7pct，创年内峰值</td></tr>
+      <tr><td>库存系数</td><td class="n hi">1.58（8 月）</td><td>同比 +20.6%；按零售推算约 244 万辆、47 天</td></tr>
+      <tr><td>批零剪刀差</td><td class="n">24 万辆/月</td><td>扣除出口后的国内批发高于上险的部分，全部沉淀在流通环节</td></tr>
+      <tr><td>经销商盈利面</td><td class="n lo">23.5%</td><td>2024 年为 39.3%；亏损面 55.7%</td></tr>
+      <tr><td>价格倒挂比例</td><td class="n lo">81.9%</td><td>卖一辆亏一辆，靠厂家返利活着</td></tr>
+      <tr><td>厂家库存指数（分化）</td><td class="n">昊铂 7.48 / 上汽奥迪 6.22 / 理想 0.45</td><td>直营体系以销定产、库存低；代理与合伙人模式压力集中在厂家</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cap"><b>来源：</b>中国汽车流通协会、乘联会、桑之未数据库（2026 年 3–9 月）。<b>事实。</b>“厂家库存指数”为库存估算量与当月零售之比。</p>
+
+  <h4>对智驾的两个修正</h4>
+  <p><strong>修正一：装车量要打折。</strong>按 34.1% 的 NOA 渗透率平摊，压在渠道里的 244 万辆车中约有 <strong>83 万辆</strong>带 NOA 配置，相当于 1.5 个月的 NOA 装车量。考虑到积压结构偏向滞销燃油车与老款，实际数字应低于此，但量级足以说明：<strong>“装车渗透率”与“终端 NOA 保有量”之间，隔着一条 40–50 天的渠道堰塞湖。</strong><span class="tag e">测算</span></p>
+  <p><strong>修正二：压库会反向压供应链。</strong>库存高企 → 经销商现金流紧张 → 主机厂促销与返利加码 → 单车利润被侵蚀 → <strong>年降谈判提前、账期拉长</strong>。这条链条不体现在任何一家 Tier1 的收入里，但会先于收入体现在它们的应收账款与经营性现金流上。<span class="tag j">判断</span></p>
+
+  <div class="callout">
+    <div class="ct">这一节改变了什么结论</div>
+    <p>本报告第 1 章的判断是“渗透率是装车率，不是使用率”。加上渠道库存这一层后，应该修正为三层漏斗：<strong>装车（批发）→ 上险（终端）→ 激活 → 高频使用</strong>。每过一层都要打折，而第一层的折扣，2026 年是 40–50 天。<span class="tag j">判断</span></p>
+    <p>对 2027 年的含义：强标实施前主机厂会借改款清库，<strong>“改款冲量”与“渠道去库存”会同时发生</strong>——产量冲高，上险未必同步。把批发数据当作需求信号，会在 2027H1 高估一次。<span class="tag j">判断</span></p>
+  </div>
+
+  <h4>四个可跟踪的库存指标</h4>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>指标</th><th class="n">当前</th><th class="n">警戒阈值</th><th>触发含义</th></tr></thead>
+    <tbody>
+      <tr><td>库存预警指数</td><td class="n">63.2%</td><td class="n">&gt;65%</td><td>渠道进入被动去库存，批发将被动下修</td></tr>
+      <tr><td>库存系数</td><td class="n">1.58</td><td class="n">1.8</td><td>超过 1.8 通常伴随大面积价格倒挂与退网</td></tr>
+      <tr><td>批零剪刀差</td><td class="n">24 万辆/月</td><td class="n">&lt;10 万辆/月</td><td>降到 10 万以内，说明终端真实需求接住了批发</td></tr>
+      <tr><td>价格倒挂比例</td><td class="n">81.9%</td><td class="n">&lt;50%</td><td>回到 50% 以下，渠道才有能力承接新车型铺货</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cap"><b>用法：</b>这四个指标按月更新、公开可查，比等季报早 1–2 个季度。它们不预测智驾的技术进展，但预测<b>智驾配置的出货节奏</b>——而这恰恰是供应链公司季度收入的主要变量。</p>
+
 </section>
 
 <!-- ================= 04 产业链 ================= -->
 <section id="s4">
   <h2><span class="num">04</span>产业链与价值分配：钱在哪一段</h2>
   <p class="dek">对应模块 3（产业链全景与价值分配）、模块 4（分环节竞争格局）。结论先给：价值不在“造零件”，在“收授权”和“管车队”。</p>
+
+  <div style="margin:18px 0 26px;padding:14px 18px;border:1px solid var(--line);border-left:3px solid var(--blue);background:#f7fafc;font-size:12.5px;line-height:1.85;">
+    <strong style="color:#1b4a75;">另见｜</strong>本章只做价值分配与竞争格局，以下三块在同系列另一篇里展开，本文不重复，以免两份文件口径漂移：
+    <br>· 产业链四层图谱（上游元器件 / 中游感知决策执行 / 下游整车运营 / 支撑层）与三个卡脖子环节 → <a href="自动驾驶行业首覆报告.html#s6" style="color:#1b4a75;">《首次覆盖》第 06 章</a>
+    <br>· 波特五力与分环节吸引力打分（行业整体压力 4.0/5） → <a href="自动驾驶行业首覆报告.html#s7" style="color:#1b4a75;">《首次覆盖》第 07 章</a>
+    <br>· 玩家模式 × 技术等级的企业矩阵、以及“L3 没有运营商”的结构性空白 → 站点「按玩家模式」视图
+  </div>
 
   <h3><span class="h3n">4.1</span>单车 BOM 拆解：一套城区 NOA 方案值多少钱</h3>
   <p>我们按 15 万元级主流车型的城区 NOA 方案（1 颗主激光雷达 + 11V 视觉 + 中高算力域控 + 双冗余执行）做拆解，并给出 2028 年的降本路径。<span class="tag e">测算</span></p>

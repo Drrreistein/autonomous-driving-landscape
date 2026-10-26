@@ -62,10 +62,11 @@ a{color:inherit;text-decoration:none;}
   font-size:clamp(26px,3.4vw,38px);line-height:1.22;margin:0 0 12px;
   font-weight:650;letter-spacing:-.02em;
 }
+.docs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px;}
 .doc-link{
   display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;
   border:1px solid var(--ink);border-radius:7px;background:#fff;
-  padding:9px 15px;margin:0 0 18px;transition:.15s;
+  padding:9px 15px;transition:.15s;
 }
 .doc-link:hover{background:var(--ink);}
 .doc-link:hover .dl-t,.doc-link:hover .dl-s,.doc-link:hover .dl-a{color:#fff;}
@@ -245,11 +246,18 @@ a{color:inherit;text-decoration:none;}
 
 <div class="hero">
   <h1>自动驾驶产业研究</h1>
-  <a class="doc-link" href="reports/自动驾驶行业深度报告.html">
-    <span class="dl-t">行业深度报告</span>
-    <span class="dl-s">渗透率幻觉与利润池迁移 · 25 页</span>
-    <span class="dl-a">阅读 ↗</span>
-  </a>
+  <div class="docs">
+    <a class="doc-link" href="reports/自动驾驶行业深度报告.html">
+      <span class="dl-t">行业深度报告</span>
+      <span class="dl-s">渗透率幻觉与利润池迁移 · 27 页</span>
+      <span class="dl-a">阅读 ↗</span>
+    </a>
+    <a class="doc-link" href="reports/自动驾驶行业首覆报告.html">
+      <span class="dl-t">行业首次覆盖</span>
+      <span class="dl-s">评级 · 目标价 · 五条预期差 · 23 页</span>
+      <span class="dl-a">阅读 ↗</span>
+    </a>
+  </div>
   <p>从晶圆代工到矿区矿卡，把这条产业链拆成 29 个环节、<span id="total">0</span> 家企业。<b>供应链图谱含全链条</b>；<b>技术等级</b>、<b>应用场景</b>、<b>玩家模式</b>三个视图只收录整车厂、算法方案与运营服务商。点击带绿点的公司名，直达调研报告。</p>
   <div class="stats">
     <div><b id="s1">0</b>覆盖企业</div>
