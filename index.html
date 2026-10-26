@@ -63,6 +63,7 @@ a{color:inherit;text-decoration:none;}
   font-weight:650;letter-spacing:-.02em;
 }
 .hero p{margin:0;color:var(--sub);font-size:14.5px;max-width:62em;}
+.hero p b{color:var(--ink2);font-weight:600;}
 .stats{display:flex;flex-wrap:wrap;gap:0;margin:26px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .stats div{padding:13px 26px 13px 0;margin-right:26px;font-size:12.5px;color:var(--sub);}
 .stats b{display:block;font-family:var(--mono);font-size:19px;color:var(--ink);font-weight:600;letter-spacing:-.02em;}
@@ -141,6 +142,11 @@ a{color:inherit;text-decoration:none;}
 .chip.hide{display:none;}
 
 /* tech view */
+.scope{
+  margin:0 0 16px;padding:10px 14px;border-left:2px solid var(--line);
+  background:#fff;color:var(--sub);font-size:12.5px;line-height:1.65;border-radius:0 6px 6px 0;
+}
+.scope b{color:var(--ink2);font-weight:600;}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:start;}
 .col-h{
   border-top:2px solid var(--ink);padding:9px 2px 12px;margin-bottom:8px;
@@ -211,7 +217,7 @@ a{color:inherit;text-decoration:none;}
 
 <div class="hero">
   <h1>自动驾驶供应链图谱</h1>
-  <p>从晶圆代工到矿区矿卡，把这条产业链拆成 29 个环节、<span id="total">0</span> 家企业。点击带绿点的公司名，直达调研报告。</p>
+  <p>从晶圆代工到矿区矿卡，把这条产业链拆成 29 个环节、<span id="total">0</span> 家企业。<b>供应链图谱含全链条</b>；<b>技术等级</b>与<b>应用场景</b>两个视图只收录整车厂、算法方案与运营服务商。点击带绿点的公司名，直达调研报告。</p>
   <div class="stats">
     <div><b id="s1">0</b>覆盖企业</div>
     <div><b id="s2">0<i> 家</i></b>已出调研报告</div>
@@ -256,10 +262,12 @@ a{color:inherit;text-decoration:none;}
   </section>
 
   <section class="view" id="v-tech">
+    <p class="scope">口径：仅含<b>整车厂、算法与方案商、运营服务商</b>。上游零部件、中游硬件与支撑层不参与此视图——它们不直接面向终端等级，而是一套方案同时服务多个等级。同一家企业也可能横跨多列，取决于其产品线覆盖。</p>
     <div class="grid5" id="techGrid"></div>
   </section>
 
   <section class="view" id="v-scene">
+    <p class="scope">口径：仅含<b>整车厂、算法与方案商、运营服务商</b>。零部件与支撑性企业不按场景归类——同一颗芯片或同一张地图，会同时进入乘用车、Robotaxi 与矿区。一家企业可覆盖多个场景，标记数字即为其跨环节数量。</p>
     <div class="grid4" id="sceneGrid"></div>
   </section>
 
@@ -268,7 +276,7 @@ a{color:inherit;text-decoration:none;}
 
 <footer class="foot" id="about">
   <hr class="rule">
-  <p><b>关于这张图。</b>企业按“主营业环节”归类，横跨多个环节的公司（如华为、特斯拉）会在多处出现，用“多环节”标记。技术等级按“该企业产品所能支持的最高等级”标注；应用场景按“已落地的运营场景”标注。归类为编辑判断，非官方口径。</p>
+  <p><b>关于这张图。</b>企业按“主营业环节”归类，横跨多个环节的公司（如华为、特斯拉）会在多处出现，用“多环节”标记。技术等级按“该企业产品所能支持的等级”标注，一家企业可同时出现在多个等级；应用场景按“已落地的运营场景”标注，同样可跨多个场景——这正是平台型与单场景玩家的区别。<b>“按技术等级”与“按应用场景”两个视图只收录整车厂、算法与方案商、运营服务商</b>——上游零部件、中游硬件与支撑层不参与，因为它们不直接面向终端等级与场景。归类为编辑判断，非官方口径。</p>
   <p><b>数据与免责。</b>企业名单基于公开信息整理，用于行业结构展示，不构成任何投资建议；覆盖不代表推荐。报告内容以原稿为准，数据截止各报告标注日期。</p>
   <p class="ext"><b>延伸阅读（非车规）：</b><a href="reports/梅卡曼德机器人-首次覆盖报告.html">梅卡曼德机器人 · 工业 3D 视觉</a>　·　<a href="reports/阿里巴巴-首次覆盖报告.html">阿里巴巴（云与算力）</a></p>
 </footer>
@@ -302,6 +310,8 @@ const SCENE = [
 const SC = {'乘用车':'乘用车','商用车':'商用车','Robotaxi':'Robotaxi','配送':'配送','干线':'干线','矿区':'矿区','港口':'港口','车路云':'车路云'};
 
 const byReport = (a,b)=> (b[4]?1:0)-(a[4]?1:0);
+const APP_SEGS = ['m6','d1','d2','d3','d4','d5','d6','d7','d8','d9'];
+const isApp = c => c[1].some(s=>APP_SEGS.includes(s));
 const C = [
 ["舜宇光学",["u1","m1"],["L2","L2+"],["乘用车"],null],
 ["联创电子",["u1","m1"],["L2","L2+"],["乘用车"],null],
@@ -449,7 +459,7 @@ const C = [
 ["友道智途",["d9"],["L4F"],["港口"],null],
 ["仙途智能",["d9"],["L4F"],["港口"],null],
 ["酷哇机器人",["d9"],["L4F"],["港口"],null],
-["蘑菇车联",["d10"],["L2+","L4F"],["车路云","乘用车"],"蘑菇车联-首次覆盖报告"],
+["蘑菇车联",["d10","d9"],["L2+","L4F"],["车路云","乘用车"],"蘑菇车联-首次覆盖报告"],
 ["千方科技",["d10"],["L2+"],["车路云"],null],
 ["万集科技",["d10"],["L2+","L3"],["车路云"],null],
 ["金溢科技",["d10"],["L2+"],["车路云"],null],
@@ -498,13 +508,13 @@ $('#down').innerHTML = down.join('');
 $('#sup').innerHTML = sup.join('');
 
 $('#techGrid').innerHTML = TECH.map(([k,t,s])=>{
-  const list = C.filter(c=>c[2].includes(k)).sort(byReport);
+  const list = C.filter(c=>isApp(c) && c[2].includes(k)).sort(byReport);
   return `<div><div class="col-h"><div class="t">${t}<span class="cc">${list.length}</span></div><div class="s">${s}</div></div>
     <div class="colbox" data-tech="${k}">${list.map(chip).join('')}</div></div>`;
 }).join('');
 
 $('#sceneGrid').innerHTML = SCENE.map(([k,d])=>{
-  const list = C.filter(c=>c[3].includes(k)).sort(byReport);
+  const list = C.filter(c=>isApp(c) && c[3].includes(k)).sort(byReport);
   return `<div class="scene${k==='乘用车'?' wide':''}" data-scene="${k}"><h3>${k}<span class="cc">${list.length}</span></h3><div class="m">${d}</div>
     <div>${list.map(chip).join('')}</div></div>`;
 }).join('');
