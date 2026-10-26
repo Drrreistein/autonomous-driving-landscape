@@ -173,6 +173,22 @@ a{color:inherit;text-decoration:none;}
 .colbox .chip{margin:0 4px 4px 0;}
 
 /* scene view */
+.matrix{display:grid;grid-template-columns:158px repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line2);}
+.mrow{display:contents;}
+.mlab{background:var(--color-background-secondary,#fafaf8);padding:12px 13px;font-size:12.5px;}
+.mlab .mt{font-weight:600;color:var(--ink2);line-height:1.35;}
+.mlab .ms{font-size:11px;color:var(--faint);line-height:1.5;margin-top:3px;}
+.mhead{background:#fafaf8;padding:10px 12px;border-bottom:2px solid var(--ink);}
+.mhead .ht{font-size:13px;font-weight:600;}
+.mhead .hs{font-size:10.5px;color:var(--faint);margin-top:1px;}
+.mcell{background:#fff;padding:10px 11px;min-height:54px;}
+.mcell .chip{margin:0 4px 4px 0;}
+.mblank{
+  background:#FCEBEB;border:1px dashed #E24B4A;margin:4px;padding:8px 9px;
+  font-size:11px;line-height:1.45;color:#A32D2D;border-radius:4px;
+}
+.mblank b{display:block;font-size:11.5px;margin-bottom:1px;}
+.mnone{color:#c3cad2;font-size:12px;font-family:var(--mono);}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
 .scene{border:1px solid var(--line);background:#fff;border-radius:9px;padding:13px 14px;}
 .scene.wide{grid-column:span 2;}
@@ -192,6 +208,7 @@ a{color:inherit;text-decoration:none;}
 @media (max-width:1180px){
   .chain{grid-template-columns:1fr;}
   .grid5{grid-template-columns:repeat(2,1fr);}
+  .matrix{grid-template-columns:110px repeat(5,minmax(120px,1fr));overflow-x:auto;}
   .support-grid{grid-template-columns:repeat(3,1fr);}
   .grid4{grid-template-columns:repeat(2,1fr);}
   .search{width:180px;}
@@ -233,7 +250,7 @@ a{color:inherit;text-decoration:none;}
     <span class="dl-s">渗透率幻觉与利润池迁移 · 25 页</span>
     <span class="dl-a">阅读 ↗</span>
   </a>
-  <p>从晶圆代工到矿区矿卡，把这条产业链拆成 29 个环节、<span id="total">0</span> 家企业。<b>供应链图谱含全链条</b>；<b>技术等级</b>与<b>应用场景</b>两个视图只收录整车厂、算法方案与运营服务商。点击带绿点的公司名，直达调研报告。</p>
+  <p>从晶圆代工到矿区矿卡，把这条产业链拆成 29 个环节、<span id="total">0</span> 家企业。<b>供应链图谱含全链条</b>；<b>技术等级</b>、<b>应用场景</b>、<b>玩家模式</b>三个视图只收录整车厂、算法方案与运营服务商。点击带绿点的公司名，直达调研报告。</p>
   <div class="stats">
     <div><b id="s1">0</b>覆盖企业</div>
     <div><b id="s2">0<i> 家</i></b>已出调研报告</div>
@@ -247,6 +264,7 @@ a{color:inherit;text-decoration:none;}
   <button class="tab on" data-v="chain">供应链图谱</button>
   <button class="tab" data-v="tech">按技术等级</button>
   <button class="tab" data-v="scene">按应用场景</button>
+  <button class="tab" data-v="mode">按玩家模式</button>
   <div class="legend">
     <span><i class="dot"></i>有调研报告</span>
     <span><i class="dot g"></i>暂无报告</span>
@@ -287,12 +305,20 @@ a{color:inherit;text-decoration:none;}
     <div class="grid4" id="sceneGrid"></div>
   </section>
 
+  <section class="view" id="v-mode">
+    <p class="scope">口径：行是<b>玩家模式</b>（卖什么、担什么责），列是<b>技术等级</b>。同一家企业可在同一行内横跨多列——产品线覆盖几个等级，就出现在几格；这不代表收入结构。供应链企业不参与分级，理由见页脚。</p>
+    <div class="matrix" id="modeGrid"></div>
+    <p class="scope" style="margin-top:14px;border-left-color:#E24B4A;">
+      <b>两个空格最值得注意</b>：运营服务商 × L3 是<b>结构性空白</b>（L3 责任在车企，没有“运营商”这个法律角色，L3 出租车在法理上不成立）；算法方案商 × L4 开放<b>基本退出</b>（被要求共同担责，而它们既无车队也无保险能力）。横向看，L4 开放那一列只有主机厂与运营商——因为只有这两类能兜底。
+    </p>
+  </section>
+
   <div class="empty" id="empty">没有匹配的企业，换个关键词试试。</div>
 </main>
 
 <footer class="foot" id="about">
   <hr class="rule">
-  <p><b>关于这张图。</b>企业按“主营业环节”归类，横跨多个环节的公司（如华为、特斯拉）会在多处出现，用“多环节”标记。技术等级按“该企业产品所能支持的等级”标注，一家企业可同时出现在多个等级；应用场景按“已落地的运营场景”标注，同样可跨多个场景——这正是平台型与单场景玩家的区别。<b>“按技术等级”与“按应用场景”两个视图只收录整车厂、算法与方案商、运营服务商</b>——上游零部件、中游硬件与支撑层不参与，因为它们不直接面向终端等级与场景。归类为编辑判断，非官方口径。</p>
+  <p><b>关于这张图。</b>企业按“主营业环节”归类，横跨多个环节的公司（如华为、特斯拉）会在多处出现，用“多环节”标记。技术等级按“该企业产品所能支持的等级”标注，一家企业可同时出现在多个等级；应用场景按“已落地的运营场景”标注，同样可跨多个场景——这正是平台型与单场景玩家的区别。<b>“按技术等级”“按应用场景”“按玩家模式”三个视图只收录整车厂、算法与方案商、运营服务商</b>——上游零部件、中游硬件与支撑层不参与，因为它们不直接面向终端等级、场景与责任归属。归类为编辑判断，非官方口径。</p>
   <p><b>数据与免责。</b>企业名单基于公开信息整理，用于行业结构展示，不构成任何投资建议；覆盖不代表推荐。报告内容以原稿为准，数据截止各报告标注日期。</p>
   <p class="ext"><b>延伸阅读（非车规）：</b><a href="reports/梅卡曼德机器人-首次覆盖报告.html">梅卡曼德机器人 · 工业 3D 视觉</a>　·　<a href="reports/阿里巴巴-首次覆盖报告.html">阿里巴巴（云与算力）</a></p>
 </footer>
@@ -475,7 +501,7 @@ const C = [
 ["友道智途",["d9"],["L4F"],["港口"],null],
 ["仙途智能",["d9"],["L4F"],["港口"],null],
 ["酷哇机器人",["d9"],["L4F"],["港口"],null],
-["蘑菇车联",["d10","d9"],["L2+","L4F"],["车路云","乘用车"],"蘑菇车联-首次覆盖报告"],
+["蘑菇车联",["d10","d9"],["L4F"],["车路云","乘用车"],"蘑菇车联-首次覆盖报告"],
 ["千方科技",["d10"],["L2+"],["车路云"],null],
 ["万集科技",["d10"],["L2+","L3"],["车路云"],null],
 ["金溢科技",["d10"],["L2+"],["车路云"],null],
@@ -535,6 +561,39 @@ $('#sceneGrid').innerHTML = SCENE.map(([k,d])=>{
     <div>${list.map(chip).join('')}</div></div>`;
 }).join('');
 
+const MODES = [
+  ['oem','主机厂自研','卖整车 · 承担产品责任','#1b4a75'],
+  ['ops','运营服务商','卖运力 · 承担运营责任','#a8271f'],
+  ['eco','生态型（华为）','卖系统 + 品牌 · 责任共担','#8a6416'],
+  ['sol','算法与方案商','卖软件授权 · 不担事故责任','#5f6b7a']
+];
+function modeOf(c){
+  if(c[0]==='华为') return 'eco';
+  if(c[1].some(s=>['d1','d2','d3','d4'].includes(s))) return 'oem';
+  if(c[1].some(s=>['d5','d6','d7','d8','d9'].includes(s))) return 'ops';
+  if(c[1].includes('m6')) return 'sol';
+  return null;
+}
+let mhtml = '<div class="mrow"><div class="mhead"></div>' +
+  TECH.map(([k,t,s])=>`<div class="mhead"><div class="ht">${t.split(' · ')[0]}<span class="cc">${C.filter(c=>modeOf(c)&&c[2].includes(k)).length}</span></div><div class="hs">${s}</div></div>`).join('') + '</div>';
+MODES.forEach(([mk,mt,ms,col])=>{
+  mhtml += `<div class="mrow"><div class="mlab"><div class="mt" style="color:${col}">${mt}</div><div class="ms">${ms}</div></div>`;
+  TECH.forEach(([k])=>{
+    let inner;
+    if(mk==='ops' && k==='L3'){
+      inner = '<div class="mblank"><b>结构性空白</b>L3 没有“运营商”这个角色</div>';
+    } else if(mk==='sol' && k==='L4O'){
+      inner = '<div class="mblank"><b>基本退出</b>被要求共同担责</div>';
+    } else {
+      const list = C.filter(c=>modeOf(c)===mk && c[2].includes(k)).sort(byReport);
+      inner = list.length ? list.map(chip).join('') : '<span class="mnone">—</span>';
+    }
+    mhtml += `<div class="mcell">${inner}</div>`;
+  });
+  mhtml += '</div>';
+});
+$('#modeGrid').innerHTML = mhtml;
+
 document.querySelectorAll('.tab').forEach(b=>{
   b.onclick = ()=>{
     document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
@@ -544,7 +603,7 @@ document.querySelectorAll('.tab').forEach(b=>{
   };
 });
 
-if(location.hash==='#tech'||location.hash==='#scene'||location.hash==='#chain'){
+if(['#tech','#scene','#chain','#mode'].includes(location.hash)){
   const k = location.hash.slice(1);
   const b = document.querySelector('.tab[data-v="'+k+'"]');
   if(b) b.click();
