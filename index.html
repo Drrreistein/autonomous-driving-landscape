@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>智驾产业全貌 · 自动驾驶供应链图谱</title>
-<meta name="description" content="自动驾驶行业供应链图谱：覆盖上游元器件、中游感知决策执行、下游整车与运营，按玩家模式、技术等级与应用场景交叉定位，链接公司调研报告。">
+<title>自动驾驶产业研究 · 智驾产业全貌</title>
+<meta name="description" content="自动驾驶产业研究：覆盖上游元器件、中游感知决策执行、下游整车与运营，按玩家模式、技术等级与应用场景交叉定位，链接公司调研报告。">
 <style>
 :root{
   --ink:#0f1720; --ink2:#2b3644; --sub:#5f6b7a; --faint:#8b97a5;
@@ -62,6 +62,16 @@ a{color:inherit;text-decoration:none;}
   font-size:clamp(26px,3.4vw,38px);line-height:1.22;margin:0 0 12px;
   font-weight:650;letter-spacing:-.02em;
 }
+.doc-link{
+  display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;
+  border:1px solid var(--ink);border-radius:7px;background:#fff;
+  padding:9px 15px;margin:0 0 18px;transition:.15s;
+}
+.doc-link:hover{background:var(--ink);}
+.doc-link:hover .dl-t,.doc-link:hover .dl-s,.doc-link:hover .dl-a{color:#fff;}
+.doc-link .dl-t{font-size:13px;font-weight:600;color:var(--ink);}
+.doc-link .dl-s{font-size:12px;color:var(--sub);padding-left:12px;border-left:1px solid var(--line);}
+.doc-link .dl-a{font-size:12px;color:var(--green);font-weight:500;}
 .hero p{margin:0;color:var(--sub);font-size:14.5px;max-width:62em;}
 .hero p b{color:var(--ink2);font-weight:600;}
 .hero p b{color:var(--ink2);font-weight:600;}
@@ -207,7 +217,7 @@ a{color:inherit;text-decoration:none;}
 
 <header class="top">
   <div class="top-in">
-    <div class="brand"><span class="mark"></span>智驾产业全貌<small>AD Landscape</small></div>
+    <div class="brand"><span class="mark"></span>自动驾驶产业研究<small>AD Research</small></div>
     <label class="search">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
       <input id="q" type="search" placeholder="搜索企业 / 环节…" autocomplete="off">
@@ -217,7 +227,12 @@ a{color:inherit;text-decoration:none;}
 </header>
 
 <div class="hero">
-  <h1>自动驾驶供应链图谱</h1>
+  <h1>自动驾驶产业研究</h1>
+  <a class="doc-link" href="reports/自动驾驶行业深度报告.html">
+    <span class="dl-t">行业深度报告</span>
+    <span class="dl-s">渗透率幻觉与利润池迁移 · 25 页</span>
+    <span class="dl-a">阅读 ↗</span>
+  </a>
   <p>从晶圆代工到矿区矿卡，把这条产业链拆成 29 个环节、<span id="total">0</span> 家企业。<b>供应链图谱含全链条</b>；<b>技术等级</b>与<b>应用场景</b>两个视图只收录整车厂、算法方案与运营服务商。点击带绿点的公司名，直达调研报告。</p>
   <div class="stats">
     <div><b id="s1">0</b>覆盖企业</div>
