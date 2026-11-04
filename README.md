@@ -1,6 +1,6 @@
 # 自动驾驶产业研究 · Autonomous Driving Landscape
 
-自动驾驶产业研究 —— 以供应链图谱为入口，把这条产业链拆成 **29 个环节、156 家企业、5 个技术等级、8 个应用场景**，并为已覆盖的公司附上调研报告。
+自动驾驶产业研究 —— 以供应链图谱为入口，把这条产业链拆成 **29 个环节、159 家企业、5 个技术等级、8 个应用场景**，并为已覆盖的公司附上调研报告。
 
 **在线访问**：https://drrreistein.github.io/autonomous-driving-landscape/
 
@@ -33,8 +33,8 @@
 .
 ├── index.html              # 首页：供应链图谱（自包含，无外部依赖）
 ├── reports/
-│   ├── *.html              # 渲染后的报告页面（供在线阅读，33 份）
-│   └── md/                 # 报告 Markdown 原稿（源文件，33 份）
+│   ├── *.html              # 渲染后的报告页面（供在线阅读，39 份）
+│   └── md/                 # 报告 Markdown 原稿（源文件，39 份）
 ├── tools/
 │   ├── build_reports.py    # Markdown → HTML 批量转换脚本（公司研报）
 │   └── md2simple.py        # 主报告：Markdown → 极简 HTML

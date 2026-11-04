@@ -93,6 +93,9 @@ def conv(path):
 
 n = 0
 for p in sorted(glob.glob(os.path.join(SRC, '*.md'))):
+    # 主报告由 md2simple.py 渲染，这里跳过，避免被公司报告模板覆盖
+    if os.path.basename(p) == '自动驾驶行业深度报告.md':
+        continue
     title, body = conv(p)
     out = os.path.join(OUT, os.path.splitext(os.path.basename(p))[0] + '.html')
     open(out, 'w', encoding='utf-8').write(TPL.format(title=html.escape(title), body=body))
